@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>TorZillaPrint</title>
+
+<style>
+body {background-color: #1a1a1a; color: #b3b3b3; font-size: 12px;}
+h2 {color: white; font-size 14px; text-align: center; padding-top: 10px;}
+table {background-color: #1a1a1a; width: 700px; border-collapse: collapse;}
+td {padding-bottom: 3px; padding-top: 3px;  padding-left: 10px;}
+.section {color: black; font-weight: bold; font-size: 16px;}
+.test1 {color: #db8c8b;}
+.test2 {color: #daac8a;}
+.test3 {color: #d9cd88;}
+.test4 {color: #c6da88;}
+.test5 {color: #a5da88;}
+.test6 {color: #89da90;}
+.test7 {color: #89dab2;}
+.test8 {color: #89d9d3;}
+.test9 {color: #8abfda;}
+.test10 {color: #8b9edb;}
+.test11 {color: #998adb;}
+.test12 {color: #ba8adb;}
+</style>
+
+<!-- second lot is more saturated (50% in PS): first = text, 2nd = background
+ 1 db8c8b ef7b79 red
+ 2 daac8a e8a466 orange
+ 3 d9cd88 ddcb40 yellow
+ 4 c6da88 bedd37 next
+ 5 a5da88 8ce048 next
+ 6 89da90 54e366 green
+ 7 89dab2 54e3a6 next
+ 8 89d9d3 56e2d9 next
+ 9 8abfda 6fc5eb blue
+10 8b9edb 83a0f4 next
+11 998adb 9e88f7 purple
+12 ba8adb c881f4 pink
+-->
+
+</head>
+<body>
+<h2>TorZillaPrint</h2>
+<center>
+
+<!--SCREEN NOTES: TODO
+  css media real time res
+  viewport
+  scrollbar width
+  fullscreen-api click
+  orientation
+  dpi/hdpi
+  multi-monitor?
+  iframe column
+-->
+<table id=tb1>
+<tr><td align="center" colspan="2" bgcolor=#ef7b79><span class="section">Screen Information</span></colspan></td></tr>
+<tr><td width="50%"></span></td><td></td></tr>
+</table>
+
+<script>
+	let scrn = ['width','height', 'left', 'top', 'availWidth','availHeight', 'availLeft', 'availTop', 'pixelDepth', 'colorDepth'];
+	let wnd = ['outerWidth','outerHeight','screenX','screenY', 'innerWidth','innerHeight', 'mozInnerScreenX', 'mozInnerScreenY', 'fullScreen'];
+	
+	function crtTbl(obj,props) {
+		var tb = document.getElementsByTagName('tbody')[0];
+		var objct = (obj === 'screen') ? screen : window;
+		var html, tblrow;
+		for (let i=0, len=props.length; i<len; i++) {
+			tblrow = document.createElement('tr');
+			tblrow.innerHTML = '<td align="right" class="test1">'+obj+'.'+props[i]+'</td><td class="value">'+objct[props[i]]+'</td>';
+			tb.appendChild(tblrow);
+		}
+	}
+	crtTbl('screen',scrn);
+	crtTbl('window',wnd);
+</script>
+
+
+<!---
+<p>
+<table id=tb2>
+<tr><td align="center" colspan="2" bgcolor=#e8a466><span class="section">Title 2</span></colspan></td></tr>
+<tr><td width="50%"></span></td><td></td></tr>
+<tr><td align="right"><span class="test2">test</span></td><td>result</td></tr>
+</table>
+
+<p>
+<table id=tb3>
+<tr><td align="center" colspan="2" bgcolor=#ddcb40><span class="section">Title 3</span></colspan></td></tr>
+<tr><td width="50%"></span></td><td></td></tr>
+<tr><td align="right"><span class="test3">test</span></td><td>result</td></tr>
+</table>
+
+<p>
+<table id=tb4>
+<tr><td align="center" colspan="2" bgcolor=#bedd37><span class="section">Title 4</span></colspan></td></tr>
+<tr><td width="50%"></span></td><td></td></tr>
+<tr><td align="right"><span class="test4">test</span></td><td>result</td></tr>
+</table>
+
+<p>
+<table id=tb5>
+<tr><td align="center" colspan="2" bgcolor=#8ce048><span class="section">Title 5</span></colspan></td></tr>
+<tr><td width="50%"></span></td><td></td></tr>
+<tr><td align="right"><span class="test5">test</span></td><td>result</td></tr>
+</table>
+
+<p>
+<table id=tb6>
+<tr><td align="center" colspan="2" bgcolor=#54e366><span class="section">Title 6</span></colspan></td></tr>
+<tr><td width="50%"></span></td><td></td></tr>
+<tr><td align="right"><span class="test6">test</span></td><td>result</td></tr>
+</table>
+
+<p>
+<table id=tb7>
+<tr><td align="center" colspan="2" bgcolor=#54e3a6><span class="section">Title 7</span></colspan></td></tr>
+<tr><td width="50%"></span></td><td></td></tr>
+<tr><td align="right"><span class="test7">test</span></td><td>result</td></tr>
+</table>
+
+<p>
+<table id=tb8>
+<tr><td align="center" colspan="2" bgcolor=#6fc5eb><span class="section">Title 8</span></colspan></td></tr>
+<tr><td width="50%"></span></td><td></td></tr>
+<tr><td align="right"><span class="test8">test</span></td><td>result</td></tr>
+</table>
+
+<p>
+<table id=tb9>
+<tr><td align="center" colspan="2" bgcolor=#6fc5eb><span class="section">Title 9</span></colspan></td></tr>
+<tr><td width="50%"></span></td><td></td></tr>
+<tr><td align="right"><span class="test9">test</span></td><td>result</td></tr>
+</table>
+
+<p>
+<table id=tb10>
+<tr><td align="center" colspan="2" bgcolor=#83a0f4><span class="section">Title 10</span></colspan></td></tr>
+<tr><td width="50%"></span></td><td></td></tr>
+<tr><td align="right"><span class="test10">test</span></td><td>result</td></tr>
+</table>
+
+<p>
+<table id=tb11>
+<tr><td align="center" colspan="2" bgcolor=#9e88f7><span class="section">Title 11</span></colspan></td></tr>
+<tr><td width="50%"></span></td><td></td></tr>
+<tr><td align="right"><span class="test11">test</span></td><td>result</td></tr>
+</table>
+
+<p>
+<table id=tb12>
+<tr><td align="center" colspan="2" bgcolor=#c881f4><span class="section">Title 12</span></colspan></td></tr>
+<tr><td width="50%"></span></td><td></td></tr>
+<tr><td align="right"><span class="test12">test</span></td><td>result</td></tr>
+</table>
+--->
+
+
+</center>
+</body>
+</html>
