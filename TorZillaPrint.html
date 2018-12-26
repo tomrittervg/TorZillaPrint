@@ -9,7 +9,7 @@ body {background-color: #1a1a1a; color: #b3b3b3; font-size: 12px;}
 h2 {color: white; font-size 14px; text-align: center; padding-top: 10px;}
 h4 {color: #8abfda; font-size 12px; text-align: center;}
 a {color: #8abfda}
-table {background-color: #1a1a1a; width: 700px; border-collapse: collapse;}
+table {background-color: #1a1a1a; width: 800px; border-collapse: collapse;}
 td {padding-bottom: 3px; padding-top: 3px;  padding-left: 10px;}
 .section {color: black; font-weight: bold; font-size: 16px;}
 .test1 {color: #db8c8b;}
@@ -64,15 +64,16 @@ td {padding-bottom: 3px; padding-top: 3px;  padding-left: 10px;}
 <tr><td align="right"><span class="test1"><font color=#b3b3b3>[click here]</font> [api] full screen</span></td><td></td></tr>
 <tr><td align="right"><span class="test1">private window</span></td><td id=IsPBMode></td></tr>
 <tr><td align="right"><span class="test1">orientation</span></td><td id=ScrOrient></td></tr>
-<tr><td align="right"><span class="test1">[matchMedia] orientation</span></td><td id=mmOrient></td></tr>
-<tr><td align="right"><span class="test1">[math: screen width vs height] orientation</span></td><td id=mathOrient></td></tr>
+<tr><td align="right"><span class="test1">[matchMedia] window orientation</span></td><td id=mmOrient></td></tr>
+<tr><td align="right"><span class="test1">[math: screen width vs height] window orientation</span></td><td id=mathOrient></td></tr>
 <tr><td align="right"><span class="test1">pixel depth</span></td><td id=PixDepth></td></tr>
 <tr><td align="right"><span class="test1">color depth</span></td><td id=ColDepth></td></tr>
 <tr><td align="right"><span class="test1">[js] dpi</span></td><td></td id=jsDPI></tr>
 <tr><td align="right"><span class="test1">[css media] dpi</span></td><td><span><span></td></tr>
 <tr><td align="right"><span class="test1">[approx. matchMedia] dpi</span></td><td></td></tr>
 <tr><td align="right"><span class="test1">hidpi</span></td><td></td></tr>
-<tr><td align="right"><span class="test1">devicepixelratio</span></td><td id=DevPR></td></tr>
+<tr><td align="right"><span class="test1">zoom</span></td><td>i have a cunning plan for this</td></tr>
+<tr><td align="right"><span class="test1"><font color=#b3b3b3>[zoom & refresh]</font> devicePixelRatio</span></td><td id=DevPR></td></tr>
 </table>
 
 	<div id='testdpi' style='height: 1in; left: -100%; position: absolute; top: -100%; width: 1in;'></div>
@@ -140,48 +141,96 @@ td {padding-bottom: 3px; padding-top: 3px;  padding-left: 10px;}
 <p>
 <table id=tb2>
 <tr><td align="center" colspan="2" bgcolor=#e8a466><span class="section">User Agent / Navigator</span></colspan></td></tr>
-<tr><td width="50%"></span></td><td></td></tr>
-<tr><td align="right"><span class="test2">test</span></td><td>result</td></tr>
+<tr><td width="35%"></span></td><td></td></tr>
+<tr><td align="right"><span class="test2">[header] user agent</span></td><td></td></tr>
+<tr><td align="right"><span class="test2">[navigator] userAgent</span></td><td id=nUserAgent></td></tr>
+<tr><td align="right"><span class="test2">[navigator] appCodeName</span><td><id id=nCodeName><td></td></tr>
+<tr><td align="right"><span class="test2">[browser] name</span></td><td id=bName></td></tr>
+<tr><td align="right"><span class="test2">[navigator] appName</span></td><td id=nAppName></td></tr>
+<tr><td align="right"><span class="test2">[layout] name</span></td><td id=lName></td></tr>
+<tr><td align="right"><span class="test2">[navigator] appVersion</span><td><id id=nAppVersion><td></td></tr>
+<tr><td align="right"><span class="test2">[navigator] oscpu</span></td><td id=nOscpu></td></tr>
+<tr><td align="right"><span class="test2">[navigator] platform</span></td><td id=nPlatform></td></tr>
+<tr><td align="right"><span class="test2">[os] name</span></td><td id=nPlatform></td></tr>
+<tr><td align="right"><span class="test2">[browser] version</span></td><td id=bVersion></td></tr>
+<tr><td align="right"><span class="test2">[layout] version</span></td><td id=lVersion></td></tr>
+<tr><td align="right"><span class="test2">[navigator] online</span></td><td id=nOnLine></td></tr>
+
+
+<tr><td align="right"><span class="test2">[] product</span></td><td></td></tr>
+<tr><td align="right"><span class="test2">[] productSub</span></td><td></td></tr>
+<tr><td align="right"><span class="test2">[navigator] buildID</span></td><td id=nBuildID></td></tr>
+
 </table>
+
+<script>
+  document.getElementById("nUserAgent").innerHTML = navigator.userAgent;
+  document.getElementById("nAppName").innerHTML = navigator.appName;
+  document.getElementById("nCodeName").innerHTML = navigator.appCodeName;
+  document.getElementById("nAppVersion").innerHTML = navigator.appVersion;
+  document.getElementById("nPlatform").innerHTML = navigator.platform;
+  document.getElementById("nOscpu").innerHTML = navigator.oscpu;
+  document.getElementById("nOnLine").innerHTML = navigator.onLine;
+  document.getElementById("nBuildID").innerHTML = navigator.buildID;
+  //document.getElementById("bName").innerHTML = browser.name;
+  //document.getElementById("bVersion").innerHTML = browser.name;
+  //document.getElementById("lVersion").innerHTML = layout.version;
+  //document.getElementById("lName").innerHTML = layout.name;
+  //document.getElementById("osName").innerHTML = os.name;
+</script>
 
 <p>
 <table id=tb3>
-<tr><td align="center" colspan="2" bgcolor=#ddcb40><span class="section">Media Capabilities</span></colspan></td></tr>
+<tr><td align="center" colspan="2" bgcolor=#ddcb40><span class="section">Language / Locale / Time Zone / Date Format</span></colspan></td></tr>
 <tr><td width="50%"></span></td><td></td></tr>
-<tr><td align="right"><span class="test3">test</span></td><td>result</td></tr>
+<tr><td align="right"><span class="test3">[navigator] language</span></td><td id=nLanguage>result</td></tr>
 </table>
+
+<script>
+  document.getElementById("nLanguage").innerHTML = navigator.language;
+</script>
 
 <p>
 <table id=tb4>
-<tr><td align="center" colspan="2" bgcolor=#bedd37><span class="section">Fonts</span></colspan></td></tr>
+<tr><td align="center" colspan="2" bgcolor=#bedd37><span class="section">HTTP Headers</span></colspan></td></tr>
 <tr><td width="50%"></span></td><td></td></tr>
 <tr><td align="right"><span class="test4">test</span></td><td>result</td></tr>
 </table>
 
 <p>
 <table id=tb5>
-<tr><td align="center" colspan="2" bgcolor=#8ce048><span class="section">Canvas</span></colspan></td></tr>
+<tr><td align="center" colspan="2" bgcolor=#8ce048><span class="section">Media Capabilities</span></colspan></td></tr>
 <tr><td width="50%"></span></td><td></td></tr>
 <tr><td align="right"><span class="test5">test</span></td><td>result</td></tr>
 </table>
 
 <p>
 <table id=tb6>
-<tr><td align="center" colspan="2" bgcolor=#54e366><span class="section">Language / Locale / Time Zone / Date Format</span></colspan></td></tr>
+<tr><td align="center" colspan="2" bgcolor=#54e366><span class="section">Fonts</span></colspan></td></tr>
 <tr><td width="50%"></span></td><td></td></tr>
 <tr><td align="right"><span class="test6">test</span></td><td>result</td></tr>
 </table>
 
 <p>
 <table id=tb7>
-<tr><td align="center" colspan="2" bgcolor=#54e3a6><span class="section">HTTP Headers</span></colspan></td></tr>
-<tr><td width="50%"></span></td><td></td></tr>
-<tr><td align="right"><span class="test7">test</span></td><td>result</td></tr>
+<tr><td align="center" colspan="2" bgcolor=#54e3a6><span class="section">Canvas</span></colspan></td></tr>
+<tr><td width="35%"></span></td><td></td></tr>
+<tr><td align="right"><span class="test7">getContext</span></td><td></td></tr>
+<tr><td align="right"><span class="test7">toDataURL</span></td><td></td></tr>
+<tr><td align="right"><span class="test7">toBlob</span></td><td></td></tr>
+<tr><td align="right"><span class="test7">mozGetAsFile</span></td><td></td></tr>
+<tr><td align="right"><span class="test7">getImageData</span></td><td></td></tr>
+<tr><td align="right"><span class="test7">isPointInPath</span></td><td></td></tr>
+<tr><td align="right"><span class="test7">isPointInStroke</span></td><td></td></tr>
+<tr><td align="right"><span class="test7">fillText</span></td><td></td></tr>
+<tr><td align="right"><span class="test7">strokeText</span></td><td></td></tr>
+<tr><td align="right"><span class="test7">[webgl] readPixels</span></td><td></td></tr>
 </table>
+
 
 <p>
 <table id=tb8>
-<tr><td align="center" colspan="2" bgcolor=#6fc5eb><span class="section">High Precision Math</span></colspan></td></tr>
+<tr><td align="center" colspan="2" bgcolor=#56e2d9><span class="section">High Precision Math</span></colspan></td></tr>
 <tr><td width="50%"></span></td><td></td></tr>
 <tr><td align="right"><span class="test8">asinh(1)</span></td><td id=math1></td></tr>
 <tr><td align="right"><span class="test8">acosh(1e300)</span></td><td id=math2></td></tr>
@@ -254,7 +303,7 @@ document.getElementById("math9").innerHTML = getMath9(1);
 
 <p>
 <table id=tb12>
-<tr><td align="center" colspan="2" bgcolor=#c881f4><span class="section">Hardware / APIs/ Geo/ Permissions / Pointers / Keyboard / Misc</span></colspan></td></tr>
+<tr><td align="center" colspan="2" bgcolor=#c881f4><span class="section">Hardware / APIs / Geo / Permissions / Pointers / Keyboard / Misc</span></colspan></td></tr>
 <tr><td width="50%"></span></td><td></td></tr>
 <tr><td align="right"><span class="test12">test</span></td><td>result</td></tr>
 </table>
