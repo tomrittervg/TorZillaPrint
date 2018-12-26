@@ -25,7 +25,6 @@ td {padding-bottom: 3px; padding-top: 3px;  padding-left: 10px;}
 .test11 {color: #998adb;}
 .test12 {color: #ba8adb;}
 </style>
-
 <!-- second lot is more saturated (50% in PS): first = text, 2nd = background
  1 db8c8b ef7b79 red
  2 daac8a e8a466 orange
@@ -40,15 +39,15 @@ td {padding-bottom: 3px; padding-top: 3px;  padding-left: 10px;}
 11 998adb 9e88f7 purple
 12 ba8adb c881f4 pink
 -->
-
 </head>
+
 <body>
 <h2>TorZillaPrint</h2>
 <h4><a target="_blank" href="https://github.com/ghacksuserjs/TorZillaPrint">github repo</a></h4>
 <center>
 
 <!--SCREEN NOTES: TODO (besides the empty results)
-  dpi/hdpi /  multi-monitor? / brightness? / iframe column
+  dpi, / hidpi (devicePixelRatio?) /  multi-monitor? / brightness? / iframe column
 -->
 <table id=tb1>
 <tr><td align="center" colspan="2" bgcolor=#ef7b79><span class="section">Screen Information</span></colspan></td></tr>
@@ -61,18 +60,61 @@ td {padding-bottom: 3px; padding-top: 3px;  padding-left: 10px;}
 <tr><td align="right"><span class="test1">viewport</span></td><td></td></tr>
 <tr><td align="right"><span class="test1">scrollbar width</span></td><td></td></tr>
 <tr><td align="right"><span class="test1">full screen</span></td><td id=IsFS></td></tr>
-<tr><td align="right"><span class="test1"><font color=#b3b3b3>[click here]</font> full screen API</span></td><td></td></tr>
+<tr><td align="right"><span class="test1"><font color=#b3b3b3>[click here]</font> [api] full screen</span></td><td></td></tr>
 <tr><td align="right"><span class="test1">private window</span></td><td id=IsPBMode></td></tr>
-<tr><td align="right"><span class="test1">orientation</span></td><td></td></tr>
+<tr><td align="right"><span class="test1">orientation</span></td><td id=ScrOrient></td></tr>
 <tr><td align="right"><span class="test1">pixel depth</span></td><td id=PixDepth></td></tr>
 <tr><td align="right"><span class="test1">color depth</span></td><td id=ColDepth></td></tr>
+<tr><td align="right"><span class="test1">[js] dpi</span></td><td></td id=jsDPI></tr>
+<tr><td align="right"><span class="test1">[css media] dpi</span></td><td><span><span></td></tr>
+<tr><td align="right"><span class="test1">[approx. matchMedia] dpi</span></td><td></td></tr>
+<tr><td align="right"><span class="test1">hidpi</span></td><td></td></tr>
+<tr><td align="right"><span class="test1">devicepixelratio</span></td><td id=DevPR></td></tr>
 </table>
 
+
+	<div id='testdpi' style='height: 1in; left: -100%; position: absolute; top: -100%; width: 1in;'></div>
+	<script>
+	var devicePixelRatio = window.devicePixelRatio || 1;
+	dpi_x = Math.round(document.getElementById('testdpi').offsetWidth * devicePixelRatio);
+	dpi_y = Math.round(document.getElementById('testdpi').offsetHeight * devicePixelRatio);
+	console.log("js: "+dpi_x+" x "+dpi_y);
+    //WTF, I don't understand: type error document.getElementById(...) is null
+	//document.getElementById("jsDPI").innerHTML = dpi_x;
+    //document.getElementById("jsDPI").innerHTML = getDPI();
+	</script>
+
+	<script>
+    // breaks if zoom is <80 or >120
+	function findFirstPositive(b, a, i, c) {
+	c=(d,e)=>e>=d?(a=d+(e-d)/2,0<b(a)&&(a==d||0>=b(a-1))?a:0>=b(a)?c(a+1,e):c(d,a-1)):-1
+	for (i = 1; 0 >= b(i);) i *= 2
+	return c(i / 2, i)|0}
+    var dpi = findFirstPositive(x => matchMedia(`(max-resolution: ${x}dpi)`).matches)
+	console.log("mediaMatch Binary: "+ dpi);
+	</script>
+
+	<script>
+    // seems to handle any zoom value
+	var varDPI = (function () {
+    for (var i = 56; i < 2000; i++) {
+        if (matchMedia("(max-resolution: " + i + "dpi)").matches === true) {
+            return i;}}return i;})();
+	console.log("mediaMatch fixed min&max: "+varDPI+" try some zooming and refresh");
+	</script>
+
 <script>
+  function getScrOrient(){
+	var orientation = screen.msOrientation || (screen.orientation || screen.mozOrientation || {}).type;
+	if (orientation === "landscape-primary") { return "landscape";
+	} else if (orientation === "landscape-secondary") { return "landscape upside down";
+	} else if (orientation === "portrait-secondary" || orientation === "portrait-primary") { return "portrait";
+	} else if (orientation === undefined) { return "undefined";};};
   function getIsPBMode(){
     var db = indexedDB.open("IsPBMode");
     var result = document.getElementById("IsPBMode");
-    db.onerror = function(){result.innerHTML = "true";}; db.onsuccess =function(){result.innerHTML = "false"; };}
+    db.onerror = function(){result.innerHTML = "true";};
+    db.onsuccess = function(){result.innerHTML = "false"; };}
   document.getElementById("ScrRes").innerHTML = screen.width+" x "+screen.height+" ("+screen.left+","+screen.top+")";
   document.getElementById("ScrAvail").innerHTML = screen.availWidth+" x "+screen.availHeight+" ("+screen.availLeft+","+screen.availTop+")";
   document.getElementById("WndOut").innerHTML = window.outerWidth+" x "+window.outerHeight+" ("+window.screenX+","+window.screenY+")";
@@ -81,11 +123,13 @@ td {padding-bottom: 3px; padding-top: 3px;  padding-left: 10px;}
   document.getElementById("ColDepth").innerHTML = screen.colorDepth;
   document.getElementById("IsFS").innerHTML = window.fullScreen;
   document.getElementById("IsPBMode").innerHTML = getIsPBMode();
+  document.getElementById("ScrOrient").innerHTML = getScrOrient();
+  document.getElementById("DevPR").innerHTML = window.devicePixelRatio;
 </script>
 
 <p>
 <table id=tb2>
-<tr><td align="center" colspan="2" bgcolor=#e8a466><span class="section">User Agent & Navigator</span></colspan></td></tr>
+<tr><td align="center" colspan="2" bgcolor=#e8a466><span class="section">User Agent / Navigator</span></colspan></td></tr>
 <tr><td width="50%"></span></td><td></td></tr>
 <tr><td align="right"><span class="test2">test</span></td><td>result</td></tr>
 </table>
@@ -177,7 +221,6 @@ document.getElementById("math8").innerHTML = getMath8(10);
 document.getElementById("math9").innerHTML = getMath9(1);
 </script>
 
-
 <p>
 <table id=tb9>
 <tr><td align="center" colspan="2" bgcolor=#6fc5eb><span class="section">Cipher Suite / TLS</span></colspan></td></tr>
@@ -201,13 +244,11 @@ document.getElementById("math9").innerHTML = getMath9(1);
 
 <p>
 <table id=tb12>
-<tr><td align="center" colspan="2" bgcolor=#c881f4><span class="section">Hardware / APIs/ Miscellaneous</span></colspan></td></tr>
+<tr><td align="center" colspan="2" bgcolor=#c881f4><span class="section">Hardware / APIs/ Geo/ Permissions / Pointers / Keyboard / Misc</span></colspan></td></tr>
 <tr><td width="50%"></span></td><td></td></tr>
 <tr><td align="right"><span class="test12">test</span></td><td>result</td></tr>
 </table>
-
-
-
 </center>
+
 </body>
 </html>
