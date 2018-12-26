@@ -47,7 +47,8 @@ td {padding-bottom: 3px; padding-top: 3px;  padding-left: 10px;}
 <center>
 
 <!--SCREEN NOTES: TODO (besides the empty results)
-  dpi, / hidpi (devicePixelRatio?) /  multi-monitor? / brightness? / iframe column
+  isZoomed (look at mediaMatch DPI vs devicepixelratio and do some math (e.g 96dpi vs 128 = 133% zoom)
+  dpi, hidpi/retina detection, multi-monitor?, brightness?, iframe column
 -->
 <table id=tb1>
 <tr><td align="center" colspan="2" bgcolor=#ef7b79><span class="section">Screen Information</span></colspan></td></tr>
@@ -117,11 +118,6 @@ td {padding-bottom: 3px; padding-top: 3px;  padding-left: 10px;}
 	else if (orientation === "landscape-secondary") { return "landscape upside down";}
     else if (orientation === "portrait-secondary" || orientation === "portrait-primary") { return "portrait";}
     else if (orientation === undefined) { return "undefined";};};
-  function getIsPBMode(){
-    var db = indexedDB.open("IsPBMode");
-    var result = document.getElementById("IsPBMode");
-    db.onerror = function(){result.innerHTML = "true";};
-    db.onsuccess = function(){result.innerHTML = "false"; };}
   document.getElementById("ScrRes").innerHTML = screen.width+" x "+screen.height+" ("+screen.left+","+screen.top+")";
   document.getElementById("ScrAvail").innerHTML = screen.availWidth+" x "+screen.availHeight+" ("+screen.availLeft+","+screen.availTop+")";
   document.getElementById("WndOut").innerHTML = window.outerWidth+" x "+window.outerHeight+" ("+window.screenX+","+window.screenY+")";
@@ -129,11 +125,17 @@ td {padding-bottom: 3px; padding-top: 3px;  padding-left: 10px;}
   document.getElementById("PixDepth").innerHTML = screen.pixelDepth;
   document.getElementById("ColDepth").innerHTML = screen.colorDepth;
   document.getElementById("IsFS").innerHTML = window.fullScreen;
-  document.getElementById("IsPBMode").innerHTML = getIsPBMode();
   document.getElementById("ScrOrient").innerHTML = getScrOrient();
   document.getElementById("mmOrient").innerHTML = getmmOrient();
   document.getElementById("mathOrient").innerHTML = getMathOrient();
   document.getElementById("DevPR").innerHTML = window.devicePixelRatio;
+  function getIsPBMode(){
+    var IsPBMode = "unknown because cookies are blocked";
+    var db = indexedDB.open("IsPBMode");
+    var result = document.getElementById("IsPBMode");
+    db.onerror = function(){result.innerHTML = "true";};
+    db.onsuccess = function(){result.innerHTML = "false"; };}
+  document.getElementById("IsPBMode").innerHTML = getIsPBMode();
 </script>
 
 <p>
