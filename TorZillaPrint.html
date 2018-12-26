@@ -64,6 +64,7 @@ td {padding-bottom: 3px; padding-top: 3px;  padding-left: 10px;}
 <tr><td align="right"><span class="test1">private window</span></td><td id=IsPBMode></td></tr>
 <tr><td align="right"><span class="test1">orientation</span></td><td id=ScrOrient></td></tr>
 <tr><td align="right"><span class="test1">[matchMedia] orientation</span></td><td id=mmOrient></td></tr>
+<tr><td align="right"><span class="test1">[math: screen width vs height] orientation</span></td><td id=mathOrient></td></tr>
 <tr><td align="right"><span class="test1">pixel depth</span></td><td id=PixDepth></td></tr>
 <tr><td align="right"><span class="test1">color depth</span></td><td id=ColDepth></td></tr>
 <tr><td align="right"><span class="test1">[js] dpi</span></td><td></td id=jsDPI></tr>
@@ -103,6 +104,10 @@ td {padding-bottom: 3px; padding-top: 3px;  padding-left: 10px;}
 	</script>
 
 <script>
+  // math does always work if a smartphone keyboard reduced the height
+  function getMathOrient(){
+	if (window.innerHeight > window.innerWidth) { return "portrait";}
+	else { return "landscape";};};
   function getmmOrient(){
 	if (window.matchMedia("(orientation: portrait)").matches) { return "portrait";}
 	else if (window.matchMedia("(orientation: landscape)").matches)	{ return "landscape";};};
@@ -127,6 +132,7 @@ td {padding-bottom: 3px; padding-top: 3px;  padding-left: 10px;}
   document.getElementById("IsPBMode").innerHTML = getIsPBMode();
   document.getElementById("ScrOrient").innerHTML = getScrOrient();
   document.getElementById("mmOrient").innerHTML = getmmOrient();
+  document.getElementById("mathOrient").innerHTML = getMathOrient();
   document.getElementById("DevPR").innerHTML = window.devicePixelRatio;
 </script>
 
