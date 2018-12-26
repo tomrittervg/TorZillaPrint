@@ -130,12 +130,18 @@ td {padding-bottom: 3px; padding-top: 3px;  padding-left: 10px;}
   document.getElementById("mmOrient").innerHTML = getmmOrient();
   document.getElementById("mathOrient").innerHTML = getMathOrient();
   document.getElementById("DevPR").innerHTML = window.devicePixelRatio;
-  function getIsPBMode(){
-    var db = indexedDB.open("IsPBMode");
-    var result = document.getElementById("IsPBMode");
-    db.onerror = function(){result.innerHTML = "true";};
-    db.onsuccess = function(){result.innerHTML = "false"; };}
-  document.getElementById("IsPBMode").innerHTML = getIsPBMode();
+  function setPBMode(){
+    function setVal(val) {document.getElementById("IsPBMode").innerHTML = val};
+    try {
+      var db = indexedDB.open("IsPBMode");
+      db.onerror = function(){setVal("true");};
+      db.onsuccess = function(){setVal("false");};
+    }
+    catch(err) { 
+      setVal("unknown");
+    }
+  }
+  setPBMode();
 </script>
 
 <p>
