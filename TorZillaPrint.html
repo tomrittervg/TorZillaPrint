@@ -44,12 +44,7 @@ td {padding-bottom: 3px; padding-top: 3px;  padding-left: 10px;}
 <h2>TorZillaPrint</h2>
 <center>
 
-<!--SCREEN NOTES: TODO
-  css media real time res
-  viewport
-  scrollbar width
-  fullscreen-api click
-  orientation
+<!--SCREEN NOTES: TODO (besides the empty results)
   dpi/hdpi
   multi-monitor?
   iframe column
@@ -57,35 +52,51 @@ td {padding-bottom: 3px; padding-top: 3px;  padding-left: 10px;}
 <table id=tb1>
 <tr><td align="center" colspan="2" bgcolor=#ef7b79><span class="section">Screen Information</span></colspan></td></tr>
 <tr><td width="50%"></span></td><td></td></tr>
+<tr><td align="right"><span class="test1">screen resolution</span></td><td id=ScrRes></td></tr>
+<tr><td align="right"><span class="test1">available resolution</span></td><td id=ScrAvail></td></tr>
+<tr><td align="right"><span class="test1">outer window</span></td><td id=WndOut></td></tr>
+<tr><td align="right"><span class="test1">inner window</span></td><td id=WndIn></td></tr>
+<tr><td align="right"><span class="test1"><font color=#b3b3b3>[real time]</font> css inner window</span></td><td></td></tr>
+<tr><td align="right"><span class="test1">viewport</span></td><td></td></tr>
+<tr><td align="right"><span class="test1">scrollbar width</span></td><td></td></tr>
+<tr><td align="right"><span class="test1">full screen</span></td><td id=IsFS></td></tr>
+<tr><td align="right"><span class="test1"><font color=#b3b3b3>[click here]</font> full screen API</span></td><td></td></tr>
+<tr><td align="right"><span class="test1">private window</span></td><td id=IsPBMode></td></tr>
+<tr><td align="right"><span class="test1">orientation</span></td><td></td></tr>
+<tr><td align="right"><span class="test1">pixel depth</span></td><td id=PixDepth></td></tr>
+<tr><td align="right"><span class="test1">color depth</span></td><td id=ColDepth></td></tr>
 </table>
 
 <script>
-	let scrn = ['width','height', 'left', 'top', 'availWidth','availHeight', 'availLeft', 'availTop', 'pixelDepth', 'colorDepth'];
-	let wnd = ['outerWidth','outerHeight','screenX','screenY', 'innerWidth','innerHeight', 'mozInnerScreenX', 'mozInnerScreenY', 'fullScreen'];
-	
-	function crtTbl(obj,props) {
-		var tb = document.getElementsByTagName('tbody')[0];
-		var objct = (obj === 'screen') ? screen : window;
-		var html, tblrow;
-		for (let i=0, len=props.length; i<len; i++) {
-			tblrow = document.createElement('tr');
-			tblrow.innerHTML = '<td align="right" class="test1">'+obj+'.'+props[i]+'</td><td class="value">'+objct[props[i]]+'</td>';
-			tb.appendChild(tblrow);
-		}
-	}
-	crtTbl('screen',scrn);
-	crtTbl('window',wnd);
+  function getScrRes(){var ScrRes = screen.width+" x "+screen.height+" ("+screen.left+","+screen.top+")"; return ScrRes;}
+  function getScrAvail(){var ScrAvail = screen.availWidth+" x "+screen.availHeight+" ("+screen.availLeft+","+screen.availTop+")"; return ScrAvail;}
+  function getWndOut(){var WndOut = window.outerWidth+" x "+window.outerHeight+" ("+window.screenX+","+window.screenY+")"; return WndOut;}
+  function getWndIn(){var WndIn = window.innerWidth+" x "+window.innerHeight+" ("+window.mozInnerScreenX+","+window.mozInnerScreenY+")"; return WndIn;}
+  function getPixDepth(){var PixDepth = screen.pixelDepth; return PixDepth}
+  function getColDepth(){var ColDepth = screen.colorDepth; return ColDepth}
+  function getIsFS(){var IsFS = window.fullScreen; return IsFS}
+  function getIsPBMode(){
+    var db = indexedDB.open("IsPBMode");
+    var result = document.getElementById("IsPBMode");
+    db.onerror = function(){result.innerHTML = "true";}; db.onsuccess =function(){result.innerHTML = "false"; };}
+  document.getElementById("ScrRes").innerHTML = getScrRes();
+  document.getElementById("ScrAvail").innerHTML = getScrAvail();
+  document.getElementById("WndOut").innerHTML = getWndOut();
+  document.getElementById("WndIn").innerHTML = getWndIn();
+  document.getElementById("PixDepth").innerHTML = getPixDepth();
+  document.getElementById("ColDepth").innerHTML = getColDepth();
+  document.getElementById("IsFS").innerHTML = getIsFS();
+  document.getElementById("IsPBMode").innerHTML = getIsPBMode();
 </script>
 
-
-<!---
 <p>
 <table id=tb2>
-<tr><td align="center" colspan="2" bgcolor=#e8a466><span class="section">Title 2</span></colspan></td></tr>
+<tr><td align="center" colspan="2" bgcolor=#e8a466><span class="section">User Agent & Navigator</span></colspan></td></tr>
 <tr><td width="50%"></span></td><td></td></tr>
 <tr><td align="right"><span class="test2">test</span></td><td>result</td></tr>
 </table>
 
+<!---
 <p>
 <table id=tb3>
 <tr><td align="center" colspan="2" bgcolor=#ddcb40><span class="section">Title 3</span></colspan></td></tr>
