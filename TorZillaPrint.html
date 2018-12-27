@@ -15,15 +15,16 @@
 
   <!-- TABLE 1: Screen Information - screen.js -->
   <table id=tb1>
+    <col width="50%"><col width="50%">
     <thead><tr><th colspan="2">Screen Information</th></tr></thead>
     <tr><td>screen resolution</td><td id=ScrRes></td></tr>
     <tr><td>available resolution</td><td id=ScrAvail></td></tr>
     <tr><td>outer window</td><td id=WndOut></td></tr>
     <tr><td>inner window</td><td id=WndIn></td></tr>
-    <tr><td><font color=#b3b3b3>[no js, real time update]</font> css inner window</td><td>rather than duplicate this, just go <a target="_blank" href="https://demos.traudt.xyz/css/media/index.html">here</a></td></tr>
+    <tr><td><span class="no_color">[no js, real time update]</span> css inner window</td><td>rather than duplicate this, just go <a target="_blank" href="https://demos.traudt.xyz/css/media/index.html">here</a></td></tr>
     <tr><td>viewport</td><td></td></tr>
     <tr><td>full screen</td><td id=IsFS></td></tr>
-    <tr><td><font color=#b3b3b3>[click here]</font> [api] full screen</td><td></td></tr>
+    <tr><td><span class="no_color">[click here]</span> [api] full screen</td><td></td></tr>
     <tr><td>private window</td><td id=IsPBMode></td></tr>
     <tr><td>orientation</td><td id=ScrOrient></td></tr>
     <tr><td>[matchMedia] window orientation</td><td id=mmOrient></td></tr>
@@ -34,97 +35,108 @@
     <tr><td>[css media] dpi</td><td></td></tr>
     <tr><td>[approx. matchMedia] dpi</td><td id=mmDPI></td></tr>
     <tr><td>hidpi</td><td></td></tr>
-    <tr><td><font color=#b3b3b3>[experimental]</font> zoom</td><td id=jsZoom></td></tr>
-    <tr><td><font color=#b3b3b3>[zoom & refresh]</font> devicePixelRatio</td><td id=DevPR></td></tr>
+    <tr><td><span class="no_color">[experimental]</span> zoom</td><td id=jsZoom></td></tr>
+    <tr><td><span class="no_color">[zoom & refresh]</span> devicePixelRatio</td><td id=DevPR></td></tr>
   </table>
 
 	<div id='testdpi' style='height: 1in; left: -100%; position: absolute; top: -100%; width: 1in;'></div>
 	
   <!-- TABLE 2: User Agent - user.js -->
   <table id=tb2>
+    <col width="35%"><col width="65%">
     <thead><tr><th colspan="2">User Agent</th></tr></thead>
-    <tr><td><span>[header] user agent</td><td></td></tr>
-    <tr><td><span>[navigator] userAgent</td><td id=nUserAgent></td></tr>
-    <tr><td><span>[navigator] appCodeName<td><id id=nCodeName><td></td></tr>
-    <tr><td><span>[navigator] appName</td><td id=nAppName></td></tr>
-    <tr><td><span><font color=#b3b3b3>[experimental]</font> [feature detection] app</td><td></td></tr>
-    <tr><td><span>[navigator] appVersion<td><id id=nAppVersion><td></td></tr>
-    <tr><td><span>[navigator] oscpu</td><td id=nOscpu></td></tr>
-    <tr><td><span>[navigator] platform</td><td id=nPlatform></td></tr>
-    <tr><td><span><font color=#b3b3b3>[experimental]</font> [scrollbar width] os</td><td></td></tr>
-    <tr><td><span>[tcp/ip] os</td><td></td></tr>
-    <tr><td><span><font color=#b3b3b3>[experimental: tor browser]</font> [fonts] os</td><td></td></tr>
-    <tr><td><span>[navigator] online</td><td id=nOnLine></td></tr>
-    <tr><td><span>[navigator] buildID</td><td id=nBuildID></td></tr>
+    <tr><td>[header] user agent</td><td></td></tr>
+    <tr><td>[navigator] userAgent</td><td id=nUserAgent></td></tr>
+    <tr><td>[navigator] appCodeName<td><id id=nCodeName><td></td></tr>
+    <tr><td>[navigator] appName</td><td id=nAppName></td></tr>
+    <tr><td><span class="no_color">[experimental]</span> [feature detection] app</td><td></td></tr>
+    <tr><td>[navigator] appVersion<td><id id=nAppVersion><td></td></tr>
+    <tr><td>[navigator] oscpu</td><td id=nOscpu></td></tr>
+    <tr><td>[navigator] platform</td><td id=nPlatform></td></tr>
+    <tr><td><span class="no_color">[experimental]</span> [scrollbar width] os</td><td></td></tr>
+    <tr><td>[tcp/ip] os</td><td></td></tr>
+    <tr><td><span class="no_color">[experimental: tor browser]</span> [fonts] os</td><td></td></tr>
+    <tr><td>[navigator] online</td><td id=nOnLine></td></tr>
+    <tr><td>[navigator] buildID</td><td id=nBuildID></td></tr>
   </table>
 
   <!-- TABLE 3:  Language & Locale / Time Zone & Date Format - language.js -->
   <table id=tb3>
+    <col width="50%"><col width="50%">
     <thead><tr><th colspan="2">Language & Locale / Time Zone & Date Format</th></tr></thead>
-    <tr><td><span>[navigator] language</td><td id=nLanguage>result</td></tr>
+    <tr><td>[navigator] language</td><td id=nLanguage>result</td></tr>
   </table>
 
   <!-- TABLE 4:  HTTP Headers - headers.js -->
   <table id=tb4>
+    <col width="50%"><col width="50%">
     <thead><tr><th colspan="2">HTTP Headers</th></tr></thead>
-    <tr><td><span>test</td><td>result</td></tr>
+    <tr><td>test</td><td>result</td></tr>
   </table>
 
   <!-- TABLE 5: Media Capabilities - media.js -->
   <table id=tb5>
+    <col width="50%"><col width="50%">
     <thead><tr><th colspan="2">Media Capabilities</th></tr></thead>
-    <tr><td><span>test</td><td>result</td></tr>
+    <tr><td>test</td><td>result</td></tr>
   </table>
 
   <!-- TABLE 6: Fonts - fonts.js -->
   <table id=tb6>
+    <col width="50%"><col width="50%">
     <thead><tr><th colspan="2">Fonts</th></tr></thead>
-    <tr><td><span>test</td><td>result</td></tr>
+    <tr><td>test</td><td>result</td></tr>
   </table>
 
   <!-- TABLE 7: Canvas - canvas.js -->
   <table id=tb7>
+    <col width="35%">
+    <col width="65%">
     <thead><tr><th colspan="2">Canvas</th></tr></thead>
-    <tr><td><span>getContext</td><td></td></tr>
-    <tr><td><span>toDataURL</td><td></td></tr>
-    <tr><td><span>toBlob</td><td></td></tr>
-    <tr><td><span>mozGetAsFile</td><td></td></tr>
-    <tr><td><span>getImageData</td><td></td></tr>
-    <tr><td><span>isPointInPath</td><td></td></tr>
-    <tr><td><span>isPointInStroke</td><td></td></tr>
-    <tr><td><span>fillText</td><td></td></tr>
-    <tr><td><span>strokeText</td><td></td></tr>
-    <tr><td><span>[webgl] readPixels</td><td></td></tr>
+    <tr><td>getContext</td><td></td></tr>
+    <tr><td>toDataURL</td><td></td></tr>
+    <tr><td>toBlob</td><td></td></tr>
+    <tr><td>mozGetAsFile</td><td></td></tr>
+    <tr><td>getImageData</td><td></td></tr>
+    <tr><td>isPointInPath</td><td></td></tr>
+    <tr><td>isPointInStroke</td><td></td></tr>
+    <tr><td>fillText</td><td></td></tr>
+    <tr><td>strokeText</td><td></td></tr>
+    <tr><td>[webgl] readPixels</td><td></td></tr>
   </table>
 
   <!-- TABLE 8: High Precision Math - math.js-->
   <table id=tb8>
+    <col width="50%"><col width="50%">
     <thead><tr><th colspan="2">High Precision Math</th></tr></thead>
-    <tr><td><span>asinh(1)</td><td id=math1></td></tr>
-    <tr><td><span>acosh(1e300)</td><td id=math2></td></tr>
-    <tr><td><span>atanh(0.5)</td><td id=math3></td></tr>
-    <tr><td><span>expm1(1)</td><td id=math4></td></tr>
-    <tr><td><span>cbrt(100)</td><td id=math5></td></tr>
-    <tr><td><span>log1p(10)</td><td id=math6></td></tr>
-    <tr><td><span>sinh(1)</td><td id=math7></td></tr>
-    <tr><td><span>cosh(10)</td><td id=math8></td></tr>
-    <tr><td><span>tanh(1)</td><td id=math9></td></tr>
+    <tr><td>asinh(1)</td><td id=math1></td></tr>
+    <tr><td>acosh(1e300)</td><td id=math2></td></tr>
+    <tr><td>atanh(0.5)</td><td id=math3></td></tr>
+    <tr><td>expm1(1)</td><td id=math4></td></tr>
+    <tr><td>cbrt(100)</td><td id=math5></td></tr>
+    <tr><td>log1p(10)</td><td id=math6></td></tr>
+    <tr><td>sinh(1)</td><td id=math7></td></tr>
+    <tr><td>cosh(10)</td><td id=math8></td></tr>
+    <tr><td>tanh(1)</td><td id=math9></td></tr>
   </table>
 
   <!-- TABLE 9: Cipher Suite / TLS  -->
   <table id=tb9>
+    <col width="50%"><col width="50%">
     <thead><tr><th colspan="2">Cipher Suite / TLS</th></tr></thead>
-    <tr><td><span>test</td><td>result</td></tr>
+    <tr><td>test</td><td>result</td></tr>
   </table>
 
   <!-- TABLE 10: Cookies & Storage -->
   <table id=tb10>
+    <col width="50%"><col width="50%">
     <thead><tr><th colspan="2">Cookies & Storage</th></tr></thead>
     <tr><td>test</td><td>result</td></tr>
   </table>
 
   <!-- TABLE 11: Audio - audio.js -->
   <table id=tb11>
+    <col width="50%"><col width="50%">
     <thead><tr><th colspan="2">Audio</th></tr></thead>
     <tr><td>test</td><td>result</td></tr>
   </table>
@@ -132,6 +144,7 @@
   <!-- TABLE 12: lots more to come -->
   <!-- geo & wifi & network info, keyboard, webgl, apis, permissions, pointers, miscellaneous -->
   <table id=tb12>
+    <col width="50%"><col width="50%">
     <thead><tr><th colspan="2">lots more to come</th></tr></thead>
     <tr><td>test</td><td>result</td></tr>
   </table>
