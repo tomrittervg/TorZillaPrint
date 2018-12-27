@@ -1,319 +1,149 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<title>TorZillaPrint</title>
 
-<style>
-body {background-color: #1a1a1a; color: #b3b3b3; font-size: 12px;}
-h2 {color: white; font-size 14px; text-align: center; padding-top: 10px;}
-h4 {color: #8abfda; font-size 12px; text-align: center;}
-a {color: #8abfda}
-table {background-color: #1a1a1a; width: 800px; border-collapse: collapse;}
-td {padding-bottom: 3px; padding-top: 3px;  padding-left: 10px;}
-.section {color: black; font-weight: bold; font-size: 16px;}
-.test1 {color: #db8c8b;}
-.test2 {color: #daac8a;}
-.test3 {color: #d9cd88;}
-.test4 {color: #c6da88;}
-.test5 {color: #a5da88;}
-.test6 {color: #89da90;}
-.test7 {color: #89dab2;}
-.test8 {color: #89d9d3;}
-.test9 {color: #8abfda;}
-.test10 {color: #8b9edb;}
-.test11 {color: #998adb;}
-.test12 {color: #ba8adb;}
-</style>
-<!-- second lot is more saturated (50% in PS): first = text, 2nd = background
- 1 db8c8b ef7b79 red
- 2 daac8a e8a466 orange
- 3 d9cd88 ddcb40 yellow
- 4 c6da88 bedd37 next
- 5 a5da88 8ce048 next
- 6 89da90 54e366 green
- 7 89dab2 54e3a6 next
- 8 89d9d3 56e2d9 next
- 9 8abfda 6fc5eb blue
-10 8b9edb 83a0f4 next
-11 998adb 9e88f7 purple
-12 ba8adb c881f4 pink
--->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <title>TorZillaPrint</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 
 <body>
-<h2>TorZillaPrint</h2>
-<h4><a target="_blank" href="https://github.com/ghacksuserjs/TorZillaPrint">github repo</a></h4>
-<center>
 
-<!--SCREEN NOTES: TODO (besides the empty results)
-  isZoomed (look at mediaMatch DPI vs devicepixelratio and do some math (e.g 96dpi vs 128 = 133% zoom)
-  dpi, hidpi/retina detection, multi-monitor?, brightness?, iframe column
--->
-<table id=tb1>
-<tr><td align="center" colspan="2" bgcolor=#ef7b79><span class="section">Screen Information</span></colspan></td></tr>
-<tr><td width="50%"></span></td><td></td></tr>
-<tr><td align="right"><span class="test1">screen resolution</span></td><td id=ScrRes></td></tr>
-<tr><td align="right"><span class="test1">available resolution</span></td><td id=ScrAvail></td></tr>
-<tr><td align="right"><span class="test1">outer window</span></td><td id=WndOut></td></tr>
-<tr><td align="right"><span class="test1">inner window</span></td><td id=WndIn></td></tr>
-<tr><td align="right"><span class="test1"><font color=#b3b3b3>[real time]</font> css inner window</span></td><td></td></tr>
-<tr><td align="right"><span class="test1">viewport</span></td><td></td></tr>
-<tr><td align="right"><span class="test1">scrollbar width</span></td><td></td></tr>
-<tr><td align="right"><span class="test1">full screen</span></td><td id=IsFS></td></tr>
-<tr><td align="right"><span class="test1"><font color=#b3b3b3>[click here]</font> [api] full screen</span></td><td></td></tr>
-<tr><td align="right"><span class="test1">private window</span></td><td id=IsPBMode></td></tr>
-<tr><td align="right"><span class="test1">orientation</span></td><td id=ScrOrient></td></tr>
-<tr><td align="right"><span class="test1">[matchMedia] window orientation</span></td><td id=mmOrient></td></tr>
-<tr><td align="right"><span class="test1">[math: screen width vs height] window orientation</span></td><td id=mathOrient></td></tr>
-<tr><td align="right"><span class="test1">pixel depth</span></td><td id=PixDepth></td></tr>
-<tr><td align="right"><span class="test1">color depth</span></td><td id=ColDepth></td></tr>
-<tr><td align="right"><span class="test1">[js] dpi</span></td><td></td id=jsDPI></tr>
-<tr><td align="right"><span class="test1">[css media] dpi</span></td><td><span><span></td></tr>
-<tr><td align="right"><span class="test1">[approx. matchMedia] dpi</span></td><td></td></tr>
-<tr><td align="right"><span class="test1">hidpi</span></td><td></td></tr>
-<tr><td align="right"><span class="test1">zoom</span></td><td>i have a cunning plan for this</td></tr>
-<tr><td align="right"><span class="test1"><font color=#b3b3b3>[zoom & refresh]</font> devicePixelRatio</span></td><td id=DevPR></td></tr>
-</table>
+  <h2>TorZillaPrint</h2>
+
+  <h4><a target="_blank" href="https://github.com/ghacksuserjs/TorZillaPrint">github repo</a></h4>
+  <!--SCREEN NOTES: TODO (besides the empty results)
+    isZoomed (look at mediaMatch DPI vs devicepixelratio and do some math (e.g 96dpi vs 128 = 133% zoom)
+    dpi, hidpi/retina detection, multi-monitor?, brightness?, iframe column
+  -->
+
+  <!-- TABLE 1: Screen Information -->
+  <table id=tb1>
+    <thead><tr><th colspan="2">Screen Information</th></tr></thead>
+    <tr><td>screen resolution</td><td id=ScrRes></td></tr>
+    <tr><td>available resolution</td><td id=ScrAvail></td></tr>
+    <tr><td>outer window</td><td id=WndOut></td></tr>
+    <tr><td>inner window</td><td id=WndIn></td></tr>
+    <tr><td><span class="no_color">[real time]</span> css inner window</td><td></td></tr>
+    <tr><td>viewport</td><td></td></tr>
+    <tr><td>scrollbar width</td><td></td></tr>
+    <tr><td>full screen</td><td id=IsFS></td></tr>
+    <tr><td><font color=#b3b3b3>[click here]</font> [api] full screen</td><td></td></tr>
+    <tr><td>private window</td><td id=IsPBMode></td></tr>
+    <tr><td>orientation</td><td id=ScrOrient></td></tr>
+    <tr><td>[matchMedia] window orientation</td><td id=mmOrient></td></tr>
+    <tr><td>[math: screen width vs height] window orientation</td><td id=mathOrient></td></tr>
+    <tr><td>pixel depth</td><td id=PixDepth></td></tr>
+    <tr><td>color depth</td><td id=ColDepth></td></tr>
+    <tr><td>[js] dpi</td><td id=jsDPI></td ></tr>
+    <tr><td>[css media] dpi</td><td></td></tr>
+    <tr><td>[approx. matchMedia] dpi</td><td></td></tr>
+    <tr><td>hidpi</td><td></td></tr>
+    <tr><td>zoom</td><td>i have a cunning plan for this</td></tr>
+    <tr><td ><font color=#b3b3b3>[zoom & refresh]</font> devicePixelRatio</td><td id=DevPR></td></tr>
+  </table>
 
 	<div id='testdpi' style='height: 1in; left: -100%; position: absolute; top: -100%; width: 1in;'></div>
-	<script>
-	var devicePixelRatio = window.devicePixelRatio || 1;
-	dpi_x = Math.round(document.getElementById('testdpi').offsetWidth * devicePixelRatio);
-	dpi_y = Math.round(document.getElementById('testdpi').offsetHeight * devicePixelRatio);
-	//console.log("js: "+dpi_x+" x "+dpi_y);
-    //WTF, I don't understand: type error document.getElementById(...) is null
-	//document.getElementById("jsDPI").innerHTML = dpi_x;
-	</script>
+	
+  <!-- TABLE 2: User Agent / Navigator -->
+  <table id=tb2>
+    <thead><tr><th colspan="2">User Agent / Navigator</th></tr></thead>
+    <tr><td><span>[header] user agent</td><td></td></tr>
+    <tr><td><span>[navigator] userAgent</td><td id=nUserAgent></td></tr>
+    <tr><td><span>[navigator] appCodeName<td><id id=nCodeName><td></td></tr>
+    <tr><td><span>[browser] name</td><td id=bName></td></tr>
+    <tr><td><span>[navigator] appName</td><td id=nAppName></td></tr>
+    <tr><td><span>[layout] name</td><td id=lName></td></tr>
+    <tr><td><span>[navigator] appVersion<td><id id=nAppVersion><td></td></tr>
+    <tr><td><span>[navigator] oscpu</td><td id=nOscpu></td></tr>
+    <tr><td><span>[navigator] platform</td><td id=nPlatform></td></tr>
+    <tr><td><span>[os] name</td><td id=nPlatform></td></tr>
+    <tr><td><span>[browser] version</td><td id=bVersion></td></tr>
+    <tr><td><span>[layout] version</td><td id=lVersion></td></tr>
+    <tr><td><span>[navigator] online</td><td id=nOnLine></td></tr>
+    <tr><td><span>[] product</td><td></td></tr>
+    <tr><td><span>[] productSub</td><td></td></tr>
+    <tr><td><span>[navigator] buildID</td><td id=nBuildID></td></tr>
+  </table>
 
-	<script>
-    // breaks if zoom is <80 or >120
-	function findFirstPositive(b, a, i, c) {
-	c=(d,e)=>e>=d?(a=d+(e-d)/2,0<b(a)&&(a==d||0>=b(a-1))?a:0>=b(a)?c(a+1,e):c(d,a-1)):-1
-	for (i = 1; 0 >= b(i);) i *= 2
-	return c(i / 2, i)|0}
-    var dpi = findFirstPositive(x => matchMedia(`(max-resolution: ${x}dpi)`).matches)
-	//console.log("mediaMatch Binary: "+ dpi);
-	</script>
+  <!-- TABLE 3:  Language / Locale / Time Zone / Date Format -->
+  <table id=tb3>
+    <thead><tr><th colspan="2">Language / Locale / Time Zone / Date Format</th></tr></thead>
+    <tr><td><span>[navigator] language</td><td id=nLanguage>result</td></tr>
+  </table>
 
-	<script>
-    // seems to handle any zoom value
-	var varDPI = (function () {
-    for (var i = 56; i < 2000; i++) {
-        if (matchMedia("(max-resolution: " + i + "dpi)").matches === true) {
-            return i;}}return i;})();
-	//console.log("mediaMatch fixed min&max: "+varDPI+" try some zooming and refresh");
-	</script>
+  <!-- TABLE 4:  HTTP Headers -->
+  <table id=tb4>
+    <thead><tr><th colspan="2">HTTP Headers</th></tr></thead>
+    <tr><td><span>test</td><td>result</td></tr>
+  </table>
 
-<script>
-  // math does always work if a smartphone keyboard reduced the height
-  function getMathOrient(){
-	if (window.innerHeight > window.innerWidth) { return "portrait";}
-	else { return "landscape";};};
-  function getmmOrient(){
-	if (window.matchMedia("(orientation: portrait)").matches) { return "portrait";}
-	else if (window.matchMedia("(orientation: landscape)").matches)	{ return "landscape";};};
-  function getScrOrient(){
-	var orientation = screen.msOrientation || (screen.orientation || screen.mozOrientation || {}).type;
-	if (orientation === "landscape-primary") { return "landscape";}
-	else if (orientation === "landscape-secondary") { return "landscape upside down";}
-    else if (orientation === "portrait-secondary" || orientation === "portrait-primary") { return "portrait";}
-    else if (orientation === undefined) { return "undefined";};};
-  document.getElementById("ScrRes").innerHTML = screen.width+" x "+screen.height+" ("+screen.left+","+screen.top+")";
-  document.getElementById("ScrAvail").innerHTML = screen.availWidth+" x "+screen.availHeight+" ("+screen.availLeft+","+screen.availTop+")";
-  document.getElementById("WndOut").innerHTML = window.outerWidth+" x "+window.outerHeight+" ("+window.screenX+","+window.screenY+")";
-  document.getElementById("WndIn").innerHTML = window.innerWidth+" x "+window.innerHeight+" ("+window.mozInnerScreenX+","+window.mozInnerScreenY+")";
-  document.getElementById("PixDepth").innerHTML = screen.pixelDepth;
-  document.getElementById("ColDepth").innerHTML = screen.colorDepth;
-  document.getElementById("IsFS").innerHTML = window.fullScreen;
-  document.getElementById("ScrOrient").innerHTML = getScrOrient();
-  document.getElementById("mmOrient").innerHTML = getmmOrient();
-  document.getElementById("mathOrient").innerHTML = getMathOrient();
-  document.getElementById("DevPR").innerHTML = window.devicePixelRatio;
-  function setPBMode(){
-    function setVal(val) {document.getElementById("IsPBMode").innerHTML = val};
-    try {
-      var db = indexedDB.open("IsPBMode");
-      db.onerror = function(){setVal("true");};
-      db.onsuccess = function(){setVal("false");};
-    }
-    catch(err) { 
-      setVal("unknown");
-    }
-  }
-  setPBMode();
-</script>
+  <!-- TABLE 5: Media Capabilities -->
+  <table id=tb5>
+    <thead><tr><th colspan="2">Media Capabilities</th></tr></thead>
+    <tr><td><span>test</td><td>result</td></tr>
+  </table>
 
-<p>
-<table id=tb2>
-<tr><td align="center" colspan="2" bgcolor=#e8a466><span class="section">User Agent / Navigator</span></colspan></td></tr>
-<tr><td width="35%"></span></td><td></td></tr>
-<tr><td align="right"><span class="test2">[header] user agent</span></td><td></td></tr>
-<tr><td align="right"><span class="test2">[navigator] userAgent</span></td><td id=nUserAgent></td></tr>
-<tr><td align="right"><span class="test2">[navigator] appCodeName</span><td><id id=nCodeName><td></td></tr>
-<tr><td align="right"><span class="test2">[browser] name</span></td><td id=bName></td></tr>
-<tr><td align="right"><span class="test2">[navigator] appName</span></td><td id=nAppName></td></tr>
-<tr><td align="right"><span class="test2">[layout] name</span></td><td id=lName></td></tr>
-<tr><td align="right"><span class="test2">[navigator] appVersion</span><td><id id=nAppVersion><td></td></tr>
-<tr><td align="right"><span class="test2">[navigator] oscpu</span></td><td id=nOscpu></td></tr>
-<tr><td align="right"><span class="test2">[navigator] platform</span></td><td id=nPlatform></td></tr>
-<tr><td align="right"><span class="test2">[os] name</span></td><td id=nPlatform></td></tr>
-<tr><td align="right"><span class="test2">[browser] version</span></td><td id=bVersion></td></tr>
-<tr><td align="right"><span class="test2">[layout] version</span></td><td id=lVersion></td></tr>
-<tr><td align="right"><span class="test2">[navigator] online</span></td><td id=nOnLine></td></tr>
+  <!-- TABLE 6: Fonts -->
+  <table id=tb6>
+    <thead><tr><th colspan="2" bgcolor=#54e366>Fonts</th></tr></thead>
+    <tr><td><span>test</td><td>result</td></tr>
+  </table>
 
+  <!-- TABLE 7: Canvas -->
+  <table id=tb7>
+    <thead><tr><th colspan="2">Canvas</th></tr></thead>
+    <tr><td><span>getContext</td><td></td></tr>
+    <tr><td><span>toDataURL</td><td></td></tr>
+    <tr><td><span>toBlob</td><td></td></tr>
+    <tr><td><span>mozGetAsFile</td><td></td></tr>
+    <tr><td><span>getImageData</td><td></td></tr>
+    <tr><td><span>isPointInPath</td><td></td></tr>
+    <tr><td><span>isPointInStroke</td><td></td></tr>
+    <tr><td><span>fillText</td><td></td></tr>
+    <tr><td><span>strokeText</td><td></td></tr>
+    <tr><td><span>[webgl] readPixels</td><td></td></tr>
+  </table>
 
-<tr><td align="right"><span class="test2">[] product</span></td><td></td></tr>
-<tr><td align="right"><span class="test2">[] productSub</span></td><td></td></tr>
-<tr><td align="right"><span class="test2">[navigator] buildID</span></td><td id=nBuildID></td></tr>
+  <!-- TABLE 8: High Precision Math -->
+  <table id=tb8>
+    <thead><tr><th colspan="2">High Precision Math</th></tr></thead>
+    <tr><td><span>asinh(1)</td><td id=math1></td></tr>
+    <tr><td><span>acosh(1e300)</td><td id=math2></td></tr>
+    <tr><td><span>atanh(0.5)</td><td id=math3></td></tr>
+    <tr><td><span>expm1(1)</td><td id=math4></td></tr>
+    <tr><td><span>cbrt(100)</td><td id=math5></td></tr>
+    <tr><td><span>log1p(10)</td><td id=math6></td></tr>
+    <tr><td><span>sinh(1)</td><td id=math7></td></tr>
+    <tr><td><span>cosh(10)</td><td id=math8></td></tr>
+    <tr><td><span>tanh(1)</td><td id=math9></td></tr>
+  </table>
 
-</table>
+  <!-- TABLE 9: Cipher Suite / TLS  -->
+  <table id=tb9>
+    <thead><tr><th colspan="2">Cipher Suite / TLS</th></tr></thead>
+    <tr><td><span>test</td><td>result</td></tr>
+  </table>
 
-<script>
-  document.getElementById("nUserAgent").innerHTML = navigator.userAgent;
-  document.getElementById("nAppName").innerHTML = navigator.appName;
-  document.getElementById("nCodeName").innerHTML = navigator.appCodeName;
-  document.getElementById("nAppVersion").innerHTML = navigator.appVersion;
-  document.getElementById("nPlatform").innerHTML = navigator.platform;
-  document.getElementById("nOscpu").innerHTML = navigator.oscpu;
-  document.getElementById("nOnLine").innerHTML = navigator.onLine;
-  document.getElementById("nBuildID").innerHTML = navigator.buildID;
-  //document.getElementById("bName").innerHTML = browser.name;
-  //document.getElementById("bVersion").innerHTML = browser.name;
-  //document.getElementById("lVersion").innerHTML = layout.version;
-  //document.getElementById("lName").innerHTML = layout.name;
-  //document.getElementById("osName").innerHTML = os.name;
-</script>
+  <!-- TABLE 10: Cookies & Storage -->
+  <table id=tb10>
+    <thead><tr><th colspan="2">Cookies & Storage</th></tr></thead>
+    <tr><td>test</td><td>result</td></tr>
+  </table>
 
-<p>
-<table id=tb3>
-<tr><td align="center" colspan="2" bgcolor=#ddcb40><span class="section">Language / Locale / Time Zone / Date Format</span></colspan></td></tr>
-<tr><td width="50%"></span></td><td></td></tr>
-<tr><td align="right"><span class="test3">[navigator] language</span></td><td id=nLanguage>result</td></tr>
-</table>
+  <!-- TABLE 11: Audio -->
+  <table id=tb11>
+    <thead><tr><th colspan="2">Audio</th></tr></thead>
+    <tr><td>test</td><td>result</td></tr>
+  </table>
 
-<script>
-  document.getElementById("nLanguage").innerHTML = navigator.language;
-</script>
+  <!-- TABLE 12: Hardware / APIs / Geo / Permissions / Pointers / Keyboard / Misc -->
+  <table id=tb12>
+    <thead><tr><th colspan="2">Hardware / APIs / Geo / Permissions / Pointers / Keyboard / Misc</th></tr></thead>
+    <tr><td>test</td><td>result</td></tr>
+  </table>
 
-<p>
-<table id=tb4>
-<tr><td align="center" colspan="2" bgcolor=#bedd37><span class="section">HTTP Headers</span></colspan></td></tr>
-<tr><td width="50%"></span></td><td></td></tr>
-<tr><td align="right"><span class="test4">test</span></td><td>result</td></tr>
-</table>
-
-<p>
-<table id=tb5>
-<tr><td align="center" colspan="2" bgcolor=#8ce048><span class="section">Media Capabilities</span></colspan></td></tr>
-<tr><td width="50%"></span></td><td></td></tr>
-<tr><td align="right"><span class="test5">test</span></td><td>result</td></tr>
-</table>
-
-<p>
-<table id=tb6>
-<tr><td align="center" colspan="2" bgcolor=#54e366><span class="section">Fonts</span></colspan></td></tr>
-<tr><td width="50%"></span></td><td></td></tr>
-<tr><td align="right"><span class="test6">test</span></td><td>result</td></tr>
-</table>
-
-<p>
-<table id=tb7>
-<tr><td align="center" colspan="2" bgcolor=#54e3a6><span class="section">Canvas</span></colspan></td></tr>
-<tr><td width="35%"></span></td><td></td></tr>
-<tr><td align="right"><span class="test7">getContext</span></td><td></td></tr>
-<tr><td align="right"><span class="test7">toDataURL</span></td><td></td></tr>
-<tr><td align="right"><span class="test7">toBlob</span></td><td></td></tr>
-<tr><td align="right"><span class="test7">mozGetAsFile</span></td><td></td></tr>
-<tr><td align="right"><span class="test7">getImageData</span></td><td></td></tr>
-<tr><td align="right"><span class="test7">isPointInPath</span></td><td></td></tr>
-<tr><td align="right"><span class="test7">isPointInStroke</span></td><td></td></tr>
-<tr><td align="right"><span class="test7">fillText</span></td><td></td></tr>
-<tr><td align="right"><span class="test7">strokeText</span></td><td></td></tr>
-<tr><td align="right"><span class="test7">[webgl] readPixels</span></td><td></td></tr>
-</table>
-
-
-<p>
-<table id=tb8>
-<tr><td align="center" colspan="2" bgcolor=#56e2d9><span class="section">High Precision Math</span></colspan></td></tr>
-<tr><td width="50%"></span></td><td></td></tr>
-<tr><td align="right"><span class="test8">asinh(1)</span></td><td id=math1></td></tr>
-<tr><td align="right"><span class="test8">acosh(1e300)</span></td><td id=math2></td></tr>
-<tr><td align="right"><span class="test8">atanh(0.5)</span></td><td id=math3></td></tr>
-<tr><td align="right"><span class="test8">expm1(1)</span></td><td id=math4></td></tr>
-<tr><td align="right"><span class="test8">cbrt(100)</span></td><td id=math5></td></tr>
-<tr><td align="right"><span class="test8">log1p(10)</span></td><td id=math6></td></tr>
-<tr><td align="right"><span class="test8">sinh(1)</span></td><td id=math7></td></tr>
-<tr><td align="right"><span class="test8">cosh(10)</span></td><td id=math8></td></tr>
-<tr><td align="right"><span class="test8">tanh(1)</span></td><td id=math9></td></tr>
-</table>
-
-<!-- use algebraic expression: compare to https://fpcentral.tbb.torproject.org/fp# --->
-<script>
- function getMath1(x) {
-        if (x === -Infinity) {
-            return x;
-        } else {
-            return Math.log(x + Math.sqrt(x * x + 1));
-        }
-    }
-  function getMath2(x) {return Math.log(x + Math.sqrt(x * x - 1));}
-  function getMath3(x) {return Math.log((1 + x) / (1 - x)) / 2;}
-  function getMath4(x) {return Math.exp(x) - 1;}
-  function getMath5(x) {var y = Math.pow(Math.abs(x), 1 / 3); return x < 0 ? -y : y;}
-  function getMath6(x) {return Math.log(1 + x);}
-  function getMath7(x) {var y = Math.exp(x); return (y - 1 / y) / 2;}
-  function getMath8(x) {var y = Math.exp(x); return (y + 1 / y) / 2;}
-  function getMath9(x) {
-        if (x === Infinity) {
-            return 1;
-        } else if (x === -Infinity) {
-            return -1;
-        } else {
-            var y = Math.exp(2 * x);
-            return (y - 1) / (y + 1);
-        }
-    }
-document.getElementById("math1").innerHTML = getMath1(1);
-document.getElementById("math2").innerHTML = getMath2(1e300);
-document.getElementById("math3").innerHTML = getMath3(0.5)
-document.getElementById("math4").innerHTML = getMath4(1);
-document.getElementById("math5").innerHTML = getMath5(100);
-document.getElementById("math6").innerHTML = getMath6(10);
-document.getElementById("math7").innerHTML = getMath7(1);
-document.getElementById("math8").innerHTML = getMath8(10);
-document.getElementById("math9").innerHTML = getMath9(1);
-</script>
-
-<p>
-<table id=tb9>
-<tr><td align="center" colspan="2" bgcolor=#6fc5eb><span class="section">Cipher Suite / TLS</span></colspan></td></tr>
-<tr><td width="50%"></span></td><td></td></tr>
-<tr><td align="right"><span class="test9">test</span></td><td>result</td></tr>
-</table>
-
-<p>
-<table id=tb10>
-<tr><td align="center" colspan="2" bgcolor=#83a0f4><span class="section">Cookies & Storage</span></colspan></td></tr>
-<tr><td width="50%"></span></td><td></td></tr>
-<tr><td align="right"><span class="test10">test</span></td><td>result</td></tr>
-</table>
-
-<p>
-<table id=tb11>
-<tr><td align="center" colspan="2" bgcolor=#9e88f7><span class="section">Audio</span></colspan></td></tr>
-<tr><td width="50%"></span></td><td></td></tr>
-<tr><td align="right"><span class="test11">test</span></td><td>result</td></tr>
-</table>
-
-<p>
-<table id=tb12>
-<tr><td align="center" colspan="2" bgcolor=#c881f4><span class="section">Hardware / APIs / Geo / Permissions / Pointers / Keyboard / Misc</span></colspan></td></tr>
-<tr><td width="50%"></span></td><td></td></tr>
-<tr><td align="right"><span class="test12">test</span></td><td>result</td></tr>
-</table>
-</center>
+  <script src="index.js"></script>
 
 </body>
 </html>

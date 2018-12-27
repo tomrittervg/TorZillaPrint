@@ -1,0 +1,118 @@
+:root{
+	--test1: #db8c8b;
+	--test2: #d9cd88;
+	--test3: #d9cd88;
+	--test4: #c6da88;
+	--test5: #a5da88;
+	--test6: #89da90;
+	--test7: #89dab2;
+	--test8: #89d9d3;
+	--test9: #8abfda;
+	--test10: #8b9edb;
+	--test11: #998adb;
+	--test12: #ba8adb;
+}
+/*second lot is more saturated (50% in PS): first = text, 2nd = background
+ 1 db8c8b ef7b79 red
+ 2 daac8a e8a466 orange
+ 3 d9cd88 ddcb40 yellow
+ 4 c6da88 bedd37 next
+ 5 a5da88 8ce048 next
+ 6 89da90 54e366 green
+ 7 89dab2 54e3a6 next
+ 8 89d9d3 56e2d9 next
+ 9 8abfda 6fc5eb blue
+10 8b9edb 83a0f4 next
+11 998adb 9e88f7 purple
+12 ba8adb c881f4 pink*/
+
+/* Main Set-up */
+body {
+	background-color: #1a1a1a; 
+	color: #b3b3b3; 
+	font-size: 12px;
+}
+
+/* Fonts */
+h2 {
+	color: white; 
+	font-size 14px; 
+	text-align: center; 
+	padding-top: 10px;
+}
+
+h4 {
+	color: #8abfda; 
+	font-size 12px; 
+	text-align: center;
+}
+
+a {
+	color: #8abfda
+}
+
+/* Tables */
+table {
+	width: 800px; 
+	border-collapse: collapse;
+	margin: 0 auto 10px auto;
+}
+
+tbody:before {
+    content: "-";
+    display: block;
+    line-height: 1em;
+    color: transparent;
+}
+
+td {
+	padding-bottom: 3px; 
+	padding-top: 3px;  
+	padding-left: 10px;
+}
+
+th {
+	color: black; 
+	font-weight: bold; 
+	font-size: 16px;
+	padding: 3px 0;
+}
+
+.no_color {
+	color: #b3b3b3;
+}
+
+table td:first-child {
+    width: 50%;
+    text-align: right;
+}
+
+/* Table Header Backgrounds */
+#tb1 th { background-color: #ef7b79 }
+#tb2 th { background-color: #e8a466 }
+#tb3 th { background-color: #ddcb40 }
+#tb4 th { background-color: #bedd37 }
+#tb5 th { background-color: #8ce048 }
+#tb6 th { background-color: #54e366 }
+#tb7 th { background-color: #54e3a6 }
+#tb8 th { background-color: #56e2d9 }
+#tb9 th { background-color: #6fc5eb }
+#tb10 th { background-color: #83a0f4 }
+#tb11 th { background-color: #9e88f7 }
+#tb12 th { background-color: #c881f4 }
+
+
+#tb1 td:first-child { color: var(--test1);}
+#tb2 td:first-child { color: var(--test2);}
+#tb3 td:first-child { color: var(--test3);}
+#tb4 td:first-child { color: var(--test4);}
+#tb5 td:first-child { color: var(--test5);}
+#tb6 td:first-child { color: var(--test6);}
+#tb7 td:first-child { color: var(--test7);}
+#tb8 td:first-child { color: var(--test8);}
+#tb9 td:first-child { color: var(--test9);}
+#tb10 td:first-child { color: var(--test10);}
+#tb11 td:first-child { color: var(--test11);}
+#tb12 td:first-child { color: var(--test12);}
+
+
