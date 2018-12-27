@@ -65,7 +65,7 @@ function setPBMode(){
 }
 setPBMode();
 
-/* TABLE 2: User Agent / Navigator */
+/* TABLE 2: User Agent */
 
 document.getElementById("nUserAgent").innerHTML = navigator.userAgent;
 document.getElementById("nAppName").innerHTML = navigator.appName;
@@ -75,11 +75,6 @@ document.getElementById("nPlatform").innerHTML = navigator.platform;
 document.getElementById("nOscpu").innerHTML = navigator.oscpu;
 document.getElementById("nOnLine").innerHTML = navigator.onLine;
 document.getElementById("nBuildID").innerHTML = navigator.buildID;
-//document.getElementById("bName").innerHTML = browser.name;
-//document.getElementById("bVersion").innerHTML = browser.name;
-//document.getElementById("lVersion").innerHTML = layout.version;
-//document.getElementById("lName").innerHTML = layout.name;
-//document.getElementById("osName").innerHTML = os.name;
 
 
 /* TABLE 3:  Language / Locale / Time Zone / Date Format */
