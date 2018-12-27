@@ -20,8 +20,9 @@ document.getElementById("jsZoom").innerHTML = Zoom+"%";
 
 // this method is a dirty hack: doesn't always work e.g. if a smartphone keyboard reduces the height
 function getMathOrient(){
-	if (window.innerHeight > window.innerWidth) { return "portrait";}
-	else { return "landscape";};
+	if (window.innerHeight === window.innerWidth) { return "no idea, you're square!";}
+	else if (window.innerHeight < window.innerWidth) { return "landscape";}
+	else { return "portrait";};
 };
 
 function getmmOrient(){
