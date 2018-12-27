@@ -6,20 +6,12 @@ dpi_x = Math.round(document.getElementById('testdpi').offsetWidth * devicePixelR
 dpi_y = Math.round(document.getElementById('testdpi').offsetHeight * devicePixelRatio);
 document.getElementById("jsDPI").innerHTML = dpi_x + " x " + dpi_y;
 
-// breaks if zoom is <80 or >120
-function findFirstPositive(b, a, i, c) {
-c=(d,e)=>e>=d?(a=d+(e-d)/2,0<b(a)&&(a==d||0>=b(a-1))?a:0>=b(a)?c(a+1,e):c(d,a-1)):-1
-for (i = 1; 0 >= b(i);) i *= 2
-return c(i / 2, i)|0}
-var dpi = findFirstPositive(x => matchMedia(`(max-resolution: ${x}dpi)`).matches)
-//console.log("mediaMatch Binary: "+ dpi);
-
-// seems to handle any zoom value
+// handles FF default zoom levels 30%-300%
 var varDPI = (function () {
-for (var i = 56; i < 2000; i++) {
+for (var i = 27; i < 2000; i++) {
     if (matchMedia("(max-resolution: " + i + "dpi)").matches === true) {
         return i;}}return i;})();
-//console.log("mediaMatch fixed min&max: "+varDPI+" try some zooming and refresh");
+//console.log("mediaMatch DPI: "+varDPI);
 
 // method is a dirty hack: doesn't always work e.g. if a smartphone keyboard reduces the height
 function getMathOrient(){
