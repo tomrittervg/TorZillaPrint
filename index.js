@@ -21,8 +21,7 @@ for (var i = 56; i < 2000; i++) {
         return i;}}return i;})();
 //console.log("mediaMatch fixed min&max: "+varDPI+" try some zooming and refresh");
 
-
-// math does always work if a smartphone keyboard reduced the height
+// method is a dirty hack: doesn't always work e.g. if a smartphone keyboard reduces the height
 function getMathOrient(){
 	if (window.innerHeight > window.innerWidth) { return "portrait";}
 	else { return "landscape";};
@@ -76,7 +75,7 @@ document.getElementById("nPlatform").innerHTML = navigator.platform;
 document.getElementById("nOscpu").innerHTML = navigator.oscpu;
 document.getElementById("nOnLine").innerHTML = navigator.onLine;
 document.getElementById("nBuildID").innerHTML = navigator.buildID;
-// document.getElementById("bName").innerHTML = browser.name;
+//document.getElementById("bName").innerHTML = browser.name;
 //document.getElementById("bVersion").innerHTML = browser.name;
 //document.getElementById("lVersion").innerHTML = layout.version;
 //document.getElementById("lName").innerHTML = layout.name;
