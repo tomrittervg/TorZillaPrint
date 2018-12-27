@@ -17,7 +17,7 @@
     dpi, hidpi/retina detection, multi-monitor?, brightness?, iframe column
   -->
 
-  <!-- TABLE 1: Screen Information -->
+  <!-- TABLE 1: Screen Information - screen.js -->
   <table id=tb1>
     <thead><tr><th colspan="2">Screen Information</th></tr></thead>
     <tr><td>screen resolution</td><td id=ScrRes></td></tr>
@@ -36,15 +36,15 @@
     <tr><td>color depth</td><td id=ColDepth></td></tr>
     <tr><td>[js] dpi</td><td id=jsDPI></td ></tr>
     <tr><td>[css media] dpi</td><td></td></tr>
-    <tr><td>[approx. matchMedia] dpi</td><td></td></tr>
+    <tr><td>[approx. matchMedia] dpi</td><td></td id=mmDPI></tr>
     <tr><td>hidpi</td><td></td></tr>
-    <tr><td>zoom</td><td>i have a cunning plan for this</td></tr>
+    <tr><td><font color=#b3b3b3>[experimental]</font> zoom</td><td>i have a cunning plan for this</td></tr>
     <tr><td><font color=#b3b3b3>[zoom & refresh]</font> devicePixelRatio</td><td id=DevPR></td></tr>
   </table>
 
 	<div id='testdpi' style='height: 1in; left: -100%; position: absolute; top: -100%; width: 1in;'></div>
 	
-  <!-- TABLE 2: User Agent -->
+  <!-- TABLE 2: User Agent - user.js -->
   <table id=tb2>
     <thead><tr><th colspan="2">User Agent</th></tr></thead>
     <tr><td><span>[header] user agent</td><td></td></tr>
@@ -62,31 +62,31 @@
     <tr><td><span>[navigator] buildID</td><td id=nBuildID></td></tr>
   </table>
 
-  <!-- TABLE 3:  Language & Locale / Time Zone & Date Format -->
+  <!-- TABLE 3:  Language & Locale / Time Zone & Date Format - language.js -->
   <table id=tb3>
     <thead><tr><th colspan="2">Language & Locale / Time Zone & Date Format</th></tr></thead>
     <tr><td><span>[navigator] language</td><td id=nLanguage>result</td></tr>
   </table>
 
-  <!-- TABLE 4:  HTTP Headers -->
+  <!-- TABLE 4:  HTTP Headers - headers.js -->
   <table id=tb4>
     <thead><tr><th colspan="2">HTTP Headers</th></tr></thead>
     <tr><td><span>test</td><td>result</td></tr>
   </table>
 
-  <!-- TABLE 5: Media Capabilities -->
+  <!-- TABLE 5: Media Capabilities - media.js -->
   <table id=tb5>
     <thead><tr><th colspan="2">Media Capabilities</th></tr></thead>
     <tr><td><span>test</td><td>result</td></tr>
   </table>
 
-  <!-- TABLE 6: Fonts -->
+  <!-- TABLE 6: Fonts - fonts.js -->
   <table id=tb6>
     <thead><tr><th colspan="2">Fonts</th></tr></thead>
     <tr><td><span>test</td><td>result</td></tr>
   </table>
 
-  <!-- TABLE 7: Canvas -->
+  <!-- TABLE 7: Canvas - canvas.js -->
   <table id=tb7>
     <thead><tr><th colspan="2">Canvas</th></tr></thead>
     <tr><td><span>getContext</td><td></td></tr>
@@ -101,7 +101,7 @@
     <tr><td><span>[webgl] readPixels</td><td></td></tr>
   </table>
 
-  <!-- TABLE 8: High Precision Math -->
+  <!-- TABLE 8: High Precision Math - math.js-->
   <table id=tb8>
     <thead><tr><th colspan="2">High Precision Math</th></tr></thead>
     <tr><td><span>asinh(1)</td><td id=math1></td></tr>
@@ -127,19 +127,23 @@
     <tr><td>test</td><td>result</td></tr>
   </table>
 
-  <!-- TABLE 11: Audio -->
+  <!-- TABLE 11: Audio - audio.js -->
   <table id=tb11>
     <thead><tr><th colspan="2">Audio</th></tr></thead>
     <tr><td>test</td><td>result</td></tr>
   </table>
 
-  <!-- TABLE 12: Hardware / APIs / Geo / Permissions / Pointers / Keyboard / Misc -->
+  <!-- TABLE 12: lots more to come -->
+  <!-- geo & wifi & network info, keyboard, webgl, apis, permissions, pointers, miscellaneous -->
   <table id=tb12>
-    <thead><tr><th colspan="2">Hardware / APIs / Geo / Permissions / Pointers / Keyboard / Misc</th></tr></thead>
+    <thead><tr><th colspan="2">lots more to come</th></tr></thead>
     <tr><td>test</td><td>result</td></tr>
   </table>
 
-  <script src="index.js"></script>
+  <script src="js/screen.js"></script>
+  <script src="js/useragent.js"></script>
+  <script src="ja/language.js"></script>
+  <script src="js/math.js"></script>
 
 </body>
 </html>
