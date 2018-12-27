@@ -3,8 +3,8 @@
 
 // Test DPI
 var devicePixelRatio = window.devicePixelRatio || 1;
-dpi_x = Math.round(document.getElementById('testdpi').offsetWidth * devicePixelRatio);
-dpi_y = Math.round(document.getElementById('testdpi').offsetHeight * devicePixelRatio);
+var dpi_x = Math.round(document.getElementById('testdpi').offsetWidth * devicePixelRatio);
+var dpi_y = Math.round(document.getElementById('testdpi').offsetHeight * devicePixelRatio);
 document.getElementById("jsDPI").innerHTML = dpi_x + " x " + dpi_y;
 
 // handles FF default zoom levels 30%-300%
@@ -12,8 +12,11 @@ var varDPI = (function () {
 for (var i = 27; i < 2000; i++) {
     if (matchMedia("(max-resolution: " + i + "dpi)").matches === true) {
         return i;}}return i;})();
-console.log("mediaMatch fixed min&max: "+varDPI+" try some zooming and refresh");
-//document.getElementById("mmDPI").innerHTML = varDPI;
+document.getElementById("mmDPI").innerHTML = varDPI;
+
+// zoom: calculate from js dpi vs mediaMatch dpi
+var Zoom = Math.round((varDPI/dpi_x)*100)
+document.getElementById("jsZoom").innerHTML = Zoom+"%";
 
 // this method is a dirty hack: doesn't always work e.g. if a smartphone keyboard reduces the height
 function getMathOrient(){
