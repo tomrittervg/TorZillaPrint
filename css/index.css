@@ -54,6 +54,47 @@ a {
 
 .no_color { color: #b3b3b3; }
 
+/* Icons */
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  display: inline-block;
+  mask: url(../fonts/info-circle-solid.svg) no-repeat 50% 50%;
+  -webkit-mask: url(../fonts/info-circle-solid.svg) no-repeat 50% 50%;
+  mask-size: cover;
+  -webkit-mask-size: cover;
+  background-color: #b3b3b3;
+	margin-right: 4px;
+}
+
+/* Tooltips */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #b3b3b3;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 115%; 
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
 /* Tables */
 table {
 	width: 800px; 
