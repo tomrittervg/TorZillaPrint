@@ -64,14 +64,10 @@ function setPBMode(){
 setPBMode();
 
 // Viewport
-var vw,vh,v;
-
 var e=document.createElement( "div" );
 e.style.cssText="position:fixed;top:0;left:0;bottom:0;right:0;";
 document.documentElement.insertBefore(e,document.documentElement.firstChild);
-
-vw=e.offsetWidth;
-vh=e.offsetHeight;
+var vw=e.offsetWidth;
+var vh=e.offsetHeight;
 document.documentElement.removeChild(e);
-
 document.getElementById("Viewport").innerHTML = vw + " x " + vh
