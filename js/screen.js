@@ -1,5 +1,5 @@
 
-/* TABLE: Screen Information */
+/* TABLE: Screen */
 
 // Test DPI
 var devicePixelRatio = window.devicePixelRatio || 1;
