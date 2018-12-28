@@ -64,4 +64,4 @@ function setPBMode(){
 setPBMode();
 
 // Viewport
-document.getElementById("Viewport").innerHTML = window.innerWidth + " x " + window.innerWidth
+document.getElementById("Viewport").innerHTML = window.innerWidth + " x " + window.innerHeight
