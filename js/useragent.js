@@ -1,5 +1,5 @@
 
-/* TABLE 2: User Agent */
+/* TABLE: User Agent */
 
 document.getElementById("nAppName").innerHTML = navigator.appName;
 document.getElementById("nAppVersion").innerHTML = navigator.appVersion;
