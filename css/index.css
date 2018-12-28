@@ -87,12 +87,23 @@ a {
   /* Position the tooltip */
   position: absolute;
   z-index: 1;
-  top: -5px;
-  left: 115%; 
+  top: -12px;
+  left: 130%; 
 }
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 100%; /* To the left of the tooltip */
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent #b3b3b3 transparent transparent;
 }
 
 /* Tables */
