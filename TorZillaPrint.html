@@ -18,12 +18,12 @@
     <col width="50%"><col width="50%">
     <thead><tr><th colspan="2">Screen</th></tr></thead>
     <tr><td>screen resolution</td><td id=ScrRes></td></tr>
-    <tr><td><div class="tooltip"><span class="icon info-icon"></span><span class="tooltiptext">real time update if<br>spoofing inner window<br>range 500-3000</span></div><span class="no_color"> [no js]</span> css screen resolution</td><td id="S"></td></tr>
+    <tr><td><div class="tooltip"><span class="icon info-icon"></span><span class="tooltiptext">real time update if<br>spoofing inner window<br>range 500-3000</span></div><span class="no_color"> [no js]</span> css screen resolution <sup>1</sup></td><td id="S"></td></tr>
     <tr><td>available resolution</td><td id=ScrAvail></td></tr>
     <tr><td>outer window</td><td id=WndOut></td></tr>
     <tr><td>inner window</td><td id=WndIn></td></tr>
-    <tr><td><div class="tooltip"><span class="icon info-icon"></span><span class="tooltiptext">real time update<br>range 500-3000</span></div><span class="no_color"> [no js]</span> css inner window</td><td id="D"></td></tr>
-    <tr><td>viewport</td><td id="Viewport"></td></tr>
+    <tr><td><div class="tooltip"><span class="icon info-icon"></span><span class="tooltiptext">real time update<br>range 500-3000</span></div><span class="no_color"> [no js]</span> css inner window <sup>1</sup></td><td id="D"></td></tr>
+    <tr><td>viewport <sup>2</sup></td><td id="Viewport"></td></tr>
     <tr><td>full screen</td><td id=IsFS></td></tr>
     <tr><td><span class="no_color">[click here]</span> [api] full screen</td><td></td></tr>
     <tr><td>private window</td><td id=IsPBMode></td></tr>
@@ -38,10 +38,13 @@
     <tr><td>hidpi</td><td></td></tr>
     <tr><td><span class="no_color">[experimental]</span> zoom</td><td id=jsZoom></td></tr>
     <tr><td><span class="no_color">[zoom & refresh]</span> devicePixelRatio</td><td id=DevPR></td></tr>
+    <tr><td colspan="2"><span class="no_color">screen code based on work by</span> <sup>1</sup>
+      <a target="_blank" href="https://github.com/arthuredelstein">Arthur Edelstein</a><span class="no_color"> and </span>
+      <sup>2</sup> <a target="_blank" href="https://github.com/earthlng/testpages">earthlng</a></td></tr>
   </table>
 
 	<div id='testdpi' style='height: 1in; left: -100%; position: absolute; top: -100%; width: 1in;'></div>
-	
+
   <!-- TABLE 2: User Agent - user.js -->
   <table id=tb2>
     <col width="35%"><col width="65%">
