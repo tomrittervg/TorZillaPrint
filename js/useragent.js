@@ -10,3 +10,5 @@ document.getElementById("nPlatform").innerHTML = navigator.platform;
 document.getElementById("nProduct").innerHTML = navigator.product;
 document.getElementById("nProductSub").innerHTML = navigator.productSub;
 document.getElementById("nUserAgent").innerHTML = navigator.userAgent;
+
+function IsFirefox(){document.getElementById("IsFF").innerHTML = "Firefox"};
