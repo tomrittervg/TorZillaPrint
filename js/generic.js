@@ -11,10 +11,10 @@ class DOM {
         },
         set: function(obj, prop, val) {
           if (prop === 'val') {
-            obj.textContent = val;
+            obj.textContent = `${val}`;
             return true;
           }
-          obj[prop] = val;
+          obj[prop] = `${val}`;
           return true;
         }
       });
