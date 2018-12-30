@@ -18,14 +18,14 @@
     <col width="50%"><col width="50%">
     <thead><tr><th colspan="2">Screen</th></tr></thead>
     <tr><td>screen resolution</td><td id=ScrRes></td></tr>
-    <tr><td><div class="tooltip"><span class="icon info-icon"></span><span class="tooltiptext">real time update if<br>spoofing inner window<br>range 500-3000</span></div><span class="no_color"> [no js]</span> css screen resolution</td><td id="S"></td></tr>
+    <tr><td><div class="tooltip"><span class="icon info-icon"></span><span class="tooltiptext">real time update if<br>spoofing inner window<br>range 500-3000</span></div><span class="no_color"> [no js]</span> css screen resolution <sup>1</sup></td><td id="S"></td></tr>
     <tr><td>available resolution</td><td id=ScrAvail></td></tr>
     <tr><td>outer window</td><td id=WndOut></td></tr>
     <tr><td>inner window</td><td id=WndIn></td></tr>
-    <tr><td><div class="tooltip"><span class="icon info-icon"></span><span class="tooltiptext">real time update<br>range 500-3000</span></div><span class="no_color"> [no js]</span> css inner window</td><td id="D"></td></tr>
-    <tr><td>viewport</td><td id="Viewport"></td></tr>
+    <tr><td><div class="tooltip"><span class="icon info-icon"></span><span class="tooltiptext">real time update<br>range 500-3000</span></div><span class="no_color"> [no js]</span> css inner window <sup>1</sup></td><td id="D"></td></tr>
+    <tr><td>viewport <sup>2</sup></td><td id="Viewport"></td></tr>
     <tr><td>full screen</td><td id=IsFS></td></tr>
-    <tr><td><span class="no_color">[click here]</span> [api] full screen</td><td></td></tr>
+    <tr><td><span class="no_color">[click here]</span> [api] full screen <sup>2</sup></td><td></td></tr>
     <tr><td>private window</td><td id=IsPBMode></td></tr>
     <tr><td>orientation</td><td id=ScrOrient></td></tr>
     <tr><td>[matchMedia] window orientation</td><td id=mmOrient></td></tr>
@@ -34,27 +34,30 @@
     <tr><td>color depth</td><td id=ColDepth></td></tr>
     <tr><td>[js] dpi</td><td id=jsDPI></td ></tr>
     <tr><td><span class="no_color">[no js]</span> [css media] dpi</td><td id="P"></td></tr>
-    <tr><td>[approx. matchMedia] dpi</td><td id=mmDPI></td></tr>
+    <tr><td>[matchMedia] dpi</td><td id=mmDPI></td></tr>
     <tr><td>hidpi</td><td></td></tr>
-    <tr><td><span class="no_color">[experimental]</span> zoom</td><td id=jsZoom></td></tr>
-    <tr><td><span class="no_color">[zoom & refresh]</span> devicePixelRatio</td><td id=DevPR></td></tr>
+    <tr><td><div class="tooltip"><span class="icon info-icon"></span><span class="tooltiptext">might break<br> with HiDPI</span></div>zoom</td><td id=jsZoom></td></tr>
+    <tr><td>devicePixelRatio</td><td id=DevPR></td></tr>
+    <tr><td colspan="2"><span class="no_color">screen code based on work by</span> <sup>1</sup>
+      <a target="_blank" href="https://github.com/arthuredelstein">Arthur Edelstein</a><span class="no_color"> and </span>
+      <sup>2</sup> <a target="_blank" href="https://github.com/earthlng/testpages">earthlng</a></td></tr>
   </table>
 
 	<div id='testdpi' style='height: 1in; left: -100%; position: absolute; top: -100%; width: 1in;'></div>
-	
+
   <!-- TABLE 2: User Agent - user.js -->
   <table id=tb2>
     <col width="35%"><col width="65%">
     <thead><tr><th colspan="2">User Agent</th></tr></thead>
     <tr><td>[header] user agent</td><td></td></tr>
     <tr><td>[navigator] userAgent</td><td id=nUserAgent></td></tr>
-    <tr><td>[navigator] appCodeName<td><id id=nCodeName><td></td></tr>
+    <tr><td>[navigator] appCodeName</td><td id=nCodeName></td></tr>
     <tr><td>[navigator] appName</td><td id=nAppName></td></tr>
     <tr><td>[navigator] product</td><td id=nProduct></td></tr>
     <tr><td>[chrome://] browser</td><td id=IsFF></td></tr>
     <tr><td>[feature result] browser</td><td></td></tr>
     <tr><td>[feature detection] browser</td><td></td></tr>
-    <tr><td>[navigator] appVersion<td><id id=nAppVersion><td></td></tr>
+    <tr><td>[navigator] appVersion</td><td id=nAppVersion></td></tr>
     <tr><td>[navigator] oscpu</td><td id=nOscpu></td></tr>
     <tr><td>[navigator] platform</td><td id=nPlatform></td></tr>
     <tr><td><span class="no_color">[experimental]</span> [scrollbar width] os</td><td></td></tr>
@@ -106,7 +109,8 @@
     <tr><td>sinh(1)</td><td id=math7></td></tr>
     <tr><td>cosh(10)</td><td id=math8></td></tr>
     <tr><td>tanh(1)</td><td id=math9></td></tr>
-    <tr><td colspan="2" align="center"><span class="no_color">math code courtesy of </span><a target="_blank" href="https://fpcentral.tbb.torproject.org/">Fingerprint Central</a></td></tr>
+    <tr><td colspan="2"><span class="no_color">math code courtesy of </span>
+      <a target="_blank" href="https://fpcentral.tbb.torproject.org/">Fingerprint Central</a></td></tr>
   </table>
 
   <!-- TABLE 7: Canvas - canvas.js -->
@@ -124,6 +128,9 @@
     <tr><td>fillText</td><td class="fillText"></td></tr>
     <tr><td>strokeText</td><td class="strokeText"></td></tr>
     <tr><td>[webgl] readPixels</td><td class="readPixels"></td></tr>
+    <tr><td colspan="2"><span class="no_color">canvas code courtesy of </span>
+      <a target="_blank" href="https://github.com/kkapsner">kkapsner</a><span class="no_color"> and </span>
+      <a target="_blank" href="https://github.com/kkapsner/CanvasBlocker">CanvasBlocker</a></td></tr>
   </table>
 
   <!-- TABLE 8: Audio - audio.js -->
