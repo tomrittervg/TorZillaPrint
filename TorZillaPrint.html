@@ -5,6 +5,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <title>TorZillaPrint</title>
   <link rel="stylesheet" type="text/css" href="css/index.css">
+  <script src="js/generic.js"></script>
+  <script src="js/globals.js"></script>
 </head>
 
 <body>
@@ -14,30 +16,30 @@
   <h4><a target="_blank" href="https://github.com/ghacksuserjs/TorZillaPrint">github repo</a></h4>
 
   <!-- TABLE 1: Screen - screen.js -->
-  <table id=tb1>
+  <table id="tb1">
     <col width="50%"><col width="50%">
     <thead><tr><th colspan="2">Screen</th></tr></thead>
-    <tr><td>screen resolution</td><td id=ScrRes></td></tr>
+    <tr><td>screen resolution</td><td id="ScrRes"></td></tr>
     <tr><td><div class="tooltip"><span class="icon info-icon"></span><span class="tooltiptext">real time update if<br>spoofing inner window<br>range 500-3000</span></div><span class="no_color"> [no js]</span> css screen resolution <sup>1</sup></td><td id="S"></td></tr>
-    <tr><td>available resolution</td><td id=ScrAvail></td></tr>
-    <tr><td>outer window</td><td id=WndOut></td></tr>
-    <tr><td>inner window</td><td id=WndIn></td></tr>
+    <tr><td>available resolution</td><td id="ScrAvail"></td></tr>
+    <tr><td>outer window</td><td id="WndOut"></td></tr>
+    <tr><td>inner window</td><td id="WndIn"></td></tr>
     <tr><td><div class="tooltip"><span class="icon info-icon"></span><span class="tooltiptext">real time update<br>range 500-3000</span></div><span class="no_color"> [no js]</span> css inner window <sup>1</sup></td><td id="D"></td></tr>
     <tr><td>viewport <sup>2</sup></td><td id="Viewport"></td></tr>
-    <tr><td>full screen</td><td id=IsFS></td></tr>
+    <tr><td>full screen</td><td id="IsFS"></td></tr>
     <tr><td><span class="no_color">[click here]</span> [api] full screen <sup>2</sup></td><td></td></tr>
-    <tr><td>private window</td><td id=IsPBMode></td></tr>
-    <tr><td>orientation</td><td id=ScrOrient></td></tr>
-    <tr><td>[matchMedia] window orientation</td><td id=mmOrient></td></tr>
-    <tr><td>[math: screen width vs height] window orientation</td><td id=mathOrient></td></tr>
-    <tr><td>pixel depth</td><td id=PixDepth></td></tr>
-    <tr><td>color depth</td><td id=ColDepth></td></tr>
-    <tr><td>[js] dpi</td><td id=jsDPI></td ></tr>
+    <tr><td>private window</td><td id="IsPBMode"></td></tr>
+    <tr><td>orientation</td><td id="ScrOrient"></td></tr>
+    <tr><td>[matchMedia] window orientation</td><td id="mmOrient"></td></tr>
+    <tr><td>[math: screen width vs height] window orientation</td><td id="mathOrient"></td></tr>
+    <tr><td>pixel depth</td><td id="PixDepth"></td></tr>
+    <tr><td>color depth</td><td id="ColDepth"></td></tr>
+    <tr><td>[js] dpi</td><td id="jsDPI"></td ></tr>
     <tr><td><span class="no_color">[no js]</span> [css media] dpi</td><td id="P"></td></tr>
-    <tr><td>[matchMedia] dpi</td><td id=mmDPI></td></tr>
+    <tr><td>[matchMedia] dpi</td><td id="mmDPI"></td></tr>
     <tr><td>hidpi</td><td></td></tr>
-    <tr><td><div class="tooltip"><span class="icon info-icon"></span><span class="tooltiptext">might break<br> with HiDPI</span></div>zoom</td><td id=jsZoom></td></tr>
-    <tr><td>devicePixelRatio</td><td id=DevPR></td></tr>
+    <tr><td><div class="tooltip"><span class="icon info-icon"></span><span class="tooltiptext">might break<br> with HiDPI</span></div>zoom</td><td id="jsZoom"></td></tr>
+    <tr><td>devicePixelRatio</td><td id="DevPR"></td></tr>
     <tr><td colspan="2"><span class="no_color">screen code based on work by</span> <sup>1</sup>
       <a target="_blank" href="https://github.com/arthuredelstein">Arthur Edelstein</a><span class="no_color"> and </span>
       <sup>2</sup> <a target="_blank" href="https://github.com/earthlng/testpages">earthlng</a></td></tr>
@@ -46,75 +48,75 @@
 	<div id='testdpi' style='height: 1in; left: -100%; position: absolute; top: -100%; width: 1in;'></div>
 
   <!-- TABLE 2: User Agent - user.js -->
-  <table id=tb2>
+  <table id="tb2">
     <col width="35%"><col width="65%">
     <thead><tr><th colspan="2">User Agent</th></tr></thead>
     <tr><td>[header] user agent</td><td></td></tr>
-    <tr><td>[navigator] userAgent</td><td id=nUserAgent></td></tr>
-    <tr><td>[navigator] appCodeName</td><td id=nCodeName></td></tr>
-    <tr><td>[navigator] appName</td><td id=nAppName></td></tr>
-    <tr><td>[navigator] product</td><td id=nProduct></td></tr>
-    <tr><td>[chrome://] browser</td><td id=IsFF></td></tr>
+    <tr><td>[navigator] userAgent</td><td id="nUserAgent"></td></tr>
+    <tr><td>[navigator] appCodeName</td><td id="nCodeName"></td></tr>
+    <tr><td>[navigator] appName</td><td id="nAppName"></td></tr>
+    <tr><td>[navigator] product</td><td id="nProduct"></td></tr>
+    <tr><td>[chrome://] browser</td><td id="IsFF"></td></tr>
     <tr><td>[feature result] browser</td><td></td></tr>
     <tr><td>[feature detection] browser</td><td></td></tr>
-    <tr><td>[navigator] appVersion</td><td id=nAppVersion></td></tr>
-    <tr><td>[navigator] oscpu</td><td id=nOscpu></td></tr>
-    <tr><td>[navigator] platform</td><td id=nPlatform></td></tr>
+    <tr><td>[navigator] appVersion</td><td id="nAppVersion"></td></tr>
+    <tr><td>[navigator] oscpu</td><td id="nOscpu"></td></tr>
+    <tr><td>[navigator] platform</td><td id="nPlatform"></td></tr>
     <tr><td><span class="no_color">[experimental]</span> [scrollbar width] os</td><td></td></tr>
     <tr><td>[tcp/ip] os</td><td></td></tr>
     <tr><td><div class="tooltip"><span class="icon info-icon"></span><span class="tooltiptext">tor browser only</span></div><span class="no_color"> [no js]</span> [css fonts] os</td><td></td></tr>
-    <tr><td>[navigator] buildID</td><td id=nBuildID></td></tr>
-    <tr><td>[navigator] productSub</td><td id=nProductSub></td></tr>
+    <tr><td>[navigator] buildID</td><td id="nBuildID"></td></tr>
+    <tr><td>[navigator] productSub</td><td id="nProductSub"></td></tr>
   </table>
 
   <!-- TABLE 3:  Language & Locale / Time Zone & Date Format - language.js -->
-  <table id=tb3>
+  <table id="tb3">
     <col width="50%"><col width="50%">
     <thead><tr><th colspan="2">Language & Locale / Time Zone & Date Format</th></tr></thead>
-    <tr><td>[navigator] language</td><td id=nLanguage>result</td></tr>
+    <tr><td>[navigator] language</td><td id="nLanguage">result</td></tr>
     <tr><td>[header] http_accept_language</td><td></td></tr>
   </table>
 
   <!-- TABLE 4:  HTTP Headers - headers.js -->
-  <table id=tb4>
+  <table id="tb4">
     <col width="50%"><col width="50%">
     <thead><tr><th colspan="2">HTTP Headers</th></tr></thead>
     <tr><td>http_accept</td><td></td></tr>
     <tr><td>http_accept_encoding</td><td></td></tr>
     <tr><td>http_dnt</td><td></td></tr>
-    <tr><td>[navigator] doNotTrack</td><td id=nDoNotTrack></td></tr>
+    <tr><td>[navigator] doNotTrack</td><td id="nDoNotTrack"></td></tr>
     <tr><td>http_upgrade_insecure_requests</td><td></td></tr>
     <tr><td>server_protocol</td><td></td></tr>
-    <tr><td>[navigator] connection</td><td id=nConnection></td></tr>
-    <tr><td>[navigator] online</td><td id=nOnLine></td></tr>
+    <tr><td>[navigator] connection</td><td id="nConnection"></td></tr>
+    <tr><td>[navigator] online</td><td id="nOnLine"></td></tr>
   </table>
 
   <!-- TABLE 5: Cookies & Storage - cookies.js -->
-  <table id=tb5>
+  <table id="tb5">
     <col width="50%"><col width="50%">
     <thead><tr><th colspan="2">Cookies & Storage</th></tr></thead>
     <tr><td>test</td><td>result</td></tr>
   </table>
 
   <!-- TABLE 6: Math - math.js-->
-  <table id=tb6>
+  <table id="tb6">
     <col width="50%"><col width="50%">
     <thead><tr><th colspan="2">Math</th></tr></thead>
-    <tr><td>asinh(1)</td><td id=math1></td></tr>
-    <tr><td>acosh(1e300)</td><td id=math2></td></tr>
-    <tr><td>atanh(0.5)</td><td id=math3></td></tr>
-    <tr><td>expm1(1)</td><td id=math4></td></tr>
-    <tr><td>cbrt(100)</td><td id=math5></td></tr>
-    <tr><td>log1p(10)</td><td id=math6></td></tr>
-    <tr><td>sinh(1)</td><td id=math7></td></tr>
-    <tr><td>cosh(10)</td><td id=math8></td></tr>
-    <tr><td>tanh(1)</td><td id=math9></td></tr>
+    <tr><td>asinh(1)</td><td id="math1"></td></tr>
+    <tr><td>acosh(1e300)</td><td id="math2"></td></tr>
+    <tr><td>atanh(0.5)</td><td id="math3"></td></tr>
+    <tr><td>expm1(1)</td><td id="math4"></td></tr>
+    <tr><td>cbrt(100)</td><td id="math5"></td></tr>
+    <tr><td>log1p(10)</td><td id="math6"></td></tr>
+    <tr><td>sinh(1)</td><td id="math7"></td></tr>
+    <tr><td>cosh(10)</td><td id="math8"></td></tr>
+    <tr><td>tanh(1)</td><td id="math9"></td></tr>
     <tr><td colspan="2"><span class="no_color">math code courtesy of </span>
       <a target="_blank" href="https://fpcentral.tbb.torproject.org/">Fingerprint Central</a></td></tr>
   </table>
 
   <!-- TABLE 7: Canvas - canvas.js -->
-  <table id=tb7>
+  <table id="tb7">
     <col width="35%"><col width="65%">
     <thead><tr><th colspan="2">Canvas</th></tr></thead>
     <tr><td>getContext</td><td></td></tr>
@@ -133,28 +135,28 @@
   </table>
 
   <!-- TABLE 8: Audio - audio.js -->
-  <table id=tb8>
+  <table id="tb8">
     <col width="50%"><col width="50%">
     <thead><tr><th colspan="2">Audio</th></tr></thead>
     <tr><td>test</td><td>result</td></tr>
   </table>
 
   <!-- TABLE 9: Fonts - fonts.js -->
-  <table id=tb9>
+  <table id="tb9">
     <col width="50%"><col width="50%">
     <thead><tr><th colspan="2">Fonts</th></tr></thead>
     <tr><td>test</td><td>result</td></tr>
   </table>
 
   <!-- TABLE 10: Media - media.js -->
-  <table id=tb10>
+  <table id="tb10">
     <col width="50%"><col width="50%">
     <thead><tr><th colspan="2">Media</th></tr></thead>
     <tr><td>test</td><td>result</td></tr>
   </table>
 
   <!-- TABLE 11: Ciphers / TLS - ciphers.js  -->
-  <table id=tb11>
+  <table id="tb11">
     <col width="50%"><col width="50%">
     <thead><tr><th colspan="2">Ciphers / TLS</th></tr></thead>
     <tr><td>test</td><td>result</td></tr>
@@ -162,7 +164,7 @@
 
   <!-- TABLE 12: lots more to come -->
   <!-- geo & wifi & network info, keyboard, webgl, apis, permissions, pointers, miscellaneous -->
-  <table id=tb12>
+  <table id="tb12">
     <col width="50%"><col width="50%">
     <thead><tr><th colspan="2">lots more to come</th></tr></thead>
     <tr><td>test</td><td>result</td></tr>
@@ -171,11 +173,12 @@
   <link rel="stylesheet" type="text/css" href="css/window_size.css">
   <link rel="stylesheet" type="text/css" href="css/screen_size.css">
   <link rel="stylesheet" type="text/css" href="css/dpi.css">
+
+  <script src="js/main.js"></script>
   <script src="js/screen.js"></script>
   <script src="js/useragent.js"></script>
   <script src="js/language.js"></script>
   <script src="js/headers.js"></script>
   <script src="js/math.js"></script>
-
 </body>
 </html>

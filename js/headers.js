@@ -1,6 +1,7 @@
-
 /* TABLE: HTTP Headers */
 
-document.getElementById("nConnection").innerHTML = navigator.connection;
-document.getElementById("nDoNotTrack").innerHTML = navigator.doNotTrack;
-document.getElementById("nOnLine").innerHTML = navigator.onLine;
+'use strict';
+
+dom.nConnection.val = navigator.connection;
+dom.nDoNotTrack.val = navigator.doNotTrack;
+dom.nOnLine.val = navigator.onLine;
