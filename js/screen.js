@@ -6,7 +6,7 @@
 const devicePixelRatio = window.devicePixelRatio || 1;
 const dpi_x = Math.round(dom.testdpi.offsetWidth * devicePixelRatio);
 const dpi_y = Math.round(dom.testdpi.offsetHeight * devicePixelRatio);
-dom.jsDPI.val = dpi_x + " x " + dpi_y;
+dom.jsDPI.val = dpi_x;
 
 // handles FF default zoom levels 30%-300%
 const varDPI = (function () {
@@ -16,7 +16,7 @@ for (var i = 27; i < 2000; i++) {
 dom.mmDPI.val = varDPI;
 
 // zoom: calculate from js dpi vs mediaMatch dpi
-dom.jsZoom.val = Math.round((varDPI/dpi_x)*100).toString()+"%";
+dom.jsZoom.val = Math.round((varDPI/dpi_x)*100).toString();
 
 dom.ScrRes.val = screen.width+" x "+screen.height+" ("+screen.left+","+screen.top+")";
 dom.ScrAvail.val = screen.availWidth+" x "+screen.availHeight+" ("+screen.availLeft+","+screen.availTop+")";
