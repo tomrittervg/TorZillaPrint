@@ -137,6 +137,8 @@ th {
 
 table td:first-child { text-align: right; }
 
+table td.center {text-align: center;}
+
 /* Table Header Backgrounds */
 #tb1 th { background-color: #ef7b79 }
 #tb2 th { background-color: #e8a466 }
