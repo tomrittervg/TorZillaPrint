@@ -56,6 +56,11 @@ a {
 
 .hidden { display: none; }
 
+code {
+    background-color: rgba(55,55,55);
+    padding: 0 .5em;
+}
+
 /* Icons */
 .icon {
   width: 1em;
@@ -137,9 +142,14 @@ th {
 
 table td:first-child { text-align: right; }
 
-table td.left {text-align: left;}
+/* used for descriptions after th */
+table td.left {
+    text-align: left;
+    line-height: 1.5em;
+    padding-bottom: 10px;
+}
 
-table td.center {text-align: center;}
+table td.center {text-align: center; }
 
 /* Table Header Backgrounds */
 #tb1 th { background-color: #ef7b79 }
