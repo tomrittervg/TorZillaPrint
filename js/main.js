@@ -1,2 +1,2 @@
 'use strict';
-dom = new DOM();
+dom = getUniqueElements();

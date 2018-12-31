@@ -2,23 +2,25 @@
 
 'use strict';
 
-function checkImage(imageSrc, imageMsg) {
-    var img = new Image();
-    img.src = imageSrc;
-    img.onload = function() {dom.IsFF.val = imageMsg};
-}
+(() => {
+  const FFImg = new Image();
+  FFImg.src = "about:logo";
+  FFImg.onload = e => {
+    if (!dom.IsFF.textContent) dom.IsFF = "Firefox";
+  };
+  const TorImg = new Image();
+  TorImg.src = "resource://normandy-content/about-studies/img/shield-logo.png";
+  TorImg.onload = e => {
+    dom.IsFF = "Tor Browser";
+  };
+})();
 
-checkImage("about:logo", "Firefox");
-
-dom.nAppName.val = navigator.appName;
-dom.nAppVersion.val = navigator.appVersion;
-dom.nBuildID.val = navigator.buildID;
-dom.nCodeName.val = navigator.appCodeName;
-dom.nOscpu.val = navigator.oscpu;
-dom.nPlatform.val = navigator.platform;
-dom.nProduct.val = navigator.product;
-dom.nProductSub.val = navigator.productSub;
-dom.nUserAgent.val = navigator.userAgent;
-
-// run last due to timer delay
-setTimeout(checkImage("resource://normandy-content/about-studies/img/shield-logo.png", "Tor Browser"), 500);
+dom.nAppName = navigator.appName;
+dom.nAppVersion = navigator.appVersion;
+dom.nBuildID = navigator.buildID;
+dom.nCodeName = navigator.appCodeName;
+dom.nOscpu = navigator.oscpu;
+dom.nPlatform = navigator.platform;
+dom.nProduct = navigator.product;
+dom.nProductSub = navigator.productSub;
+dom.nUserAgent = navigator.userAgent;

@@ -2,4 +2,4 @@
 
 'use strict';
 
-dom.nCookieEnabled.val = navigator.cookieEnabled;
+dom.nCookieEnabled = navigator.cookieEnabled;

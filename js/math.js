@@ -31,34 +31,34 @@ SOFTWARE.
 let x; let y;
 
 x = 1;
-dom.math1.val = x === -Infinity ? x : Math.log(x + Math.sqrt(x * x + 1));
+dom.math1 = x === -Infinity ? x : Math.log(x + Math.sqrt(x * x + 1));
 
 x = 1e300;
-dom.math2.val = Math.log(x + Math.sqrt(x * x - 1));
+dom.math2 = Math.log(x + Math.sqrt(x * x - 1));
 
 x = 0.5;
-dom.math3.val = Math.log((1 + x) / (1 - x)) / 2;
+dom.math3 = Math.log((1 + x) / (1 - x)) / 2;
 
 x = 1;
-dom.math4.val = Math.exp(x) - 1;
+dom.math4 = Math.exp(x) - 1;
 
 x = 100;
 y = Math.pow(Math.abs(x), 1 / 3);
-dom.math5.val = x < 0 ? -y : y;
+dom.math5 = x < 0 ? -y : y;
 
 x = 10;
-dom.math6.val = Math.log(1 + x);
+dom.math6 = Math.log(1 + x);
 
 x = 1;
 y = Math.exp(x);
-dom.math7.val = (y - 1 / y) / 2;
+dom.math7 = (y - 1 / y) / 2;
 
 x = 10;
 y = Math.exp(x);
-dom.math8.val = (y + 1 / y) / 2;
+dom.math8 = (y + 1 / y) / 2;
 
 x = 1;
-dom.math9.val = (() => {
+dom.math9 = (() => {
     if (x === Infinity) {
         return 1;
     } else if (x === -Infinity) {

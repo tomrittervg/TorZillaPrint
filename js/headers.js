@@ -2,6 +2,6 @@
 
 'use strict';
 
-dom.nConnection.val = navigator.connection;
-dom.nDoNotTrack.val = navigator.doNotTrack;
-dom.nOnLine.val = navigator.onLine;
+dom.nConnection = navigator.connection;
+dom.nDoNotTrack = navigator.doNotTrack;
+dom.nOnLine = navigator.onLine;

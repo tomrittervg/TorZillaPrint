@@ -2,4 +2,4 @@
 
 'use strict';
 
-dom.nLanguage.val = navigator.language;
+dom.nLanguage = navigator.language;
