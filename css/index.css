@@ -57,8 +57,10 @@ a {
 .hidden { display: none; }
 
 code {
-    background-color: rgba(55,55,55);
-    padding: 0 .5em;
+  background: #303030 !important;
+  border: 1px solid rgba(255, 255, 255, .1) !important;
+  padding: 1px;
+  border-radius: 2px;
 }
 
 /* Icons */
