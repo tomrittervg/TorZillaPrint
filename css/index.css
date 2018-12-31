@@ -58,7 +58,7 @@ a {
 
 code {
   background: #303030 !important;
-  border: 1px solid rgba(255, 255, 255, .1) !important;
+  border: 1px solid rgba(255, 255, 255, .1);
   padding: 1px;
   border-radius: 2px;
 }
