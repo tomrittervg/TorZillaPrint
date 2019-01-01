@@ -69,9 +69,14 @@
     <tr><td>[oscpu] browser</td><td id="fdOscpu"></td></tr>
     <tr><td>[scrollMaxX] browser</td><td id="fdScrollMaxX"></td></tr>
     <tr><td colspan="2" class="center">---os---</td></tr>
-    <tr><td><span class="no_color">[experimental]</span> [scrollbar width] os</td><td></td></tr>
+    <tr><td><div class="tooltip"><span class="icon info-icon"></span>
+      <span class="tooltiptext">best guess,<br>relies on accurate<br>zoom detection</span></div>[scrollbar width] os <sup>1</sup></td><td></td></tr>
     <tr><td>[tcp/ip] os</td><td></td></tr>
-    <tr><td><div class="tooltip"><span class="icon info-icon"></span><span class="tooltiptext">tor browser only</span></div><span class="no_color"> [no js]</span> [css fonts] os</td><td></td></tr>
+    <tr><td><div class="tooltip"><span class="icon info-icon"></span>
+      <span class="tooltiptext">tor browser only?<br>breaks if<br>use_document_fonts<br>= 0</span></div><span class="no_color"> [no js]</span> [css fonts] os <sup>2</sup></td>
+      <td><span style="font-family: Arimo, DejaVu Serif, Adobe Blank Not Linux;">Linux</span>
+        <span style="font-family: Lucida Grande, Adobe Blank Not Mac;">Mac</span>
+        <span style="font-family: Segoe UI, Adobe Blank Not Windows;">Windows</span></td></tr>
   </table>
 
   <!-- TABLE 3:  Language & Locale / Time Zone & Date Format - language.js -->
@@ -176,6 +181,7 @@
     <tr><td>test</td><td>result</td></tr>
   </table>
 
+  <link rel="stylesheet" type="text/css" href="css/tor_font.css">
   <link rel="stylesheet" type="text/css" href="css/window_size.css">
   <link rel="stylesheet" type="text/css" href="css/screen_size.css">
   <link rel="stylesheet" type="text/css" href="css/dpi.css">
