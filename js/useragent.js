@@ -6,14 +6,19 @@
   const FFImg = new Image();
   FFImg.src = "about:logo";
   FFImg.onload = e => {
-    if (!dom.IsFF.textContent) dom.IsFF = "Firefox";
+    if (!dom.fdResource.textContent) dom.fdResource = "Firefox";
   };
   const TorImg = new Image();
   TorImg.src = "resource://normandy-content/about-studies/img/shield-logo.png";
   TorImg.onload = e => {
-    dom.IsFF = "Tor Browser";
+    dom.fdResource = "Tor Browser";
   };
 })();
+
+if (isNaN(window.mozInnerScreenX) === false){ dom.fdScreenX="Firefox"};
+if (isNaN(window.window.scrollMaxX) === false){ dom.fdScrollMaxX="Firefox"};
+if (isNaN(window.mozPaintCount) === false){ dom.fdPaintCount="Firefox"};
+if (navigator.oscpu == undefined){} else { dom.fdOscpu="Firefox"};
 
 dom.nAppName = navigator.appName;
 dom.nAppVersion = navigator.appVersion;
