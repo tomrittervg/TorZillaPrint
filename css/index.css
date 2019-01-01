@@ -179,3 +179,10 @@ table td.center {text-align: center; }
 #tb10 td:first-child { color: var(--test10);}
 #tb11 td:first-child { color: var(--test11);}
 #tb12 td:first-child { color: var(--test12);}
+
+/* about:logo css test */
+#fdResourceCss {
+    background-image: url("about:logo"), url("not_firefox.png");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+}
