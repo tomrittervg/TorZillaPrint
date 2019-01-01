@@ -52,7 +52,7 @@
   <table id="tb2">
     <col width="35%"><a name="useragent"></a><col width="65%">
     <thead><tr><th colspan="2">User Agent</th></tr></thead>
-    <tr><td colspan="2" class="left"><span class="no_color">The <code>browser</code> and <code>os</code> tests (and there are many more of these) are only provided to illustrate how trivial it is to detect your os and that you are using Firefox: as an added bonus, in the <code>chrome://</code> test, we'll narrow the result down to the Tor Browser for kicks.</span></td></tr>
+    <tr><td colspan="2" class="left"><span class="no_color">The <code>browser</code> and <code>os</code> tests (and there are many more of these) are only provided to illustrate how trivial it is to detect your os and that you are using Firefox: as an added bonus, in the first <code>chrome://</code> test, we'll narrow the result down to the Tor Browser for kicks.</span></td></tr>
     <tr><td>[header] user agent</td><td></td></tr>
     <tr><td>[navigator] userAgent</td><td id="nUserAgent"></td></tr>
     <tr><td>[navigator] appCodeName</td><td id="nCodeName"></td></tr>
@@ -65,6 +65,7 @@
     <tr><td>[navigator] productSub</td><td id="nProductSub"></td></tr>
     <tr><td colspan="2" class="center">---browser---</td></tr>
     <tr><td>[chrome://] browser</td><td id="fdResource"></td></tr>
+    <tr><td><span class="no_color">[no js] </span>[chrome://] css browser</td><td id="fdResourceCss"></td></tr>
     <tr><td>[mozPaintCount] browser</td><td id="fdPaintCount"></td></tr>
     <tr><td>[mozScreenX] browser</td><td id="fdScreenX"></td></tr>
     <tr><td>[oscpu] browser</td><td id="fdOscpu"></td></tr>
@@ -153,7 +154,7 @@
 
   <!-- TABLE 8: Audio - audio.js -->
   <table id="tb8">
-    <col width="50%"><a name="audio"></a><col width="50%">
+    <col width="40%"><a name="audio"></a><col width="60%">
     <thead><tr><th colspan="2">Audio</th></tr></thead>
     <tr><td>hash of audio values</td><td id="audiohash"></td></tr>
     <tr><td colspan="2" class="center">------</td></tr>
