@@ -20,22 +20,22 @@
     <col width="50%"><a name="screen"></a><col width="50%">
     <thead><tr><th colspan="2">Screen</th></tr></thead>
     <tr><td>screen resolution</td><td id="ScrRes"></td></tr>
-    <tr><td><div class="tooltip"><span class="icon info-icon"></span><span class="tooltiptext">real time update if<br>spoofing inner window<br>range 500-3000</span></div><span class="no_color"> [no js]</span> css screen resolution <sup>1</sup></td><td id="S"></td></tr>
+    <tr><td><div class="tooltip"><span class="icon info-icon"></span><span class="tooltiptext">real time update if<br>spoofing inner window<br>range 500-3000</span></div> [css] screen resolution <sup>1</sup></td><td id="S"></td></tr>
     <tr><td>available resolution</td><td id="ScrAvail"></td></tr>
     <tr><td>outer window</td><td id="WndOut"></td></tr>
     <tr><td>inner window</td><td id="WndIn"></td></tr>
-    <tr><td><div class="tooltip"><span class="icon info-icon"></span><span class="tooltiptext">real time update<br>range 500-3000</span></div><span class="no_color"> [no js]</span> css inner window <sup>1</sup></td><td id="D"></td></tr>
+    <tr><td><div class="tooltip"><span class="icon info-icon"></span><span class="tooltiptext">real time update<br>range 500-3000</span></div> [css] inner window <sup>1</sup></td><td id="D"></td></tr>
     <tr><td>viewport <sup>2</sup></td><td id="Viewport"></td></tr>
     <tr><td>full screen</td><td id="IsFS"></td></tr>
     <tr><td><span class="no_color">[click here]</span> [api] full screen <sup>2</sup></td><td></td></tr>
     <tr><td>private window</td><td id="IsPBMode"></td></tr>
     <tr><td>orientation</td><td id="ScrOrient"></td></tr>
     <tr><td>[matchMedia] window orientation</td><td id="mmOrient"></td></tr>
-    <tr><td>[math: screen width vs height] window orientation</td><td id="mathOrient"></td></tr>
+    <tr><td>[inner width vs inner height] window orientation</td><td id="mathOrient"></td></tr>
     <tr><td>pixel depth</td><td id="PixDepth"></td></tr>
     <tr><td>color depth</td><td id="ColDepth"></td></tr>
-    <tr><td>[js] dpi</td><td id="jsDPI"></td ></tr>
-    <tr><td><span class="no_color">[no js]</span> [css media] dpi</td><td id="P"></td></tr>
+    <tr><td>dpi</td><td id="jsDPI"></td ></tr>
+    <tr><td>[css] dpi</td><td id="P"></td></tr>
     <tr><td>[matchMedia] dpi</td><td id="mmDPI"></td></tr>
     <tr><td>hidpi</td><td></td></tr>
     <tr><td><div class="tooltip"><span class="icon info-icon"></span><span class="tooltiptext">might break<br> with HiDPI</span></div>zoom %</td><td id="jsZoom"></td></tr>
@@ -53,7 +53,7 @@
     <col width="35%"><a name="useragent"></a><col width="65%">
     <thead><tr><th colspan="2">User Agent</th></tr></thead>
     <tr><td colspan="2" class="left"><span class="no_color">The <code>browser</code> and <code>os</code> tests (and there are many more of these) are only provided to illustrate how trivial it is to detect your os and that you are using Firefox: as an added bonus, in the first <code>chrome://</code> test, we'll narrow the result down to the Tor Browser for kicks.</span></td></tr>
-    <tr><td>[header] user agent</td><td></td></tr>
+    <tr><td>[header] http_user_agent</td><td></td></tr>
     <tr><td>[navigator] userAgent</td><td id="nUserAgent"></td></tr>
     <tr><td>[navigator] appCodeName</td><td id="nCodeName"></td></tr>
     <tr><td>[navigator] appName</td><td id="nAppName"></td></tr>
@@ -65,14 +65,14 @@
     <tr><td>[navigator] productSub</td><td id="nProductSub"></td></tr>
     <tr><td colspan="2" class="center">---browser---</td></tr>
     <tr><td>[chrome://] browser</td><td id="fdResource"></td></tr>
-    <tr><td><span class="no_color">[no js] </span>[chrome://] css browser</td><td id="fdResourceCss"></td></tr>
+    <tr><td>[css] browser</td><td id="fdResourceCss"></td></tr>
     <tr><td>[mozPaintCount] browser</td><td id="fdPaintCount"></td></tr>
     <tr><td>[mozScreenX] browser</td><td id="fdScreenX"></td></tr>
     <tr><td>[oscpu] browser</td><td id="fdOscpu"></td></tr>
     <tr><td>[scrollMaxX] browser</td><td id="fdScrollMaxX"></td></tr>
     <tr><td colspan="2" class="center">---os---</td></tr>
     <tr><td><div class="tooltip"><span class="icon info-icon"></span>
-      <span class="tooltiptext">tor browser only?<br>breaks if<br>use_document_fonts<br>= 0</span></div><span class="no_color"> [no js]</span> [css fonts] os <sup>1</sup></td>
+      <span class="tooltiptext">tor browser only?<br>breaks if<br>use_document_fonts<br>= 0</span></div> [css] os <sup>1</sup></td>
       <td><span style="font-family: Arimo, DejaVu Serif, Adobe Blank Not Linux;">Linux</span>
         <span style="font-family: Lucida Grande, Adobe Blank Not Mac;">Mac</span>
         <span style="font-family: Segoe UI, Adobe Blank Not Windows;">Windows</span></td></tr>
