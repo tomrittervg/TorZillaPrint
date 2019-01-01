@@ -3,3 +3,4 @@
 'use strict';
 
 dom.nLanguage = navigator.language;
+dom.nLanguages = navigator.languages;
