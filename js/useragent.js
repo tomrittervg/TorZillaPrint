@@ -15,10 +15,12 @@
   };
 })();
 
+if (isNaN(window.mozPaintCount) === false){ dom.fdPaintCount="Firefox"};
+/* feature detection: we don't need to do all of these
 if (isNaN(window.mozInnerScreenX) === false){ dom.fdScreenX="Firefox"};
 if (isNaN(window.window.scrollMaxX) === false){ dom.fdScrollMaxX="Firefox"};
-if (isNaN(window.mozPaintCount) === false){ dom.fdPaintCount="Firefox"};
 if (navigator.oscpu == undefined){} else { dom.fdOscpu="Firefox"};
+*/
 
 dom.nAppName = navigator.appName;
 dom.nAppVersion = navigator.appVersion;
