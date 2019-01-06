@@ -4,7 +4,8 @@
 
 (() => {
   const FFImg = new Image();
-  FFImg.src = "about:logo";
+  //FFImg.src = "about:logo";
+  FFImg.src = "chrome://browser/content/aboutRobots-icon.png";
   FFImg.onload = e => {
     if (!dom.fdResource.textContent) dom.fdResource = "Firefox";
   };
