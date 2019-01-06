@@ -11,7 +11,7 @@
   const TorImg = new Image();
   TorImg.src = "resource://normandy-content/about-studies/img/shield-logo.png";
   TorImg.onload = e => {
-    dom.fdResource = "Tor Browser";
+    dom.fdResource = "Firefox";
   };
 })();
 
