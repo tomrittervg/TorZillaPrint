@@ -52,7 +52,7 @@
   <table id="tb2">
     <col width="35%"><a name="useragent"></a><col width="65%">
     <thead><tr><th colspan="2">User Agent</th></tr></thead>
-    <tr><td colspan="2" class="left"><span class="no_color">The <code>browser</code> and <code>os</code> tests (and there are many more of these) are only provided to illustrate how trivial it is to detect your os and that you are using Firefox: as an added bonus, in the first <code>chrome://</code> test, we'll narrow the result down to the Tor Browser for kicks.</span></td></tr>
+    <tr><td colspan="2" class="left"><span class="no_color">The <code>browser</code>, <code>version</code> and <code>os</code> tests are only to show how trivial it is to detect that you are using Firefox, the version and possibly your os.</span></td></tr>
     <tr><td>[header] http_user_agent</td><td></td></tr>
     <tr><td>[navigator] userAgent</td><td id="nUserAgent"></td></tr>
     <tr><td>[navigator] appCodeName</td><td id="nCodeName"></td></tr>
@@ -63,7 +63,7 @@
     <tr><td>[navigator] platform</td><td id="nPlatform"></td></tr>
     <tr><td>[navigator] buildID</td><td id="nBuildID"></td></tr>
     <tr><td>[navigator] productSub</td><td id="nProductSub"></td></tr>
-    <tr><td colspan="2" class="center">---browser---</td></tr>
+    <tr><td colspan="2" class="center">---browser, version, os---</td></tr>
     <tr><td>[chrome://] browser</td><td id="fdResource"></td></tr>
     <tr><td>[css] browser</td><td id="fdResourceCss"></td></tr>
     <tr><td><div class="tooltip"><code>[i]</code><span class="tooltiptext"><b>feature detection:</b>
@@ -72,7 +72,6 @@
       <!-- <tr><td>[mozScreenX] browser</td><td id="fdScreenX"></td></tr>
       <tr><td>[oscpu] browser</td><td id="fdOscpu"></td></tr>
       <tr><td>[scrollMaxX] browser</td><td id="fdScrollMaxX"></td></tr> --->
-    <tr><td colspan="2" class="center">---os---</td></tr>
     <tr><td><div class="tooltip"><code>[i]</code>
       <span class="tooltiptext">use_document_fonts<br>= 0 breaks this</span></div> [css] os <sup>1</sup></td>
       <td><span style="font-family: Arimo, DejaVu Serif, Adobe Blank Not Linux;">Linux</span>
@@ -81,6 +80,7 @@
     <tr><td><div class="tooltip"><code>[i]</code>
       <span class="tooltiptext">relies on accurate<br>zoom detection</span></div> [scrollbar width] os <sup>2</sup></td><td></td></tr>
     <tr><td>[tcp/ip] os</td><td></td></tr>
+    <tr><td><div class="tooltip"><code>[i]</code><span class="tooltiptext">firefox only<br>60 or later</span></div> [feature detection] version</td><td id="versionNo"></td></tr>
     <tr><td colspan="2"><span class="no_color">code based on work by </span>
       <sup>1</sup><a target="_blank" href="https://arthuredelstein.github.io/tordemos/os-detection-font-css.html">Arthur Edelstein</a>
       <span class="no_color"> and </span>
