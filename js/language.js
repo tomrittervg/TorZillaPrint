@@ -10,10 +10,9 @@ function addDays(date, days) {
 // date/time variables
 var dateUsed = new Date();
 var dateOld = addDays(dateUsed, -183); // second tz offset
-var dateFormatted = new Intl.DateTimeFormat(undefined, { weekday: "long", month: "long", day: "numeric", year: "numeric", hour: "numeric", minute: "numeric", second: "numeric", hour12: true, timeZoneName: "long" });
+var dateLong = { weekday: "long", month: "long", day: "numeric", year: "numeric", hour: "numeric", minute: "numeric", second: "numeric", hour12: true, timeZoneName: "long" };
+var dateFormatted = new Intl.DateTimeFormat(undefined, {dateLong});
 var rOptions = dateFormatted.resolvedOptions();
-// date/time format options
-var dateOpt = { weekday: "long", month: "long", day: "numeric", year: "numeric", hour: "numeric", minute: "numeric", second: "numeric", hour12: true, timeZoneName: "long" };
 
 // output
 // language
@@ -29,10 +28,10 @@ dom.tzOffsets = dateUsed.getTimezoneOffset()+ ' | ' + dateOld.getTimezoneOffset(
 dom.dateSystem = dateUsed;
 dom.dateString = dateUsed.toString();
 // long versions
-dom.lngdateLS = dateUsed.toLocaleString(undefined, dateOpt);
-dom.lngdateLDS = dateUsed.toLocaleDateString(undefined, dateOpt);
-dom.lngdateLTS = dateUsed.toLocaleTimeString(undefined, dateOpt);
-dom.lngdateIDTF = Intl.DateTimeFormat(undefined, dateOpt).format(dateUsed);
+dom.lngdateLS = dateUsed.toLocaleString(undefined, dateLong);
+dom.lngdateLDS = dateUsed.toLocaleDateString(undefined, dateLong);
+dom.lngdateLTS = dateUsed.toLocaleTimeString(undefined, dateLong);
+dom.lngdateIDTF = Intl.DateTimeFormat(undefined, dateLong).format(dateUsed);
 // various
 dom.dateGMT = dateUsed.toGMTString();;
 dom.dateUTC = dateUsed.toUTCString();
