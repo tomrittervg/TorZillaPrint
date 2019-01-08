@@ -90,11 +90,34 @@
 
   <!-- TABLE 3:  Language & Locale / Time Zone & Date Format / Geolocation - language.js -->
   <table id="tb3">
-    <col width="50%"><a name="language"></a><col width="50%">
+    <col width="35%"><a name="language"></a><col width="65%">
     <thead><tr><th colspan="2">Language & Locale / Time Zone & Date Format / Geolocation</th></tr></thead>
     <tr><td>[header] http_accept_language</td><td></td></tr>
-    <tr><td>[navigator] language</td><td id="nLanguage"></td></tr>
     <tr><td>[navigator] languages</td><td id="nLanguages"></td></tr>
+    <tr><td>[navigator] language</td><td id="nLanguage"></td></tr>
+    <tr><td>[navigator] languages[0]</td><td id="nLanguages0"></td></tr>
+    <tr><td>[Intl.PluralRules] locale</td><td id="localeIPR"></td></tr>
+    <tr><td>[resolvedOptions] locale</td><td id="localeRO"></td></tr>
+    <tr><td>time zone offsets</td><td id="tzOffsets"></td></tr>
+    <tr><td>system date/time</td><td id="dateSystem"></td></tr>
+    <tr><td>toString</td><td id="dateString"></td></tr>
+    <tr><td>[long] toLocaleString</td><td id="lngdateLS"></td></tr>
+    <tr><td>[long] toLocaleDateString</td><td id="lngdateLDS"></td></tr>
+    <tr><td>[long] toLocaleTimeString</td><td id="lngdateLTS"></td></tr>
+    <tr><td>[long] Intl.DateTimeFormat</td><td id="lngdateIDTF"></td></tr>
+    <tr><td>toGMTString</td><td id="dateGMT"></td></tr>
+    <tr><td>toUTCString</td><td id="dateUTC"></td></tr>
+    <tr><td>toLocaleString</td><td id="dateLS"></td></tr>
+    <tr><td>[Typed Array] toLocaleString</td><td id="dateTAtoLS"></td></tr>
+    <tr><td>toLocaleDateString</td><td id="dateLDS"></td></tr>
+    <tr><td>Intl.DateTimeFormat</td><td id="dateIDTF"></td></tr>
+    <tr><td>toLocaleTimeString</td><td id="dateLTS"></td></tr>
+    <tr><td>toTimeString</td><td id="dateTS"></td></tr>
+    <tr><td>[formatToParts] Intl.DateTimeFormat</td><td id="dateFTP"></td></tr>
+    <tr><td>[formatToParts] Intl.NumberFormat</td><td id="numFTP"></td></tr>
+    <tr><td>[resolvedOptions] hourCycle</td><td id="hourRO"></td></tr>
+    <tr><td>[resolvedOptions] calendar</td><td id="calendarRO"></td></tr>
+    <tr><td>[resolvedOptions] numberingSystem</td><td id="numsysRO"></td></tr>
     <tr><td>[api] geolocation</td><td id="nGeolocation"></td></tr>
     <tr><td>[permission] geolocation</td><td id="pGeolocation"></td></tr>
   </table>
