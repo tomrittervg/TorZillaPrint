@@ -49,6 +49,12 @@ dom.dateLTS = dateUsed.toLocaleTimeString();
 dom.dateTS = dateUsed.toTimeString();
 dom.numFTP = JSON.stringify(new Intl.NumberFormat().formatToParts(1000)[1]);
 dom.hourRO = new Intl.DateTimeFormat(undefined, {hour: "numeric"}).resolvedOptions().hourCycle;
+try {
+  // return "day after tomorrow" in your locale
+  const rtf = new Intl.RelativeTimeFormat (undefined, {numeric: "auto"});
+    dom.dateIRTF = rft.format(2, "day");
+  }
+catch(err) {dom.dateIRTF = "undefined"};
 // calendar
 dom.calendarRO = rOptions.calendar;
 // numbering
