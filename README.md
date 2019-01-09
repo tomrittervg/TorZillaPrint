@@ -17,7 +17,7 @@ The test page is right [here](https://ghacksuserjs.github.io/TorZillaPrint/TorZi
 ### :question: What we might care about:
 - Looks and speed (but we are professionals)
 - Collecting data via submissions
-- Expanding to include tests that require third partys
+- Expanding to include tests that require third parties
 - Additional test pages for specific things
 
 ### :hankey: What we don't care about:
