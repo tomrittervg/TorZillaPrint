@@ -15,6 +15,7 @@ The test page is right [here](https://ghacksuserjs.github.io/TorZillaPrint/TorZi
 - Kittens. We love kittens.
 
 ### :question: What we might care about:
+- Looks and speed (but we are professionals)
 - Collecting data via submissions
 - Expanding to include tests that require third partys
 - Additional test pages for specific things
@@ -23,7 +24,6 @@ The test page is right [here](https://ghacksuserjs.github.io/TorZillaPrint/TorZi
 - Other browsers
 - Flash
 - Extensions (except those used in Tor Browser if they affect tests)
-- Looks and speed (but we are professionals)
 - Providing entropy figures
 
 ### :kiss: Acknowledgments
