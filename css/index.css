@@ -59,6 +59,8 @@ a {
     text-decoration: none;
 }
 
+.sheader { color: black; }
+
 .no_color { color: #b3b3b3; }
 
 .hidden { display: none; }
