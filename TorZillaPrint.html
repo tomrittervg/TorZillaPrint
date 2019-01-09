@@ -21,7 +21,7 @@
   <!-- TABLE 1: Screen - screen.js -->
   <table id="tb1">
     <col width="50%"><a name="screen"></a><col width="50%">
-    <thead><tr><th colspan="2">Screen</th></tr></thead>
+    <thead><tr><th colspan="2"><a class="sheader" href="#screen">Screen</a></th></tr></thead>
     <tr><td>screen resolution</td><td id="ScrRes"></td></tr>
     <tr><td><div class="tooltip"><code>[i]</code><span class="tooltiptext">real time update if<br>spoofing inner window:<br>range 500-3000</span></div> [css] screen resolution <sup>1</sup></td><td id="S"></td></tr>
     <tr><td>available resolution</td><td id="ScrAvail"></td></tr>
@@ -56,7 +56,7 @@
   <!-- TABLE 2: User Agent - useragent.js -->
   <table id="tb2">
     <col width="35%"><a name="useragent"></a><col width="65%">
-    <thead><tr><th colspan="2">User Agent</th></tr></thead>
+    <thead><tr><th colspan="2"><a class="sheader" href="#useragent">User Agent</a></th></tr></thead>
     <tr><td colspan="2" class="left"><span class="no_color">The <code>browser</code>, <code>version</code> and <code>os</code> tests are only to show how trivial it is to detect that you are using Firefox, the version and possibly your os.</span></td></tr>
     <tr><td>[header] http_user_agent</td><td></td></tr>
     <tr><td>[navigator] userAgent</td><td id="nUserAgent"></td></tr>
@@ -83,7 +83,7 @@
         <span style="font-family: Segoe UI, Adobe Blank Not Windows;">Windows</span></td></tr>
     <tr><td>[css line-height] os</td><td></td></tr>
     <tr><td><div class="tooltip"><code>[i]</code>
-      <span class="tooltiptext">relies on accurate<br>zoom detection</span></div> [scrollbar width] os <sup>2</sup></td><td></td></tr>
+      <span class="tooltiptext">relies on accurate<br>zoom detection</span></div> [scrollbar width] os <sup>2, 3</sup></td><td></td></tr>
     <tr><td>[tcp/ip] os</td><td></td></tr>
     <tr><td colspan="2"><span class="no_color">code based on work by </span>
       <sup>1</sup><a target="_blank" href="https://arthuredelstein.github.io/tordemos/os-detection-font-css.html">Arthur Edelstein</a>
@@ -96,7 +96,7 @@
   <!-- TABLE 3:  Language & Locale / Time Zone & Date Format / Geolocation - language.js -->
   <table id="tb3">
     <col width="35%"><a name="language"></a><col width="65%">
-    <thead><tr><th colspan="2">Language & Locale / Time Zone & Date Format / Geolocation</th></tr></thead>
+    <thead><tr><th colspan="2"><a class="sheader" href="#language">Language & Locale / Time Zone & Date Format / Geolocation</a></th></tr></thead>
     <tr><td>[header] http_accept_language</td><td></td></tr>
     <tr><td>[navigator] languages</td><td id="nLanguages"></td></tr>
     <tr><td>[navigator] language</td><td id="nLanguage"></td></tr>
@@ -131,7 +131,7 @@
   <!-- TABLE 4:  HTTP Headers - headers.js -->
   <table id="tb4">
     <col width="50%"><a name="headers"></a><col width="50%">
-    <thead><tr><th colspan="2">HTTP Headers</th></tr></thead>
+    <thead><tr><th colspan="2"><a class="sheader" href="#headers">HTTP Headers</a></th></tr></thead>
     <tr><td>http_accept</td><td></td></tr>
     <tr><td>http_accept_encoding</td><td></td></tr>
     <tr><td>http_dnt</td><td></td></tr>
@@ -145,14 +145,14 @@
   <!-- TABLE 5: Cookies & Storage - cookies.js -->
   <table id="tb5">
     <col width="50%"><a name="cookies"></a><col width="50%">
-    <thead><tr><th colspan="2">Cookies & Storage</th></tr></thead>
+    <thead><tr><th colspan="2"><a class="sheader" href="#cookies">Cookies & Storage</a></th></tr></thead>
     <tr><td>[navigator] cookieEnabled</td><td id="nCookieEnabled"></td></tr>
   </table>
 
   <!-- TABLE 6: Math - math.js-->
   <table id="tb6">
     <col width="50%"><a name="math"></a><col width="50%">
-    <thead><tr><th colspan="2">Math</th></tr></thead>
+    <thead><tr><th colspan="2"><a class="sheader" href="#math">Math</a></th></tr></thead>
     <tr><td>asinh(1)</td><td id="math1"></td></tr>
     <tr><td>acosh(1e300)</td><td id="math2"></td></tr>
     <tr><td>atanh(0.5)</td><td id="math3"></td></tr>
@@ -169,7 +169,7 @@
   <!-- TABLE 7: Canvas - canvas.js -->
   <table id="tb7">
     <col width="25%"><a name="canvas"></a><col width="75%">
-    <thead><tr><th colspan="2">Canvas</th></tr></thead>
+    <thead><tr><th colspan="2"><a class="sheader" href="#canvas">Canvas</a></th></tr></thead>
     <tr><td>getContext</td><td class="getContext"></td></tr>
     <tr><td>toDataURL</td><td class="toDataURL"></td></tr>
     <tr><td>toBlob</td><td class="toBlob"></td></tr>
@@ -189,7 +189,7 @@
   <!-- TABLE 8: Audio - audio.js -->
   <table id="tb8">
     <col width="40%"><a name="audio"></a><col width="60%">
-    <thead><tr><th colspan="2">Audio</th></tr></thead>
+    <thead><tr><th colspan="2"><a class="sheader" href="#audio">Audio</a></th></tr></thead>
     <tr><td>hash of audio values</td><td id="audiohash"></td></tr>
     <tr><td colspan="2" class="center">------</td></tr>
     <tr><td>audio.pxi_output</td><td id="audio.pxi_output"></td></tr>
@@ -221,29 +221,29 @@
   <!-- TABLE 9: Fonts - fonts.js -->
   <table id="tb9">
     <col width="50%"><a name="fonts"></a><col width="50%">
-    <thead><tr><th colspan="2">Fonts</th></tr></thead>
+    <thead><tr><th colspan="2"><a class="sheader" href="#fonts">Fonts</a></th></tr></thead>
     <tr><td>test</td><td>result</td></tr>
   </table>
 
   <!-- TABLE 10: Media - media.js -->
   <table id="tb10">
     <col width="50%"><a name="media"></a><col width="50%">
-    <thead><tr><th colspan="2">Media</th></tr></thead>
+    <thead><tr><th colspan="2"><a class="sheader" href="#media">Media</a></th></tr></thead>
     <tr><td>test</td><td>result</td></tr>
   </table>
 
   <!-- TABLE 11: Ciphers / TLS - ciphers.js  -->
   <table id="tb11">
     <col width="50%"><a name="ciphers"></a><col width="50%">
-    <thead><tr><th colspan="2">Ciphers / TLS</th></tr></thead>
+    <thead><tr><th colspan="2"><a class="sheader" href="#ciphers">Ciphers / TLS</a></th></tr></thead>
     <tr><td>test</td><td>result</td></tr>
   </table>
 
   <!-- TABLE 12: lots more to come -->
   <!-- geo & wifi & network info, keyboard, webgl, apis, permissions, pointers, miscellaneous -->
   <table id="tb12">
-    <col width="50%"><a name="tbl12"></a><col width="50%">
-    <thead><tr><th colspan="2">lots more to come</th></tr></thead>
+    <col width="50%"><a name=""></a><col width="50%">
+    <thead><tr><th colspan="2"><a class="sheader" href="">lots more to come</a></th></tr></thead>
     <tr><td>test</td><td>result</td></tr>
   </table>
 
