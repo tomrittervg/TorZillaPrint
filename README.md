@@ -7,7 +7,7 @@ The test page is right [here](https://ghacksuserjs.github.io/TorZillaPrint/TorZi
 
 ### :heart: What we do care about:
 - Current Tor Browser and Firefox ESR or higher
-- Tor Uplift, Fission, FuzzyFox
+- Tor Uplift, FuzzyFox, Fusion
 - Comparing Tor Browser with Firefox
 - First party only (for now)
 - Lowering entropy
