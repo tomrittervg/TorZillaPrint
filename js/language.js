@@ -2,10 +2,14 @@
 
 'use strict';
 
+// functions
 function addDays(date, days) {
   var result = new Date(date);
   result.setDate(result.getDate() + days);
   return result;
+};
+function deStringify(data){
+  return data.map(function(entry){return entry.value;}).join("");
 };
 // date/time variables
 var dateUsed = new Date();
@@ -33,6 +37,7 @@ dom.lngdateLS = dateUsed.toLocaleString(undefined, dateOpt);
 dom.lngdateLDS = dateUsed.toLocaleDateString(undefined, dateOpt);
 dom.lngdateLTS = dateUsed.toLocaleTimeString(undefined, dateOpt);
 dom.lngdateIDTF = Intl.DateTimeFormat(undefined, dateOpt).format(dateUsed);
+dom.dateFTP = deStringify(dateFormatted.formatToParts(dateUsed));
 // various
 dom.dateGMT = dateUsed.toGMTString();;
 dom.dateUTC = dateUsed.toUTCString();
@@ -42,7 +47,6 @@ dom.dateLDS = dateUsed.toLocaleDateString();
 dom.dateIDTF = Intl.DateTimeFormat().format(dateUsed);
 dom.dateLTS = dateUsed.toLocaleTimeString();
 dom.dateTS = dateUsed.toTimeString();
-dom.dateFTP = JSON.stringify(dateFormatted.formatToParts(dateUsed));
 dom.numFTP = JSON.stringify(new Intl.NumberFormat().formatToParts(1000)[1]);
 dom.hourRO = new Intl.DateTimeFormat(undefined, {hour: "numeric"}).resolvedOptions().hourCycle;
 // calendar
