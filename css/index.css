@@ -43,7 +43,7 @@ h2 {
 
 h3 {
 	color: #b3b3b3; 
-	font-size 12px; 
+	font-size 12px;
 	text-align: center;
 	line-height: 1.4em;
 }
@@ -55,11 +55,14 @@ h4 {
 }
 
 a { 
-    color: #8abfda;
+    color: black;
     text-decoration: none;
 }
 
-.sheader { color: black; }
+a.blue { 
+    color: #8abfda;
+    text-decoration: none;
+}
 
 .no_color { color: #b3b3b3; }
 
@@ -123,6 +126,26 @@ code {
   border-width: 5px;
   border-style: solid;
   border-color: transparent #b3b3b3 transparent transparent;
+}
+
+/* Table header nav elements */
+div.nav-title {
+  position: relative;
+  width: 800px;
+}
+
+div.nav-down {
+  position: absolute;
+  right: 5px;
+  top: 0px;
+  width: 20px;
+}
+
+div.nav-up {
+  position: absolute;
+  left: 5px;
+  top: 0px;
+  width: 20px;
 }
 
 /* Tables */
