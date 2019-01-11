@@ -47,3 +47,15 @@ var domSS = "";
 })();
 dom.storageLocal = domLS;
 dom.storageSession = domSS;
+
+// indexedDB
+try {var db = indexedDB.open("IDB");
+     db.onerror = function() {dom.IDB = "yes";};
+     db.onsuccess = function() {dom.IDB = "no";};}
+catch(err) {dom.IDB = "no";}
+
+// appCache: https://developer.mozilla.org/en-US/docs/Web/HTML/Using_the_application_cache
+// window.applicationCache.status == 2
+
+// workers
+if (typeof(Worker) !== "undefined") {dom.workerCheck="yes"} else {dom.workerCheck="no"};
