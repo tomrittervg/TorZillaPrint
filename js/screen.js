@@ -52,7 +52,7 @@ try {
 }
 catch(err) {
   dom.IsPBMode = "unknown";
-}
+};
 
 dom.Viewport = (function () {
   var e=document.createElement( "div" );
