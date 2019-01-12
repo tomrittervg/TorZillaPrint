@@ -23,7 +23,12 @@ var rndCname = Math.random().toString(36).substring(2, 15);
 var rndCvalue = Math.random().toString(36).substring(2, 15);
 document.cookie = rndCname+"="+rndCvalue;
 var cUser =  getCookie(rndCname);
-if (cUser != ""){dom.cookieSession="yes"} else { dom.cookieSession="no"};
+if (cUser != ""){dom.cookieTest="yes"} else { dom.cookieTest="no"};
+
+// localStorage supported
+try {if (typeof(localStorage) != "undefined") {dom.storageLSupport="yes"}
+     else {dom.storageLSupport="no: undefined"};}
+catch(err) {dom.storageLSupport="no: catch(err)"};
 
 // localStorage test
 var rndSname = Math.random().toString(36).substring(2, 15);
@@ -31,8 +36,13 @@ var rndSvalue = Math.random().toString(36).substring(2, 15);
 var domLS = "";
 try {localStorage.setItem(rndSname, rndSvalue);
   if(!localStorage.getItem(rndSname)) {domLS="no"} else {domLS="yes"};}
-catch(err) {domLS = "no"};
-dom.storageLocalTest = domLS;
+catch(err) {domLS = "no: catch(err)"};
+dom.storageLTest = domLS;
+
+// sessionStorage supported
+try {if (typeof(sessionStorage) != "undefined") {dom.storageSSupport="yes"}
+     else {dom.storageSSupport="no: undefined"};}
+catch(err) {dom.storageSSupport="no: catch(err)"};
 
 // sessionStorage test
 var rndSname = Math.random().toString(36).substring(2, 15);
@@ -40,26 +50,26 @@ var rndSvalue = Math.random().toString(36).substring(2, 15);
 var domSS = "";
 try {sessionStorage.setItem(rndSname, rndSvalue);
   if(!sessionStorage.getItem(rndSname)) {domSS="no"} else {domSS="yes"};}
-catch(err) {domSS = "no"};
-dom.storageSessionTest = domSS;
+catch(err) {domSS = "no: catch(err)"};
+dom.storageSTest = domSS;
 
 // indexedDB supported
-try {if (!window.indexedDB) {dom.IDBSupported="no"} else {dom.IDBSupported="yes"};}
-catch(err) {dom.IDBSupported="no"};
+try {if (!window.indexedDB) {dom.IDBSupport="no"} else {dom.IDBSupport="yes"};}
+catch(err) {dom.IDBSupport="no: catch(err)"};
 
 // indexedDB test
 var rndIDB = Math.random().toString(36).substring(2, 15);
 try {
   var requestIDB = indexedDB.open(rndIDB);
-  requestIDB.onerror = function() {dom.IDBTest = "no"};
+  requestIDB.onerror = function() {dom.IDBTest = "no: onerror"};
   requestIDB.onsuccess = function() {
     // success, now store some data and read it back
     dom.IDBTest="yes, but more tests to come";
     };}
-catch(err) {dom.IDBTest = "no"};
+catch(err) {dom.IDBTest = "no: catch(err)"};
 
 // appCache: https://developer.mozilla.org/en-US/docs/Web/HTML/Using_the_application_cache
 // window.applicationCache.status == 2
 
 // workers supported
-if (typeof(Worker) !== "undefined") {dom.workerSupported="yes"} else {dom.workerSupported="no"};
+if (typeof(Worker) !== "undefined") {dom.workerSupport="yes"} else {dom.workerSupport="no"};
