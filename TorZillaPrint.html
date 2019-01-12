@@ -166,18 +166,27 @@
         <div class="nav-up"><a href="#headers">&#9650;</a></div>
         <div class="nav-down"><a href="#math">&#9660;</a></div></div>
     </th></tr></thead>
+    <tr><td colspan="2" class="left"><span class="no_color">Each individual <code>[test]</code>, on each run, uses a new random name and value, attempts to set them, and then to read the value back. Only when it successfully reads back the value is it deemed to be available and working.</span></td></tr>
     <tr><td>[navigator] cookieEnabled</td><td id="nCookieEnabled"></td></tr>
-    <tr><td>[session first party] cookie</td><td id="cookieSession"></td></tr>
-    <tr><td>[permanent first party] cookie</td><td id="cookiePermanent"></td></tr>
-    <tr><td>localStorage</td><td id="storageLocal"></td></tr>
-    <tr><td>sessionStorage</td><td id="storageSession"></td></tr>   
+    <tr><td>[test] 1st party cookie</td><td id="cookieSession"></td></tr>
+    <tr><td>localStorage</td><td id="storageLocalSupported"></td></tr>
+    <tr><td>[test] localStorage</td><td id="storageLocalTest"></td></tr>
+    <tr><td>sessionStorage</td><td id="storageSessionSupported"></td></tr>
+    <tr><td>[test] sessionStorage</td><td id="storageSessionTest"></td></tr>
     <tr><td>indexedDB</td><td id="IDB"></td></tr>
     <tr><td>appCache</td><td id="appCacheTest"></td></tr>
-    <tr><td>worker</td><td id="workerCheck"></td></tr>
+    <tr><td>worker</td><td id="workerSupported"></td></tr>
+    <tr><td>[test] web worker</td><td></td></tr>
     <tr><td>shared worker</td><td></td></tr>
     <tr><td>service worker</td><td></td></tr>
+    <tr><td>service worker cache</td><td></td></tr>
+    <tr><td>requestIdleCallback</td><td></td></tr>
+    <tr><td colspan="2" class="center">---files---</td></tr>
     <tr><td>objectstore Blob</td><td></td></tr>
     <tr><td>objectstore ArrayBuffer</td><td></td></tr>
+    <tr><td>FileSystem API</td><td></td></tr>
+    <tr><td>File API</td><td></td></tr>
+    <tr><td>Fetch API</td><td></td></tr>
   </table>
 
   <!-- TABLE 6: Math - math.js-->
