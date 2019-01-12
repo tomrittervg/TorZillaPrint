@@ -24,38 +24,61 @@ dom.nCookieEnabled = navigator.cookieEnabled;
 // session cookie
 var rndCname = Math.random().toString(36).substring(2, 15);
 var rndCvalue = Math.random().toString(36).substring(2, 15);
+//console.log("-----new test------");
+//console.log(" random name cookie: "+rndCname);
+//console.log("random value cookie: "+rndCvalue);
 document.cookie = rndCname+"="+rndCvalue;
 var cUser =  getCookie(rndCname);
-if (cUser != ""){ dom.cookieSession="yes" } else { dom.cookieSession="no" };
+if (cUser != ""){
+  dom.cookieSession="yes";
+  //console.log("read cookie value: "+getCookie(rndCname) );
+  }
+else { dom.cookieSession="no" };
 
-// permanent cookie
-rndCname = Math.random().toString(36).substring(2, 15);
-rndCvalue = Math.random().toString(36).substring(2, 15);
-// to do: set it for 5 minutes, attempt to read it back and if it's there, delete it
-
-// localStorage and sessionStorage
+// localStorage
+var rndSname = Math.random().toString(36).substring(2, 15);
+var rndSvalue = Math.random().toString(36).substring(2, 15);
+//console.log(" random name LS: "+rndSname);
+//console.log("random value LS: "+rndSvalue);
 var domLS = "";
+// setItem & getItem
+try {
+  localStorage.setItem(rndSname, rndSvalue);
+  //console.log("setItem LS: "+rndSname+" , "+rndSvalue);
+  // getItem
+  if(!localStorage.getItem(rndSname)) {domLS="no"}
+  else {
+    domLS="yes";
+    //console.log("getItem LS: "+ localStorage.getItem(rndSname));
+  };
+}
+catch(err) {domLS = "no";};
+dom.storageLocalTest = domLS;
+
+// sessionStorage
+var rndSname = Math.random().toString(36).substring(2, 15);
+var rndSvalue = Math.random().toString(36).substring(2, 15);
+//console.log(" random name SS: "+rndSname);
+//console.log("random value SS: "+rndSvalue);
 var domSS = "";
-(function() {
-  try { localStorage.test = "test"; sessionStorage.test = "test";} catch (ex) {}
-    try {domLS = "";
-      if (localStorage.test == "test") {domLS = "yes";} else {domLS = "no";}}
-    catch (ex) {domLS = "no";}
-    try {domSS = "";
-      if (sessionStorage.test == "test") {domSS = "yes";} else {domSS = "no";}}
-    catch (ex) {domSS = "no";};
-})();
-dom.storageLocal = domLS;
-dom.storageSession = domSS;
+// setItem & getItem
+try {
+  sessionStorage.setItem(rndSname, rndSvalue);
+  //console.log("setItem SS: "+rndSname+" , "+rndSvalue);
+  // getItem
+  if(!sessionStorage.getItem(rndSname)) {domSS="no"}
+  else {
+    domSS="yes";
+    //console.log("getItem SS: "+ sessionStorage.getItem(rndSname));
+  };
+}
+catch(err) {domSS = "no";};
+dom.storageSessionTest = domSS;
 
 // indexedDB
-try {var db = indexedDB.open("IDB");
-     db.onerror = function() {dom.IDB = "yes";};
-     db.onsuccess = function() {dom.IDB = "no";};}
-catch(err) {dom.IDB = "no";}
 
 // appCache: https://developer.mozilla.org/en-US/docs/Web/HTML/Using_the_application_cache
 // window.applicationCache.status == 2
 
 // workers
-if (typeof(Worker) !== "undefined") {dom.workerCheck="yes"} else {dom.workerCheck="no"};
+if (typeof(Worker) !== "undefined") {dom.workerSupported="yes"} else {dom.workerSupported="no"};
