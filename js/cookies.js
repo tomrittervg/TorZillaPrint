@@ -95,12 +95,12 @@ else {swTest = "no"};
 dom.sharedWTest = swTest;
 
 // service worker support
-var swSupport = ""
+var swSupport = "";
 if ('serviceWorker' in navigator) {swSupport="yes"} else {swSupport="no"};
 dom.serviceWSupport = swSupport;
 // service worker test
 if (swSupport == "yes"){
-    dom.serviceWSuuport="supported: test to come"
+    dom.serviceWTest="supported: test to come"
    }
 else {dom.serviceWTest="no"};
 // service worker cache
