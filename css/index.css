@@ -1,54 +1,46 @@
 :root{
 	--test1: #dc8c8c;
-	--test2: #dca08c;
-	--test3: #dcb48c;
-	--test4: #dcc88c;
-	--test5: #dcdc8c;
-	--test6: #c8dc8c;
-	--test7: #b4dc8c;
-	--test8: #a0dc8c;
-	--test9: #8cdc8c;
-	--test10: #8cdca0;
-	--test11: #8cdcb4;
-	--test12: #8cdcc8;
-	--test13: #8cdcdc;
-	--test14: #8cc8dc;
-	--test15: #8cb4dc;
-	--test16: #8ca0dc;
-	--test17: #8c8cdc;
-	--test18: #a08cdc;
-	--test19: #b48cdc;
-	--test20: #c88cdc;
+	--test2: #dca78c;
+	--test3: #dcc18c;
+	--test4: #dcdc8c;
+	--test5: #c1dc8c;
+	--test6: #a7dc8c;
+	--test7: #8cdc8c;
+	--test8: #8cdca7;
+	--test9: #8cdcc1;
+	--test10: #8cdcdc;
+	--test11: #8cc1dc;
+	--test12: #8ca7dc;
+	--test13: #8c8cdc;
+	--test14: #a78cdc;
+	--test15: #c18cdc;
+	--test16: #dc8cdc;
+	--test17: #dc8cc1;
+	--test18: #dc8ca7;
 }
 
-/* Color Schema
+/* Color Schema 18
     Sat: 93         Sat: 127
     Lum: 220        Lum: 240
     Hue :  BKGRND : TEXT
  1    0 : #dc8c8c : #f07878
- 2   15 : #dca08c : #f09678
- 3   30 : #dcb48c : #f0b478
- 4   45 : #dcc88c : #f0d278
- 5   60 : #dcdc8c : #f0f078
- 6   75 : #c8dc8c : #d2f078
- 7   90 : #b4dc8c : #b4f078
- 8  105 : #a0dc8c : #96f078
- 9  120 : #8cdc8c : #78f078
-10  135 : #8cdca0 : #78f096
-11  150 : #8cdcb4 : #78f0b4
-12  165 : #8cdcc8 : #78f0d2
-13  180 : #8cdcdc : #78f0f0
-14  195 : #8cc8dc : #78d2f0
-15  210 : #8cb4dc : #78b4f0
-16  225 : #8ca0dc : #7896f0
-17  240 : #8c8cdc : #7878f0
-18  255 : #a08cdc : #9678f0
-19  270 : #b48cdc : #b478f0
-20  285 : #c88cdc : #d278f0 << stop here for now
-21  300 : #dc8cdc : #f078f0
-22  315 : #dc8cc8 : #f078d2
-22  330 : #dc8cb4 : #f078b4
-24  345 : #dc8ca0 : #f07896
+ 2   20 : #dca78c : #f0a078
+ 3   40 : #dcc18c : #f0c878
+ 4   60 : #dcdc8c : #f0f078
+ 5   80 : #c1dc8c : #c8f078
+ 6  100 : #a7dc8c : #a0f078
+ 7  120 : #8cdc8c : #78f078
+ 8  140 : #8cdca7 : #78f0a0
+ 9  160 : #8cdcc1 : #78f0c8
+10  180 : #8cdcdc : #78f0f0
+11  200 : #8cc1dc : #78c8f0
+12  220 : #8ca7dc : #78a0f0
+13  240 : #8c8cdc : #7878f0
+14  260 : #a78cdc : #a078f0
+15  280 : #c18cdc : #c878f0
+16  300 : #dc8cdc : #f078f0
+17  320 : #dc8cc1 : #f078c8
+18  340 : #dc8ca7 : #f078a0
 */
 
 
@@ -214,25 +206,23 @@ table td.center {text-align: center; }
 
 /* Table Header Backgrounds */
 #tb1 th { background-color : #f07878 }
-#tb2 th { background-color : #f09678 }
-#tb3 th { background-color : #f0b478 }
-#tb4 th { background-color : #f0d278 }
-#tb5 th { background-color : #f0f078 }
-#tb6 th { background-color : #d2f078 }
-#tb7 th { background-color : #b4f078 }
-#tb8 th { background-color : #96f078 }
-#tb9 th { background-color : #78f078 }
-#tb10 th { background-color : #78f096 }
-#tb11 th { background-color : #78f0b4 }
-#tb12 th { background-color : #78f0d2 }
-#tb13 th { background-color : #78f0f0 }
-#tb14 th { background-color : #78d2f0 }
-#tb15 th { background-color : #78b4f0 }
-#tb16 th { background-color : #7896f0 }
-#tb17 th { background-color : #7878f0 }
-#tb18 th { background-color : #9678f0 }
-#tb19 th { background-color : #b478f0 }
-#tb20 th { background-color : #d278f0 }
+#tb2 th { background-color : #f0a078 }
+#tb3 th { background-color : #f0c878 }
+#tb4 th { background-color : #f0f078 }
+#tb5 th { background-color : #c8f078 }
+#tb6 th { background-color : #a0f078 }
+#tb7 th { background-color : #78f078 }
+#tb8 th { background-color : #78f0a0 }
+#tb9 th { background-color : #78f0c8 }
+#tb10 th { background-color : #78f0f0 }
+#tb11 th { background-color : #78c8f0 }
+#tb12 th { background-color : #78a0f0 }
+#tb13 th { background-color : #7878f0 }
+#tb14 th { background-color : #a078f0 }
+#tb15 th { background-color : #c878f0 }
+#tb16 th { background-color : #f078f0 }
+#tb17 th { background-color : #f078c8 }
+#tb18 th { background-color : #f078a0 }
 
 #tb1 td:first-child { color: var(--test1);}
 #tb2 td:first-child { color: var(--test2);}
@@ -245,14 +235,14 @@ table td.center {text-align: center; }
 #tb9 td:first-child { color: var(--test9);}
 #tb10 td:first-child { color: var(--test10);}
 #tb11 td:first-child { color: var(--test11);}
+#tb12 td:first-child { color: var(--test12);}
 #tb13 td:first-child { color: var(--test13);}
 #tb14 td:first-child { color: var(--test14);}
 #tb15 td:first-child { color: var(--test15);}
 #tb16 td:first-child { color: var(--test16);}
 #tb17 td:first-child { color: var(--test17);}
 #tb18 td:first-child { color: var(--test18);}
-#tb19 td:first-child { color: var(--test19);}
-#tb20 td:first-child { color: var(--test20);}
+
 
 /* about:logo css test */
 #fdResourceCss {
