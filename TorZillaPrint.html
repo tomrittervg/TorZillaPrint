@@ -166,7 +166,10 @@
         <div class="nav-up"><a href="#headers">&#9650;</a></div>
         <div class="nav-down"><a href="#math">&#9660;</a></div></div>
     </th></tr></thead>
-    <tr><td colspan="2" class="left"><span class="no_color">Each individual <code>[test]</code>, on each run, uses a new random name and value, attempts to set them, and then to read the value back. Only when it successfully reads back the value is it deemed to be available and working.</span></td></tr>
+    <tr><td colspan="2" class="left"><span class="no_color">The <code>[cookie]</code>, <code>[localStorage]</code>, 
+      <code>[sessionStorage]</code> and <code> [indexedDB]</code> tests, on each run, each use a new random name and
+      value, attempt to set them, and then to read the value back. Only when it successfully reads back the value
+      is it deemed to be available and working.</span></td></tr>
     <tr><td>[navigator] cookieEnabled</td><td id="nCookieEnabled"></td></tr>
     <tr><td>[test] 1st party cookie</td><td id="cookieTest"></td></tr>
     <tr><td>localStorage</td><td id="storageLSupport"></td></tr>
@@ -177,8 +180,8 @@
     <tr><td>[test] indexedDB</td><td id="IDBTest"></td></tr>
     <tr><td>appCache</td><td id="appCacheTest"></td></tr>
     <tr><td>worker</td><td id="workerSupport"></td></tr>
-    <tr><td>[test] web worker</td><td></td></tr>
-    <tr><td>shared worker</td><td></td></tr>
+    <tr><td>[test] web worker</td><td id="webWTest"></td></tr>
+    <tr><td>[test] shared worker</td><td id="sharedWTest"></td></tr>
     <tr><td>service worker</td><td></td></tr>
     <tr><td>service worker cache</td><td></td></tr>
     <tr><td>requestIdleCallback</td><td></td></tr>
