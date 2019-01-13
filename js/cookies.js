@@ -15,9 +15,8 @@ function getCookie(cname) {
   return "";
 };
 
-// cookie supported
+// cookie support
 dom.nCookieEnabled = navigator.cookieEnabled;
-
 // cookie test
 var rndCname = Math.random().toString(36).substring(2, 15);
 var rndCvalue = Math.random().toString(36).substring(2, 15);
@@ -25,11 +24,10 @@ document.cookie = rndCname+"="+rndCvalue;
 var cUser =  getCookie(rndCname);
 if (cUser != ""){dom.cookieTest="yes"} else { dom.cookieTest="no"};
 
-// localStorage supported
+// localStorage support
 try {if (typeof(localStorage) != "undefined") {dom.storageLSupport="yes"}
      else {dom.storageLSupport="no: undefined"};}
 catch(err) {dom.storageLSupport="no: catch(err)"};
-
 // localStorage test
 var rndSname = Math.random().toString(36).substring(2, 15);
 var rndSvalue = Math.random().toString(36).substring(2, 15);
@@ -39,11 +37,10 @@ try {localStorage.setItem(rndSname, rndSvalue);
 catch(err) {domLS = "no: catch(err)"};
 dom.storageLTest = domLS;
 
-// sessionStorage supported
+// sessionStorage support
 try {if (typeof(sessionStorage) != "undefined") {dom.storageSSupport="yes"}
      else {dom.storageSSupport="no: undefined"};}
 catch(err) {dom.storageSSupport="no: catch(err)"};
-
 // sessionStorage test
 var rndSname = Math.random().toString(36).substring(2, 15);
 var rndSvalue = Math.random().toString(36).substring(2, 15);
@@ -53,10 +50,9 @@ try {sessionStorage.setItem(rndSname, rndSvalue);
 catch(err) {domSS = "no: catch(err)"};
 dom.storageSTest = domSS;
 
-// indexedDB supported
+// indexedDB support
 try {if (!window.indexedDB) {dom.IDBSupport="no"} else {dom.IDBSupport="yes"};}
 catch(err) {dom.IDBSupport="no: catch(err)"};
-
 // indexedDB test
 var rndIDB = Math.random().toString(36).substring(2, 15);
 try {
@@ -71,5 +67,29 @@ catch(err) {dom.IDBTest = "no: catch(err)"};
 // appCache: https://developer.mozilla.org/en-US/docs/Web/HTML/Using_the_application_cache
 // window.applicationCache.status == 2
 
-// workers supported
+// worker support
 if (typeof(Worker) !== "undefined") {dom.workerSupport="yes"} else {dom.workerSupport="no"};
+
+// web worker test
+var wwTest = "unknown"; var wwt;
+if (typeof(Worker) !== "undefined") {
+  wwt = new Worker("worker.js");
+  wwt.onmessage = wwTest="yes";
+  wwt.terminate();
+  }
+else {wwTest = "no"};
+dom.webWTest = wwTest;
+
+// shared worker test
+var swTest = "unknown"; var swt;
+if (typeof(Worker) !== "undefined") {
+  try {
+    swt = new SharedWorker("sharedworker.js");
+    swt.port.start();
+    swt.port.postMessage("are you there");
+    swt.port.onmessage = swTest="yes";
+  }
+  catch(err) {swTest = "no: catch(err)"};
+  }
+else {swTest = "no"};
+dom.sharedWTest = swTest;
