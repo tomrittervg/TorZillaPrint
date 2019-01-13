@@ -84,7 +84,7 @@ dom.webWTest = wwTest;
 var swTest = "unknown"; var swt;
 if (typeof(Worker) !== "undefined") {
   try {
-    swt = new SharedWorker("sharedworker.js");
+    swt = new SharedWorker("workershared.js");
     swt.port.start();
     swt.port.postMessage("are you there");
     swt.port.onmessage = swTest="yes";
@@ -93,3 +93,18 @@ if (typeof(Worker) !== "undefined") {
   }
 else {swTest = "no"};
 dom.sharedWTest = swTest;
+
+// service worker support
+var swSupport = ""
+if ('serviceWorker' in navigator) {swSupport="yes"} else {swSupport="no"};
+dom.serviceWSupport = swSupport;
+// service worker test
+if (swSupport == "yes"){
+    dom.serviceWSuuport="supported: test to come"
+   }
+else {dom.serviceWTest="no"};
+// service worker cache
+if (swSupport == "yes"){
+    dom.serviceWCache="supported: test to come"
+   }
+else {dom.serviceWCache="no"};
