@@ -164,7 +164,7 @@
     <thead><tr><th colspan="2">
         <div class="nav-title"><a href="#cookies">Cookies & Storage</a>
         <div class="nav-up"><a href="#headers">&#9650;</a></div>
-        <div class="nav-down"><a href="#math">&#9660;</a></div></div>
+        <div class="nav-down"><a href="#devices">&#9660;</a></div></div>
     </th></tr></thead>
     <tr><td colspan="2" class="left"><span class="no_color">The <code>[cookie]</code>, <code>[localStorage]</code>, 
       <code>[sessionStorage]</code> and <code> [indexedDB]</code> tests, on each run, each use a new random name and
@@ -194,12 +194,23 @@
     <tr><td>Fetch API</td><td></td></tr>
   </table>
 
-  <!-- TABLE 6: Math - math.js-->
+  <!-- TABLE 6: Devices & Hardware - devices.js -->
   <table id="tb6">
+    <col width="50%"><a name="devices"></a><col width="50%">
+    <thead><tr><th colspan="2">
+        <div class="nav-title"><a href="#devices">Devices & Hardware</a>
+        <div class="nav-up"><a href="#cookies">&#9650;</a></div>
+        <div class="nav-down"><a href="#math">&#9660;</a></div></div>
+    </th></tr></thead>
+    <tr><td>test</td><td>result</td></tr>
+  </table>
+
+  <!-- TABLE 7: Math - math.js-->
+  <table id="tb7">
     <col width="50%"><a name="math"></a><col width="50%">
     <thead><tr><th colspan="2">
         <div class="nav-title"><a href="#math">Math</a>
-        <div class="nav-up"><a href="#cookies">&#9650;</a></div>
+        <div class="nav-up"><a href="#devices">&#9650;</a></div>
         <div class="nav-down"><a href="#canvas">&#9660;</a></div></div>
     </th></tr></thead>
     <tr><td>asinh(1)</td><td id="math1"></td></tr>
@@ -215,13 +226,13 @@
       <a target="_blank" class="blue" href="https://fpcentral.tbb.torproject.org/">Fingerprint Central</a></td></tr>
   </table>
 
-  <!-- TABLE 7: Canvas - canvas.js -->
-  <table id="tb7">
+  <!-- TABLE 8: Canvas - canvas.js -->
+  <table id="tb8">
     <col width="25%"><a name="canvas"></a><col width="75%">
     <thead><tr><th colspan="2">
         <div class="nav-title"><a href="#canvas">Canvas</a>
         <div class="nav-up"><a href="#math">&#9650;</a></div>
-        <div class="nav-down"><a href="#audio">&#9660;</a></div></div>
+        <div class="nav-down"><a href="#clientrect">&#9660;</a></div></div>
     </th></tr></thead>
     <tr><td>getContext</td><td class="getContext"></td></tr>
     <tr><td>toDataURL</td><td class="toDataURL"></td></tr>
@@ -239,13 +250,57 @@
       <a target="_blank" class="blue" href="https://github.com/kkapsner/CanvasBlocker">CanvasBlocker</a></td></tr>
   </table>
 
-  <!-- TABLE 8: Audio - audio.js -->
-  <table id="tb8">
+  <!-- TABLE 9: ClientRect - clientrect.js -->
+  <table id="tb9">
+    <col width="50%"><a name="clientrect"></a><col width="50%">
+    <thead><tr><th colspan="2">
+        <div class="nav-title"><a href="#clientrect">ClientRect</a>
+        <div class="nav-up"><a href="#canvas">&#9650;</a></div>
+        <div class="nav-down"><a href="#fonts">&#9660;</a></div></div>
+    </th></tr></thead>
+    <tr><td>test</td><td>result</td></tr>
+  </table>
+
+  <!-- TABLE 10: Fonts - fonts.js -->
+  <table id="tb10">
+    <col width="50%"><a name="fonts"></a><col width="50%">
+    <thead><tr><th colspan="2">
+        <div class="nav-title"><a href="#fonts">Fonts</a>
+        <div class="nav-up"><a href="#clientrect">&#9650;</a></div>
+        <div class="nav-down"><a href="#fontsunicode">&#9660;</a></div></div>
+    </th></tr></thead>
+    <tr><td>test</td><td>result</td></tr>
+  </table>
+
+  <!-- TABLE 11: Fonts - fontsunicode.js -->
+  <table id="tb11">
+    <col width="50%"><a name="fontsunicode"></a><col width="50%">
+    <thead><tr><th colspan="2">
+        <div class="nav-title"><a href="#fontsunicode">Fonts [Unicode Glyphs Measurement]</a>
+        <div class="nav-up"><a href="#fonts">&#9650;</a></div>
+        <div class="nav-down"><a href="#media">&#9660;</a></div></div>
+    </th></tr></thead>
+    <tr><td>test</td><td>result</td></tr>
+  </table>
+
+  <!-- TABLE 12: Media - media.js -->
+  <table id="tb12">
+    <col width="50%"><a name="media"></a><col width="50%">
+    <thead><tr><th colspan="2">
+        <div class="nav-title"><a href="#media">Media</a>
+        <div class="nav-up"><a href="#fontsunicode">&#9650;</a></div>
+        <div class="nav-down"><a href="#audio">&#9660;</a></div></div>
+    </th></tr></thead>
+    <tr><td>test</td><td>result</td></tr>
+  </table>
+
+  <!-- TABLE 13: Audio - audio.js -->
+  <table id="tb13">
     <col width="40%"><a name="audio"></a><col width="60%">
     <thead><tr><th colspan="2">
         <div class="nav-title"><a href="#audio">Audio</a>
-        <div class="nav-up"><a href="#canvas">&#9650;</a></div>
-        <div class="nav-down"><a href="#fonts">&#9660;</a></div></div>
+        <div class="nav-up"><a href="#media">&#9650;</a></div>
+        <div class="nav-down"><a href="#webgl">&#9660;</a></div></div>
     </th></tr></thead>
     <tr><td>hash of audio values</td><td id="audiohash"></td></tr>
     <tr><td colspan="2" class="center">------</td></tr>
@@ -275,44 +330,57 @@
       <a target="_blank" class="blue" href="https://fpcentral.tbb.torproject.org/">Fingerprint Central</a></td></tr>
   </table>
 
-  <!-- TABLE 9: Fonts - fonts.js -->
-  <table id="tb9">
-    <col width="50%"><a name="fonts"></a><col width="50%">
+  <!-- TABLE 14: WebGL - webgl.js -->
+  <table id="tb14">
+    <col width="50%"><a name="webgl"></a><col width="50%">
     <thead><tr><th colspan="2">
-        <div class="nav-title"><a href="#fonts">Fonts</a>
+        <div class="nav-title"><a href="#webgl">WebGL</a>
         <div class="nav-up"><a href="#audio">&#9650;</a></div>
-        <div class="nav-down"><a href="#clientrect">&#9660;</a></div></div>
+        <div class="nav-down"><a href="#css">&#9660;</a></div></div>
     </th></tr></thead>
     <tr><td>test</td><td>result</td></tr>
   </table>
 
-  <!-- TABLE 10: CllentRect - clientrect.js -->
-  <table id="tb10">
-    <col width="50%"><a name="clientrect"></a><col width="50%">
+  <!-- TABLE 15: CSS - css.js -->
+  <table id="tb15">
+    <col width="50%"><a name="css"></a><col width="50%">
     <thead><tr><th colspan="2">
-        <div class="nav-title"><a href="#clientrect">ClientRect</a>
-        <div class="nav-up"><a href="#fonts">&#9650;</a></div>
-        <div class="nav-down"><a href="#media">&#9660;</a></div></div>
+        <div class="nav-title"><a href="#css">CSS</a>
+        <div class="nav-up"><a href="#webgl">&#9650;</a></div>
+        <div class="nav-down"><a href="#ciphers">&#9660;</a></div></div>
     </th></tr></thead>
     <tr><td>test</td><td>result</td></tr>
   </table>
 
-  <!-- TABLE 11: Media - media.js -->
-  <table id="tb11">
-    <col width="50%"><a name="media"></a><col width="50%">
+  <!-- TABLE 16: Ciphers / TLS - ciphers.js -->
+  <table id="tb16">
+    <col width="50%"><a name="ciphers"></a><col width="50%">
     <thead><tr><th colspan="2">
-        <div class="nav-title"><a href="#media">Media</a>
-        <div class="nav-up"><a href="#clientrect">&#9650;</a></div>
-        <div class="nav-down"><a href="">&#9660;</a></div></div>
+        <div class="nav-title"><a href="#ciphers">Ciphers / TLS</a>
+        <div class="nav-up"><a href="#css">&#9650;</a></div>
+        <div class="nav-down"><a href="#spare">&#9660;</a></div></div>
     </th></tr></thead>
     <tr><td>test</td><td>result</td></tr>
   </table>
 
-  <!-- TABLE 12: lots more to come -->
-  <!-- geo & wifi & network info, keyboard, webgl, apis, permissions, pointers, miscellaneous -->
-  <table id="tb12">
-    <col width="50%"><a name=""></a><col width="50%">
-    <thead><tr><th colspan="2"><a href="">lots more to come</a></th></tr></thead>
+  <!-- TABLE 17: -->
+  <table id="tb17">
+    <col width="50%"><a name="spare"></a><col width="50%">
+    <thead><tr><th colspan="2">
+        <div class="nav-title"><a href="#spare">oh no, i'm empty</a>
+        <div class="nav-up"><a href="#ciphers">&#9650;</a></div>
+        <div class="nav-down"><a href="#misc">&#9660;</a></div></div>
+    </th></tr></thead>
+    <tr><td>test</td><td>result</td></tr>
+  </table>
+
+  <!-- TABLE 18: Miscellaneous - misc.js -->
+  <table id="tb18">
+    <col width="50%"><a name="misc"></a><col width="50%">
+    <thead><tr><th colspan="2">
+        <div class="nav-title"><a href="#misc">Miscellaneous</a>
+        <div class="nav-up"><a href="#spare">&#9650;</a></div></div>
+    </th></tr></thead>
     <tr><td>test</td><td>result</td></tr>
   </table>
 
