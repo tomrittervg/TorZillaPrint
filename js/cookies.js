@@ -108,3 +108,8 @@ if (swSupport == "yes"){
     dom.serviceWCache="supported: test to come"
    }
 else {dom.serviceWCache="no"};
+
+// permissions
+navigator.permissions.query({name:"persistent-storage"}).then(e => dom.pPersistentStorage=e.state);
+navigator.permissions.query({name:"notifications"}).then(e => dom.pNotifications=e.state);
+navigator.permissions.query({name:"push"}).then(e => dom.pPush=e.state);
