@@ -2,6 +2,17 @@
 
 'use strict';
 
+dom.nAppName = navigator.appName;
+dom.nAppVersion = navigator.appVersion;
+dom.nBuildID = navigator.buildID;
+dom.nCodeName = navigator.appCodeName;
+dom.nOscpu = navigator.oscpu;
+dom.nPlatform = navigator.platform;
+dom.nProduct = navigator.product;
+dom.nProductSub = navigator.productSub;
+dom.nUserAgent = navigator.userAgent;
+
+// browser: resource
 (() => {
   const FFImg = new Image();
   //FFImg.src = "about:logo";
@@ -16,22 +27,18 @@
   };
 })();
 
+// browesr: feature detection
 if (isNaN(window.mozPaintCount) === false){ dom.fdPaintCount="Firefox"};
-/* feature detection: we don't need to do all of these
-if (isNaN(window.mozInnerScreenX) === false){ dom.fdScreenX="Firefox"};
-if (isNaN(window.window.scrollMaxX) === false){ dom.fdScrollMaxX="Firefox"};
-if (navigator.oscpu == undefined){} else { dom.fdOscpu="Firefox"};
+/* 
+  if (isNaN(window.mozInnerScreenX) === false){ dom.fdScreenX="Firefox"};
+  if (isNaN(window.window.scrollMaxX) === false){ dom.fdScrollMaxX="Firefox"};
+  if (navigator.oscpu == undefined){} else { dom.fdOscpu="Firefox"};
 */
 
-dom.nAppName = navigator.appName;
-dom.nAppVersion = navigator.appVersion;
-dom.nBuildID = navigator.buildID;
-dom.nCodeName = navigator.appCodeName;
-dom.nOscpu = navigator.oscpu;
-dom.nPlatform = navigator.platform;
-dom.nProduct = navigator.product;
-dom.nProductSub = navigator.productSub;
-dom.nUserAgent = navigator.userAgent;
+// browser: math values
+let xfd; xfd = 1;
+if ((Math.exp(xfd) - 1) == 1.7182818284590455) {let yfd; yfd = Math.exp(xfd);
+  if (((yfd - 1 / yfd) / 2) == 1.1752011936438016) {dom.fdMath="Firefox"};};
 
 /* Firefox Version 60+ Detection */
 function getVerNo(){
