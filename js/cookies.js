@@ -81,33 +81,37 @@ else {wwTest = "no"};
 dom.webWTest = wwTest;
 
 // shared worker test
-var swTest = "unknown"; var swt;
-if (typeof(Worker) !== "undefined") {
-  try {
-    swt = new SharedWorker("workershared.js");
-    swt.port.start();
-    swt.port.postMessage("are you there");
-    swt.port.onmessage = swTest="yes";
-  }
-  catch(err) {swTest = "no: catch(err)"};
-  }
-else {swTest = "no"};
-dom.sharedWTest = swTest;
+if ((location.protocol) !== "file:") {
+  var swTest = "unknown"; var swt;
+  if (typeof(Worker) !== "undefined") {
+    try {
+      swt = new SharedWorker("workershared.js");
+      swt.port.start();
+      swt.port.postMessage("are you there");
+      swt.port.onmessage = swTest="yes";
+    }
+    catch(err) {swTest = "no: catch(err)"};
+    }
+  else {swTest = "no"};
+  dom.sharedWTest = swTest;
+};
 
 // service worker support
-var swSupport = "";
-if ('serviceWorker' in navigator) {swSupport="yes"} else {swSupport="no"};
-dom.serviceWSupport = swSupport;
-// service worker test
-if (swSupport == "yes"){
-    dom.serviceWTest="supported: test to come"
-   }
-else {dom.serviceWTest="no"};
-// service worker cache
-if (swSupport == "yes"){
-    dom.serviceWCache="supported: test to come"
-   }
-else {dom.serviceWCache="no"};
+if ((location.protocol) !== "file:") {
+  var swSupport = "";
+  if ('serviceWorker' in navigator) {swSupport="yes"} else {swSupport="no"};
+  dom.serviceWSupport = swSupport;
+  // service worker test
+  if (swSupport == "yes"){
+      dom.serviceWTest="supported: test to come"
+     }
+  else {dom.serviceWTest="no"};
+  // service worker cache
+  if (swSupport == "yes"){
+      dom.serviceWCache="supported: test to come"
+     }
+  else {dom.serviceWCache="no"};
+};
 
 // permissions
 navigator.permissions.query({name:"persistent-storage"}).then(e => dom.pPersistentStorage=e.state);
