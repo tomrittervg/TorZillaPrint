@@ -3,4 +3,5 @@
 'use strict';
 
 if ("mediaCapabilities" in navigator) {dom.nMediaCapabilities="enabled"}
-  else {dom.nMediaCapabilities="disabled or not supported"};
+  else {if (Symbol.for(`foo`).description == "foo"){dom.nMediaCapabilities="disabled"}
+    else {dom.nMediaCapabilities="not supported"};};
