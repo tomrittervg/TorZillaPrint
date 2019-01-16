@@ -2,12 +2,13 @@
 
 *.md text
 
-*.png binary
-*.jpg binary
-*.jpeg binary
+*.eps binary
 *.gif binary
+*.ico binary
+*.jpeg binary
+*.jpg binary
+*.png binary
+*.svg binary
 *.tif binary
 *.tiff binary
-*.ico binary
-*.svg binary
-*.eps binary
+*.ttf binary
