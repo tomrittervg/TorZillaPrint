@@ -14,3 +14,13 @@ function getUniqueElements() {
     }
   });
 }
+
+function base64Encode(str, encoding = 'utf-8') {
+    var bytes = new (TextEncoder || TextEncoderLite)(encoding).encode(str);
+    return base64js.fromByteArray(bytes);
+}
+
+function base64Decode(str, encoding = 'utf-8') {
+    var bytes = base64js.toByteArray(str);
+    return new (TextDecoder || TextDecoderLite)(encoding).decode(bytes);
+}
