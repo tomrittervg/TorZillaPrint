@@ -5,118 +5,240 @@
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <title>TorZillaPrint</title>
   <link rel="stylesheet" type="text/css" href="css/index.css">
+  <script src="js/generic.js"></script>
+  <script src="js/globals.js"></script>
 </head>
 
 <body>
 
+  <a anchor="top"></a>
   <h2>TorZillaPrint</h2>
-
-  <h4><a target="_blank" href="https://github.com/ghacksuserjs/TorZillaPrint">github repo</a></h4>
+  <h3>TZP is only designed for Firefox and the Tor Browser, and only expected to work in 60 or higher.<br>
+    If you want to know more, find bugs, or wish to contribute, come and visit us at <a target="_blank"
+    class="blue" href="https://github.com/ghacksuserjs/TorZillaPrint">github</a>
+  <br>&nbsp;</h3>
 
   <!-- TABLE 1: Screen - screen.js -->
-  <table id=tb1>
-    <col width="50%"><col width="50%">
-    <thead><tr><th colspan="2">Screen</th></tr></thead>
-    <tr><td>screen resolution</td><td id=ScrRes></td></tr>
-    <tr><td><div class="tooltip"><span class="icon info-icon"></span><span class="tooltiptext">real time update if<br>spoofing inner window<br>range 500-3000</span></div><span class="no_color"> [no js]</span> css screen resolution <sup>1</sup></td><td id="S"></td></tr>
-    <tr><td>available resolution</td><td id=ScrAvail></td></tr>
-    <tr><td>outer window</td><td id=WndOut></td></tr>
-    <tr><td>inner window</td><td id=WndIn></td></tr>
-    <tr><td><div class="tooltip"><span class="icon info-icon"></span><span class="tooltiptext">real time update<br>range 500-3000</span></div><span class="no_color"> [no js]</span> css inner window <sup>1</sup></td><td id="D"></td></tr>
-    <tr><td>viewport <sup>2</sup></td><td id="Viewport"></td></tr>
-    <tr><td>full screen</td><td id=IsFS></td></tr>
-    <tr><td><span class="no_color">[click here]</span> [api] full screen <sup>2</sup></td><td></td></tr>
-    <tr><td>private window</td><td id=IsPBMode></td></tr>
-    <tr><td>orientation</td><td id=ScrOrient></td></tr>
-    <tr><td>[matchMedia] window orientation</td><td id=mmOrient></td></tr>
-    <tr><td>[math: screen width vs height] window orientation</td><td id=mathOrient></td></tr>
-    <tr><td>pixel depth</td><td id=PixDepth></td></tr>
-    <tr><td>color depth</td><td id=ColDepth></td></tr>
-    <tr><td>[js] dpi</td><td id=jsDPI></td ></tr>
-    <tr><td><span class="no_color">[no js]</span> [css media] dpi</td><td id="P"></td></tr>
-    <tr><td>[matchMedia] dpi</td><td id=mmDPI></td></tr>
+  <table id="tb1">
+    <col width="50%"><a name="screen"></a><col width="50%">
+    <thead><tr><th colspan="2">
+      <div class="nav-title"><a href="#screen">Screen</a>
+        <div class="nav-up"><a href="#top">&#9650;</a></div>
+        <div class="nav-down"><a href="#useragent">&#9660;</a></div></div>
+    </th></tr></thead>
+    <tr><td>screen resolution</td><td id="ScrRes"></td></tr>
+    <tr><td><div class="tooltip"><code>[i]</code><span class="tooltiptext">real time update if<br>spoofing inner window:<br>range 500-3000</span></div> [css] screen resolution <sup>1</sup></td><td id="S"></td></tr>
+    <tr><td>available resolution</td><td id="ScrAvail"></td></tr>
+    <tr><td>outer window</td><td id="WndOut"></td></tr>
+    <tr><td>inner window</td><td id="WndIn"></td></tr>
+    <tr><td><div class="tooltip"><code>[i]</code><span class="tooltiptext">real time update:<br>range 500-3000</span></div> [css] inner window <sup>1, 2</sup></td><td id="D"></td></tr>
+    <tr><td>viewport <sup>3</sup></td><td id="Viewport"></td></tr>
+    <tr><td>full screen</td><td id="IsFS"></td></tr>
+    <tr><td><span class="no_color">[click here]</span> [api] full screen <sup>3</sup></td><td></td></tr>
+    <tr><td>private window</td><td id="IsPBMode"></td></tr>
+    <tr><td>orientation</td><td id="ScrOrient"></td></tr>
+    <tr><td>[matchMedia] window orientation</td><td id="mmOrient"></td></tr>
+    <tr><td>[inner width vs inner height] window orientation</td><td id="mathOrient"></td></tr>
+    <tr><td>pixel depth</td><td id="PixDepth"></td></tr>
+    <tr><td>color depth</td><td id="ColDepth"></td></tr>
+    <tr><td>dpi</td><td id="jsDPI"></td ></tr>
+    <tr><td>[css] dpi</td><td id="P"></td></tr>
+    <tr><td>[matchMedia] dpi</td><td id="mmDPI"></td></tr>
     <tr><td>hidpi</td><td></td></tr>
-    <tr><td><div class="tooltip"><span class="icon info-icon"></span><span class="tooltiptext">might break<br> with HiDPI</span></div>zoom</td><td id=jsZoom></td></tr>
-    <tr><td>devicePixelRatio</td><td id=DevPR></td></tr>
-    <tr><td colspan="2"><span class="no_color">screen code based on work by</span> <sup>1</sup>
-      <a target="_blank" href="https://github.com/arthuredelstein">Arthur Edelstein</a><span class="no_color"> and </span>
-      <sup>2</sup> <a target="_blank" href="https://github.com/earthlng/testpages">earthlng</a></td></tr>
+    <tr><td><div class="tooltip"><code>[i]</code><span class="tooltiptext">might break<br> with HiDPI</span></div> zoom %</td><td id="jsZoom"></td></tr>
+    <tr><td>devicePixelRatio</td><td id="DevPR"></td></tr>
+    <tr><td colspan="2"><span class="no_color">code based on work by </span>
+      <sup>1</sup><a target="_blank" class="blue" href="https://arthuredelstein.github.io/tordemos/media-query-fingerprint.html">Arthur Edelstein</a>
+      <span class="no_color">,</span>
+      <sup>2</sup> <a target="_blank" class="blue" href="https://matt.traudt.xyz/posts/how-css-alone-YF4ciVY6.html">Matt Traudt</a>
+      <span class="no_color"> and </span>
+      <sup>3</sup> <a target="_blank" class="blue" href="https://github.com/earthlng/testpages">earthlng</a></td></tr>
   </table>
 
 	<div id='testdpi' style='height: 1in; left: -100%; position: absolute; top: -100%; width: 1in;'></div>
 
-  <!-- TABLE 2: User Agent - user.js -->
-  <table id=tb2>
-    <col width="35%"><col width="65%">
-    <thead><tr><th colspan="2">User Agent</th></tr></thead>
-    <tr><td>[header] user agent</td><td></td></tr>
-    <tr><td>[navigator] userAgent</td><td id=nUserAgent></td></tr>
-    <tr><td>[navigator] appCodeName</td><td id=nCodeName></td></tr>
-    <tr><td>[navigator] appName</td><td id=nAppName></td></tr>
-    <tr><td>[navigator] product</td><td id=nProduct></td></tr>
-    <tr><td>[chrome://] browser</td><td id=IsFF></td></tr>
-    <tr><td>[feature result] browser</td><td></td></tr>
-    <tr><td>[feature detection] browser</td><td></td></tr>
-    <tr><td>[navigator] appVersion</td><td id=nAppVersion></td></tr>
-    <tr><td>[navigator] oscpu</td><td id=nOscpu></td></tr>
-    <tr><td>[navigator] platform</td><td id=nPlatform></td></tr>
-    <tr><td><span class="no_color">[experimental]</span> [scrollbar width] os</td><td></td></tr>
+  <!-- TABLE 2: User Agent - useragent.js -->
+  <table id="tb2">
+    <col width="35%"><a name="useragent"></a><col width="65%">
+    <thead><tr><th colspan="2">
+      <div class="nav-title"><a href="#useragent">User Agent</a>
+        <div class="nav-up"><a href="#screen">&#9650;</a></div>
+        <div class="nav-down"><a href="#language">&#9660;</a></div></div>
+    </th></tr></thead>
+    <tr><td colspan="2" class="left"><span class="no_color">The <code>browser</code>, <code>version</code> and <code>os</code> tests are only to show how trivial it is to detect that you are using Firefox, the version and possibly your os.</span></td></tr>
+    <tr><td>[header] http_user_agent</td><td></td></tr>
+    <tr><td>[navigator] userAgent</td><td id="nUserAgent"></td></tr>
+    <tr><td>[navigator] appCodeName</td><td id="nCodeName"></td></tr>
+    <tr><td>[navigator] appName</td><td id="nAppName"></td></tr>
+    <tr><td>[navigator] product</td><td id="nProduct"></td></tr>
+    <tr><td>[navigator] appVersion</td><td id="nAppVersion"></td></tr>
+    <tr><td>[navigator] oscpu</td><td id="nOscpu"></td></tr>
+    <tr><td>[navigator] platform</td><td id="nPlatform"></td></tr>
+    <tr><td>[navigator] buildID</td><td id="nBuildID"></td></tr>
+    <tr><td>[navigator] productSub</td><td id="nProductSub"></td></tr>
+    <tr><td colspan="2" class="center">---browser, version, os---</td></tr>
+    <tr><td>[css] browser</td><td id="fdResourceCss"></td></tr>
+    <tr><td>[chrome://] browser</td><td id="fdResource"></td></tr>
+    <tr><td><div class="tooltip"><code>[i]</code><span class="tooltiptext"><b>expm1(1)</b> and <b>sinh(1)</b></span></div> [math] browser</td><td id="fdMath"></td></tr>
+    <tr><td><div class="tooltip"><code>[i]</code><span class="tooltiptext"><b>feature detection:</b>
+      <br>we could also use<br>mozGetAsFile<br>mozInnerScreenX<br>mozScreenX<br>oscpu<br>scrollMaxX</span>
+      </div> [mozPaintCount] browser</td><td id="fdPaintCount"></td></tr>
+    <tr><td><div class="tooltip"><code>[i]</code><span class="tooltiptext"><b>feature detection:</b>
+      <br>firefox 60+ only</span></div> version</td><td id="versionNo"></td></tr>
+    <tr><td><div class="tooltip"><code>[i]</code>
+      <span class="tooltiptext">use_document_fonts<br>= 0 breaks this</span></div> [css] os <sup>1</sup></td>
+      <td><span style="font-family: Arimo, DejaVu Serif, Adobe Blank Not Linux;">Linux</span>
+        <span style="font-family: Lucida Grande, Adobe Blank Not Mac;">Mac</span>
+        <span style="font-family: Segoe UI, Adobe Blank Not Windows;">Windows</span></td></tr>
+    <tr><td>[css line-height] os</td><td></td></tr>
+    <tr><td><div class="tooltip"><code>[i]</code>
+      <span class="tooltiptext">relies on accurate<br>zoom detection</span></div> [scrollbar width] os <sup>2, 3</sup></td><td></td></tr>
     <tr><td>[tcp/ip] os</td><td></td></tr>
-    <tr><td><div class="tooltip"><span class="icon info-icon"></span><span class="tooltiptext">tor browser only</span></div><span class="no_color"> [no js]</span> [css fonts] os</td><td></td></tr>
-    <tr><td>[navigator] buildID</td><td id=nBuildID></td></tr>
-    <tr><td>[navigator] productSub</td><td id=nProductSub></td></tr>
+    <tr><td colspan="2"><span class="no_color">code based on work by </span>
+      <sup>1</sup><a target="_blank" class="blue" href="https://arthuredelstein.github.io/tordemos/os-detection-font-css.html">Arthur Edelstein</a>
+      <span class="no_color">, </span>
+      <sup>2</sup> <a target="_blank" class="blue" href="https://www.hackerfactor.com/blog/index.php?/archives/761-Exploiting-the-TOR-Browser.html">Dr. Neal Krawetz</a>
+      <span class="no_color">and </span>
+      <sup>3</sup> <a target="_blank" class="blue" href="https://github.com/earthlng/testpages">earthlng</a></td></tr>
   </table>
 
-  <!-- TABLE 3:  Language & Locale / Time Zone & Date Format - language.js -->
-  <table id=tb3>
-    <col width="50%"><col width="50%">
-    <thead><tr><th colspan="2">Language & Locale / Time Zone & Date Format</th></tr></thead>
-    <tr><td>[navigator] language</td><td id=nLanguage>result</td></tr>
+  <!-- TABLE 3:  Language & Locale / Time Zone & Date Format / Geolocation - language.js -->
+  <table id="tb3">
+    <col width="35%"><a name="language"></a><col width="65%">
+    <thead><tr><th colspan="2">
+      <div class="nav-title"><a href="#language">Language & Locale / Time Zone & Date Format / Geolocation</a>
+        <div class="nav-up"><a href="#useragent">&#9650;</a></div>
+        <div class="nav-down"><a href="#headers">&#9660;</a></div></div>
+    </th></tr></thead>
     <tr><td>[header] http_accept_language</td><td></td></tr>
+    <tr><td>[navigator] languages</td><td id="nLanguages"></td></tr>
+    <tr><td>[navigator] language</td><td id="nLanguage"></td></tr>
+    <tr><td>[navigator] languages[0]</td><td id="nLanguages0"></td></tr>
+    <tr><td>[Intl.PluralRules] locale</td><td id="localeIPR"></td></tr>
+    <tr><td>[resolvedOptions] locale</td><td id="localeRO"></td></tr>
+    <tr><td>time zone offsets</td><td id="tzOffsets"></td></tr>
+    <tr><td>system date/time</td><td id="dateSystem"></td></tr>
+    <tr><td>toString</td><td id="dateString"></td></tr>
+    <tr><td>[long] toLocaleString</td><td id="lngdateLS"></td></tr>
+    <tr><td>[long] toLocaleDateString</td><td id="lngdateLDS"></td></tr>
+    <tr><td>[long] toLocaleTimeString</td><td id="lngdateLTS"></td></tr>
+    <tr><td>[long] Intl.DateTimeFormat</td><td id="lngdateIDTF"></td></tr>
+    <tr><td>[formatToParts] Intl.DateTimeFormat</td><td id="dateFTP"></td></tr>
+    <tr><td>toGMTString</td><td id="dateGMT"></td></tr>
+    <tr><td>toUTCString</td><td id="dateUTC"></td></tr>
+    <tr><td>toLocaleString</td><td id="dateLS"></td></tr>
+    <tr><td>[Typed Array] toLocaleString</td><td id="dateTAtoLS"></td></tr>
+    <tr><td>toLocaleDateString</td><td id="dateLDS"></td></tr>
+    <tr><td>Intl.DateTimeFormat</td><td id="dateIDTF"></td></tr>
+    <tr><td>toLocaleTimeString</td><td id="dateLTS"></td></tr>
+    <tr><td>toTimeString</td><td id="dateTS"></td></tr>
+    <tr><td>[formatToParts] Intl.NumberFormat</td><td id="numFTP"></td></tr>
+    <tr><td>[resolvedOptions] hourCycle</td><td id="hourRO"></td></tr>
+    <tr><td>Intl.RelativeTimeFormat</td><td id="dateIRTF"></td></tr>
+    <tr><td>[resolvedOptions] calendar</td><td id="calendarRO"></td></tr>
+    <tr><td>[resolvedOptions] numberingSystem</td><td id="numsysRO"></td></tr>
+    <tr><td>[api] geolocation</td><td id="nGeolocation"></td></tr>
+    <tr><td>[permission] geolocation</td><td id="pGeolocation"></td></tr>
   </table>
 
   <!-- TABLE 4:  HTTP Headers - headers.js -->
-  <table id=tb4>
-    <col width="50%"><col width="50%">
-    <thead><tr><th colspan="2">HTTP Headers</th></tr></thead>
+  <table id="tb4">
+    <col width="50%"><a name="headers"></a><col width="50%">
+    <thead><tr><th colspan="2">
+        <div class="nav-title"><a href="#headers">HTTP Headers</a>
+        <div class="nav-up"><a href="#language">&#9650;</a></div>
+        <div class="nav-down"><a href="#cookies">&#9660;</a></div></div>
+    </th></tr></thead>
     <tr><td>http_accept</td><td></td></tr>
     <tr><td>http_accept_encoding</td><td></td></tr>
     <tr><td>http_dnt</td><td></td></tr>
-    <tr><td>[navigator] doNotTrack</td><td id=nDoNotTrack></td></tr>
+    <tr><td>[navigator] doNotTrack</td><td id="nDoNotTrack"></td></tr>
     <tr><td>http_upgrade_insecure_requests</td><td></td></tr>
     <tr><td>server_protocol</td><td></td></tr>
-    <tr><td>[navigator] connection</td><td id=nConnection></td></tr>
-    <tr><td>[navigator] online</td><td id=nOnLine></td></tr>
+    <tr><td>[navigator] connection</td><td id="nConnection"></td></tr>
+    <tr><td>[navigator] onLine</td><td id="nOnLine"></td></tr>
   </table>
 
   <!-- TABLE 5: Cookies & Storage - cookies.js -->
-  <table id=tb5>
-    <col width="50%"><col width="50%">
-    <thead><tr><th colspan="2">Cookies & Storage</th></tr></thead>
-    <tr><td>test</td><td>result</td></tr>
+  <table id="tb5">
+    <col width="50%"><a name="cookies"></a><col width="50%">
+    <thead><tr><th colspan="2">
+        <div class="nav-title"><a href="#cookies">Cookies & Storage</a>
+        <div class="nav-up"><a href="#headers">&#9650;</a></div>
+        <div class="nav-down"><a href="#devices">&#9660;</a></div></div>
+    </th></tr></thead>
+    <tr><td colspan="2" class="left"><span class="no_color">The <code>[cookie]</code>, <code>[localStorage]</code>, 
+      <code>[sessionStorage]</code> and <code> [indexedDB]</code> tests, on each run, each use a new random name and
+      value, attempt to set them, and then to read the value back. Only when it successfully reads back the value
+      is it deemed to be available and working.</span></td></tr>
+    <tr><td>[navigator] cookieEnabled</td><td id="nCookieEnabled"></td></tr>
+    <tr><td>[test] 1st party cookie</td><td id="cookieTest"></td></tr>
+    <tr><td>localStorage</td><td id="storageLSupport"></td></tr>
+    <tr><td>[test] localStorage</td><td id="storageLTest"></td></tr>
+    <tr><td>sessionStorage</td><td id="storageSSupport"></td></tr>
+    <tr><td>[test] sessionStorage</td><td id="storageSTest"></td></tr>
+    <tr><td>indexedDB</td><td id="IDBSupport"></td></tr>
+    <tr><td>[test] indexedDB</td><td id="IDBTest"></td></tr>
+    <tr><td>appCache</td><td id="appCacheTest"></td></tr>
+    <tr><td>worker</td><td id="workerSupport"></td></tr>
+    <tr><td>[test] web worker</td><td id="webWTest"></td></tr>
+    <tr><td>[test] shared worker</td><td id="sharedWTest"></td></tr>
+    <tr><td>service worker</td><td id="serviceWSupport"></td></tr>
+    <tr><td>[test] service worker</td><td id="serviceWTest"></td></tr>
+    <tr><td>service worker cache</td><td id="serviceWCache"></td></tr>
+    <tr><td>[permission] persistent storage</td><td id="pPersistentStorage"></td></tr>
+    <tr><td>[permission] notifications</td><td id="pNotifications"></td></tr>
+    <tr><td>[permission] push</td><td id="pPush"></td></tr>
+    <tr><td>requestIdleCallback</td><td></td></tr>
+    <tr><td colspan="2" class="center">---files---</td></tr>
+    <tr><td>objectstore Blob</td><td></td></tr>
+    <tr><td>objectstore ArrayBuffer</td><td></td></tr>
+    <tr><td>FileSystem API</td><td></td></tr>
+    <tr><td>File API</td><td></td></tr>
+    <tr><td>Fetch API</td><td></td></tr>
   </table>
 
-  <!-- TABLE 6: Math - math.js-->
-  <table id=tb6>
-    <col width="50%"><col width="50%">
-    <thead><tr><th colspan="2">Math</th></tr></thead>
-    <tr><td>asinh(1)</td><td id=math1></td></tr>
-    <tr><td>acosh(1e300)</td><td id=math2></td></tr>
-    <tr><td>atanh(0.5)</td><td id=math3></td></tr>
-    <tr><td>expm1(1)</td><td id=math4></td></tr>
-    <tr><td>cbrt(100)</td><td id=math5></td></tr>
-    <tr><td>log1p(10)</td><td id=math6></td></tr>
-    <tr><td>sinh(1)</td><td id=math7></td></tr>
-    <tr><td>cosh(10)</td><td id=math8></td></tr>
-    <tr><td>tanh(1)</td><td id=math9></td></tr>
+  <!-- TABLE 6: Devices & Hardware - devices.js -->
+  <table id="tb6">
+    <col width="50%"><a name="devices"></a><col width="50%">
+    <thead><tr><th colspan="2">
+        <div class="nav-title"><a href="#devices">Devices & Hardware</a>
+        <div class="nav-up"><a href="#cookies">&#9650;</a></div>
+        <div class="nav-down"><a href="#math">&#9660;</a></div></div>
+    </th></tr></thead>
+    <tr><td>[navigator] clipboard</td><td id="nClipboard"></td></tr>
+    <tr><td>[navigator] hardwareConcurrency</td><td id="nHardwareConcurrency"></td></tr>
+  </table>
+
+  <!-- TABLE 7: Math - math.js-->
+  <table id="tb7">
+    <col width="50%"><a name="math"></a><col width="50%">
+    <thead><tr><th colspan="2">
+        <div class="nav-title"><a href="#math">Math</a>
+        <div class="nav-up"><a href="#devices">&#9650;</a></div>
+        <div class="nav-down"><a href="#canvas">&#9660;</a></div></div>
+    </th></tr></thead>
+    <tr><td>asinh(1)</td><td id="math1"></td></tr>
+    <tr><td>acosh(1e300)</td><td id="math2"></td></tr>
+    <tr><td>atanh(0.5)</td><td id="math3"></td></tr>
+    <tr><td>expm1(1)</td><td id="math4"></td></tr>
+    <tr><td>cbrt(100)</td><td id="math5"></td></tr>
+    <tr><td>log1p(10)</td><td id="math6"></td></tr>
+    <tr><td>sinh(1)</td><td id="math7"></td></tr>
+    <tr><td>cosh(10)</td><td id="math8"></td></tr>
+    <tr><td>tanh(1)</td><td id="math9"></td></tr>
     <tr><td colspan="2"><span class="no_color">math code courtesy of </span>
-      <a target="_blank" href="https://fpcentral.tbb.torproject.org/">Fingerprint Central</a></td></tr>
+      <a target="_blank" class="blue" href="https://fpcentral.tbb.torproject.org/">Fingerprint Central</a></td></tr>
   </table>
 
-  <!-- TABLE 7: Canvas - canvas.js -->
-  <table id=tb7>
-    <col width="35%"><col width="65%">
-    <thead><tr><th colspan="2">Canvas</th></tr></thead>
+  <!-- TABLE 8: Canvas - canvas.js -->
+  <table id="tb8">
+    <col width="25%"><a name="canvas"></a><col width="75%">
+    <thead><tr><th colspan="2">
+        <div class="nav-title"><a href="#canvas">Canvas</a>
+        <div class="nav-up"><a href="#math">&#9650;</a></div>
+        <div class="nav-down"><a href="#clientrect">&#9660;</a></div></div>
+    </th></tr></thead>
     <tr><td>getContext</td><td class="getContext"></td></tr>
     <tr><td>toDataURL</td><td class="toDataURL"></td></tr>
     <tr><td>toBlob</td><td class="toBlob"></td></tr>
@@ -129,55 +251,159 @@
     <tr><td>strokeText</td><td class="strokeText"></td></tr>
     <tr><td>[webgl] readPixels</td><td class="readPixels"></td></tr>
     <tr><td colspan="2"><span class="no_color">canvas code courtesy of </span>
-      <a target="_blank" href="https://github.com/kkapsner">kkapsner</a><span class="no_color"> and </span>
-      <a target="_blank" href="https://github.com/kkapsner/CanvasBlocker">CanvasBlocker</a></td></tr>
+      <a target="_blank" class="blue" href="https://github.com/kkapsner">kkapsner</a><span class="no_color"> and </span>
+      <a target="_blank" class="blue" href="https://github.com/kkapsner/CanvasBlocker">CanvasBlocker</a></td></tr>
   </table>
 
-  <!-- TABLE 8: Audio - audio.js -->
-  <table id=tb8>
-    <col width="50%"><col width="50%">
-    <thead><tr><th colspan="2">Audio</th></tr></thead>
+  <!-- TABLE 9: ClientRect - clientrect.js -->
+  <table id="tb9">
+    <col width="50%"><a name="clientrect"></a><col width="50%">
+    <thead><tr><th colspan="2">
+        <div class="nav-title"><a href="#clientrect">ClientRect</a>
+        <div class="nav-up"><a href="#canvas">&#9650;</a></div>
+        <div class="nav-down"><a href="#fonts">&#9660;</a></div></div>
+    </th></tr></thead>
     <tr><td>test</td><td>result</td></tr>
   </table>
 
-  <!-- TABLE 9: Fonts - fonts.js -->
-  <table id=tb9>
-    <col width="50%"><col width="50%">
-    <thead><tr><th colspan="2">Fonts</th></tr></thead>
+  <!-- TABLE 10: Fonts - fonts.js -->
+  <table id="tb10">
+    <col width="50%"><a name="fonts"></a><col width="50%">
+    <thead><tr><th colspan="2">
+        <div class="nav-title"><a href="#fonts">Fonts</a>
+        <div class="nav-up"><a href="#clientrect">&#9650;</a></div>
+        <div class="nav-down"><a href="#fontsunicode">&#9660;</a></div></div>
+    </th></tr></thead>
     <tr><td>test</td><td>result</td></tr>
   </table>
 
-  <!-- TABLE 10: Media - media.js -->
-  <table id=tb10>
-    <col width="50%"><col width="50%">
-    <thead><tr><th colspan="2">Media</th></tr></thead>
+  <!-- TABLE 11: Fonts - fontsunicode.js -->
+  <table id="tb11">
+    <col width="50%"><a name="fontsunicode"></a><col width="50%">
+    <thead><tr><th colspan="2">
+        <div class="nav-title"><a href="#fontsunicode">Fonts [Unicode Glyphs Measurement]</a>
+        <div class="nav-up"><a href="#fonts">&#9650;</a></div>
+        <div class="nav-down"><a href="#media">&#9660;</a></div></div>
+    </th></tr></thead>
     <tr><td>test</td><td>result</td></tr>
   </table>
 
-  <!-- TABLE 11: Ciphers / TLS - ciphers.js  -->
-  <table id=tb11>
-    <col width="50%"><col width="50%">
-    <thead><tr><th colspan="2">Ciphers / TLS</th></tr></thead>
+  <!-- TABLE 12: Media - media.js -->
+  <table id="tb12">
+    <col width="50%"><a name="media"></a><col width="50%">
+    <thead><tr><th colspan="2">
+        <div class="nav-title"><a href="#media">Media</a>
+        <div class="nav-up"><a href="#fontsunicode">&#9650;</a></div>
+        <div class="nav-down"><a href="#audio">&#9660;</a></div></div>
+    </th></tr></thead>
+    <tr><td>[navigator] mediaCapabilities</td><td id="nMediaCapabilities"></td></tr>
+  </table>
+
+  <!-- TABLE 13: Audio - audio.js -->
+  <table id="tb13">
+    <col width="40%"><a name="audio"></a><col width="60%">
+    <thead><tr><th colspan="2">
+        <div class="nav-title"><a href="#audio">Audio</a>
+        <div class="nav-up"><a href="#media">&#9650;</a></div>
+        <div class="nav-down"><a href="#webgl">&#9660;</a></div></div>
+    </th></tr></thead>
+    <tr><td>hash of audio values</td><td id="audiohash"></td></tr>
+    <tr><td colspan="2" class="center">------</td></tr>
+    <tr><td>audio.pxi_output</td><td id="audio.pxi_output"></td></tr>
+    <tr><td>audio.cc_output</td><td id="audio.cc_output"></td></tr>
+    <tr><td>audio.hybrid_output</td><td id="audio.hybrid_output"></td></tr>
+    <tr><td>audio.pxi_full_buffer_hash</td><td id="audio.pxi_full_buffer_hash"></td></tr>
+    <tr><td>audio.nt_vc_output.ac-sampleRate</td><td id="audio.nt_vc_output.ac-sampleRate"></td></tr>
+    <tr><td>audio.nt_vc_output.ac-state</td><td id="audio.nt_vc_output.ac-state"></td></tr>
+    <tr><td>audio.nt_vc_output.ac-maxChannelCount</td><td id="audio.nt_vc_output.ac-maxChannelCount"></td></tr>
+    <tr><td>audio.nt_vc_output.ac-numberOfInputs</td><td id="audio.nt_vc_output.ac-numberOfInputs"></td></tr>
+    <tr><td>audio.nt_vc_output.ac-numberOfOutputs</td><td id="audio.nt_vc_output.ac-numberOfOutputs"></td></tr>
+    <tr><td>audio.nt_vc_output.ac-channelCount</td><td id="audio.nt_vc_output.ac-channelCount"></td></tr>
+    <tr><td>audio.nt_vc_output.ac-channelCountMode</td><td id="audio.nt_vc_output.ac-channelCountMode"></td></tr>
+    <tr><td>audio.nt_vc_output.ac-channelInterpretation</td><td id="audio.nt_vc_output.ac-channelInterpretation"></td></tr>
+    <tr><td>audio.nt_vc_output.an-fftSize</td><td id="audio.nt_vc_output.an-fftSize"></td></tr>
+    <tr><td>audio.nt_vc_output.an-frequencyBinCount</td><td id="audio.nt_vc_output.an-frequencyBinCount"></td></tr>
+    <tr><td>audio.nt_vc_output.an-minDecibels</td><td id="audio.nt_vc_output.an-minDecibels"></td></tr>
+    <tr><td>audio.nt_vc_output.an-maxDecibels</td><td id="audio.nt_vc_output.an-maxDecibels"></td></tr>
+    <tr><td>audio.nt_vc_output.an-smoothingTimeConstant</td><td id="audio.nt_vc_output.an-smoothingTimeConstant"></td></tr>
+    <tr><td>audio.nt_vc_output.an-numberOfInputs</td><td id="audio.nt_vc_output.an-numberOfInputs"></td></tr>
+    <tr><td>audio.nt_vc_output.an-numberOfOutputs</td><td id="audio.nt_vc_output.an-numberOfOutputs"></td></tr>
+    <tr><td>audio.nt_vc_output.an-channelCount</td><td id="audio.nt_vc_output.an-channelCount"></td></tr>
+    <tr><td>audio.nt_vc_output.an-channelCountMode</td><td id="audio.nt_vc_output.an-channelCountMode"></td></tr>
+    <tr><td>audio.nt_vc_output.an-channelInterpretation</td><td id="audio.nt_vc_output.an-channelInterpretation"></td></tr>
+    <tr><td colspan="2"><span class="no_color">audio code courtesy of </span>
+      <a target="_blank" class="blue" href="https://fpcentral.tbb.torproject.org/">Fingerprint Central</a></td></tr>
+  </table>
+
+  <!-- TABLE 14: WebGL - webgl.js -->
+  <table id="tb14">
+    <col width="50%"><a name="webgl"></a><col width="50%">
+    <thead><tr><th colspan="2">
+        <div class="nav-title"><a href="#webgl">WebGL</a>
+        <div class="nav-up"><a href="#audio">&#9650;</a></div>
+        <div class="nav-down"><a href="#css">&#9660;</a></div></div>
+    </th></tr></thead>
     <tr><td>test</td><td>result</td></tr>
   </table>
 
-  <!-- TABLE 12: lots more to come -->
-  <!-- geo & wifi & network info, keyboard, webgl, apis, permissions, pointers, miscellaneous -->
-  <table id=tb12>
-    <col width="50%"><col width="50%">
-    <thead><tr><th colspan="2">lots more to come</th></tr></thead>
+  <!-- TABLE 15: CSS - css.js -->
+  <table id="tb15">
+    <col width="50%"><a name="css"></a><col width="50%">
+    <thead><tr><th colspan="2">
+        <div class="nav-title"><a href="#css">CSS</a>
+        <div class="nav-up"><a href="#webgl">&#9650;</a></div>
+        <div class="nav-down"><a href="#ciphers">&#9660;</a></div></div>
+    </th></tr></thead>
     <tr><td>test</td><td>result</td></tr>
   </table>
 
+  <!-- TABLE 16: Ciphers / TLS - ciphers.js -->
+  <table id="tb16">
+    <col width="50%"><a name="ciphers"></a><col width="50%">
+    <thead><tr><th colspan="2">
+        <div class="nav-title"><a href="#ciphers">Ciphers / TLS</a>
+        <div class="nav-up"><a href="#css">&#9650;</a></div>
+        <div class="nav-down"><a href="#spare">&#9660;</a></div></div>
+    </th></tr></thead>
+    <tr><td>test</td><td>result</td></tr>
+  </table>
+
+  <!-- TABLE 17: -->
+  <table id="tb17">
+    <col width="50%"><a name="spare"></a><col width="50%">
+    <thead><tr><th colspan="2">
+        <div class="nav-title"><a href="#spare">oh no, i'm empty</a>
+        <div class="nav-up"><a href="#ciphers">&#9650;</a></div>
+        <div class="nav-down"><a href="#misc">&#9660;</a></div></div>
+    </th></tr></thead>
+    <tr><td>test</td><td>result</td></tr>
+  </table>
+
+  <!-- TABLE 18: Miscellaneous - misc.js -->
+  <table id="tb18">
+    <col width="50%"><a name="misc"></a><col width="50%">
+    <thead><tr><th colspan="2">
+        <div class="nav-title"><a href="#misc">Miscellaneous</a>
+        <div class="nav-up"><a href="#spare">&#9650;</a></div></div>
+    </th></tr></thead>
+    <tr><td>test</td><td>result</td></tr>
+  </table>
+
+  <link rel="stylesheet" type="text/css" href="css/tor_font.css">
   <link rel="stylesheet" type="text/css" href="css/window_size.css">
   <link rel="stylesheet" type="text/css" href="css/screen_size.css">
   <link rel="stylesheet" type="text/css" href="css/dpi.css">
+
+  <script src="js/main.js"></script>
   <script src="js/screen.js"></script>
   <script src="js/useragent.js"></script>
   <script src="js/language.js"></script>
   <script src="js/headers.js"></script>
+  <script src="js/cookies.js"></script>
+  <script src="js/devices.js"></script>
   <script src="js/math.js"></script>
   <script src="js/canvas.js"></script>
+  <script src="js/media.js"></script>
 
 </body>
 </html>

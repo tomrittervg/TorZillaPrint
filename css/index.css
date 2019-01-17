@@ -1,30 +1,48 @@
 :root{
-	--test1: #db8c8b;
-	--test2: #d9cd88;
-	--test3: #d9cd88;
-	--test4: #c6da88;
-	--test5: #a5da88;
-	--test6: #89da90;
-	--test7: #89dab2;
-	--test8: #89d9d3;
-	--test9: #8abfda;
-	--test10: #8b9edb;
-	--test11: #998adb;
-	--test12: #ba8adb;
+	--test1: #dc8c8c;
+	--test2: #dca78c;
+	--test3: #dcc18c;
+	--test4: #dcdc8c;
+	--test5: #c1dc8c;
+	--test6: #a7dc8c;
+	--test7: #8cdc8c;
+	--test8: #8cdca7;
+	--test9: #8cdcc1;
+	--test10: #8cdcdc;
+	--test11: #8cc1dc;
+	--test12: #8ca7dc;
+	--test13: #8c8cdc;
+	--test14: #a78cdc;
+	--test15: #c18cdc;
+	--test16: #dc8cdc;
+	--test17: #dc8cc1;
+	--test18: #dc8ca7;
 }
-/*second lot is more saturated (50% in PS): first = text, 2nd = background
- 1 db8c8b ef7b79 red
- 2 daac8a e8a466 orange
- 3 d9cd88 ddcb40 yellow
- 4 c6da88 bedd37 next
- 5 a5da88 8ce048 next
- 6 89da90 54e366 green
- 7 89dab2 54e3a6 next
- 8 89d9d3 56e2d9 next
- 9 8abfda 6fc5eb blue
-10 8b9edb 83a0f4 next
-11 998adb 9e88f7 purple
-12 ba8adb c881f4 pink*/
+
+/* Color Schema 18
+    Sat: 93         Sat: 127
+    Lum: 220        Lum: 240
+    Hue :  BKGRND : TEXT
+ 1    0 : #dc8c8c : #f07878
+ 2   20 : #dca78c : #f0a078
+ 3   40 : #dcc18c : #f0c878
+ 4   60 : #dcdc8c : #f0f078
+ 5   80 : #c1dc8c : #c8f078
+ 6  100 : #a7dc8c : #a0f078
+ 7  120 : #8cdc8c : #78f078
+ 8  140 : #8cdca7 : #78f0a0
+ 9  160 : #8cdcc1 : #78f0c8
+10  180 : #8cdcdc : #78f0f0
+11  200 : #8cc1dc : #78c8f0
+12  220 : #8ca7dc : #78a0f0
+13  240 : #8c8cdc : #7878f0
+14  260 : #a78cdc : #a078f0
+15  280 : #c18cdc : #c878f0
+16  300 : #dc8cdc : #f078f0
+17  320 : #dc8cc1 : #f078c8
+18  340 : #dc8ca7 : #f078a0
+*/
+
 
 /* Main Set-up */
 body {
@@ -38,7 +56,14 @@ h2 {
 	color: white; 
 	font-size 14px; 
 	text-align: center; 
-	padding-top: 10px;
+	padding-top: 15px;
+}
+
+h3 {
+	color: #b3b3b3; 
+	font-size 12px;
+	text-align: center;
+    line-height: 1.4em;
 }
 
 h4 {
@@ -48,6 +73,11 @@ h4 {
 }
 
 a { 
+    color: black;
+    text-decoration: none;
+}
+
+a.blue { 
     color: #8abfda;
     text-decoration: none;
 }
@@ -55,6 +85,13 @@ a {
 .no_color { color: #b3b3b3; }
 
 .hidden { display: none; }
+
+code {
+  background: #303030 !important;
+  border: 1px solid rgba(255, 255, 255, .1);
+  padding: 1px;
+  border-radius: 2px;
+}
 
 /* Icons */
 .icon {
@@ -67,7 +104,7 @@ a {
   mask-size: cover;
   -webkit-mask-size: cover;
   background-color: #b3b3b3;
-	margin-right: 4px;
+  margin-right: 4px;
 }
 
 /* Tooltips */
@@ -75,11 +112,12 @@ a {
   position: relative;
   display: inline-block;
   border-bottom: 1px dotted black;
+  color: white;
 }
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 120px;
+  width: 140px;
   background-color: #b3b3b3;
   color: black;
   text-align: center;
@@ -106,6 +144,26 @@ a {
   border-width: 5px;
   border-style: solid;
   border-color: transparent #b3b3b3 transparent transparent;
+}
+
+/* Table header nav elements */
+div.nav-title {
+  position: relative;
+  width: 800px;
+}
+
+div.nav-down {
+  position: absolute;
+  right: 5px;
+  top: 0px;
+  width: 20px;
+}
+
+div.nav-up {
+  position: absolute;
+  left: 5px;
+  top: 0px;
+  width: 20px;
 }
 
 /* Tables */
@@ -135,21 +193,36 @@ th {
 	padding: 3px 0;
 }
 
-table td:first-child { text-align: right; }
+table td:first-child { text-align: right; vertical-align: top;}
+
+/* used for descriptions after th */
+table td.left {
+    text-align: left;
+    line-height: 1.5em;
+    padding-bottom: 10px;
+}
+
+table td.center {text-align: center; }
 
 /* Table Header Backgrounds */
-#tb1 th { background-color: #ef7b79 }
-#tb2 th { background-color: #e8a466 }
-#tb3 th { background-color: #ddcb40 }
-#tb4 th { background-color: #bedd37 }
-#tb5 th { background-color: #8ce048 }
-#tb6 th { background-color: #54e366 }
-#tb7 th { background-color: #54e3a6 }
-#tb8 th { background-color: #56e2d9 }
-#tb9 th { background-color: #6fc5eb }
-#tb10 th { background-color: #83a0f4 }
-#tb11 th { background-color: #9e88f7 }
-#tb12 th { background-color: #c881f4 }
+#tb1 th { background-color : #f07878 }
+#tb2 th { background-color : #f0a078 }
+#tb3 th { background-color : #f0c878 }
+#tb4 th { background-color : #f0f078 }
+#tb5 th { background-color : #c8f078 }
+#tb6 th { background-color : #a0f078 }
+#tb7 th { background-color : #78f078 }
+#tb8 th { background-color : #78f0a0 }
+#tb9 th { background-color : #78f0c8 }
+#tb10 th { background-color : #78f0f0 }
+#tb11 th { background-color : #78c8f0 }
+#tb12 th { background-color : #78a0f0 }
+#tb13 th { background-color : #7878f0 }
+#tb14 th { background-color : #a078f0 }
+#tb15 th { background-color : #c878f0 }
+#tb16 th { background-color : #f078f0 }
+#tb17 th { background-color : #f078c8 }
+#tb18 th { background-color : #f078a0 }
 
 #tb1 td:first-child { color: var(--test1);}
 #tb2 td:first-child { color: var(--test2);}
@@ -163,3 +236,17 @@ table td:first-child { text-align: right; }
 #tb10 td:first-child { color: var(--test10);}
 #tb11 td:first-child { color: var(--test11);}
 #tb12 td:first-child { color: var(--test12);}
+#tb13 td:first-child { color: var(--test13);}
+#tb14 td:first-child { color: var(--test14);}
+#tb15 td:first-child { color: var(--test15);}
+#tb16 td:first-child { color: var(--test16);}
+#tb17 td:first-child { color: var(--test17);}
+#tb18 td:first-child { color: var(--test18);}
+
+
+/* about:logo css test */
+#fdResourceCss {
+	background-image: url("about:logo"), url("not_firefox.png");
+	background-size: auto 100%;
+ 	background-repeat: no-repeat;
+}

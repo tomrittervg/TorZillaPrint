@@ -299,4 +299,4 @@ var canvas = {
 	}
 };
 
-canvas.output(canvas.createHashes(window), document.getElementById("tb7"));
+canvas.output(canvas.createHashes(window), document.getElementById("tb8"));
