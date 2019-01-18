@@ -129,6 +129,9 @@ var canvas = {
 				name: "readPixels",
 				value: function(){
 					var context = getFilledWebGlContext();
+					if (!context){
+						return "webgl not supported";
+					}
 					
 					var pixels = new Uint8Array(context.drawingBufferWidth * context.drawingBufferHeight * 4);
 					context.readPixels(0, 0, context.drawingBufferWidth, context.drawingBufferHeight, context.RGBA, context.UNSIGNED_BYTE, pixels);
@@ -213,7 +216,10 @@ var canvas = {
 		}
 		function getFilledWebGlContext(){
 			// taken from https://github.com/Valve/fingerprintjs2/blob/master/fingerprint2.js
-			var context = getContext("webgl");
+			var context = getContext(["webgl") || getContext("webgl2");
+			if (!context){
+				return null;
+			}
 			var vertexShaderTemplate = "attribute vec2 attrVertex;varying vec2 varyinTexCoordinate;uniform vec2 uniformOffset;void main(){varyinTexCoordinate=attrVertex+uniformOffset;gl_Position=vec4(attrVertex,0,1);}";
 			var fragmentShaderTemplate = "precision mediump float;varying vec2 varyinTexCoordinate;void main() {gl_FragColor=vec4(varyinTexCoordinate,0,1);}";
 			var vertexPosBuffer = context.createBuffer();
