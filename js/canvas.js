@@ -128,7 +128,12 @@ var canvas = {
 				class: window.WebGLRenderingContext,
 				name: "readPixels",
 				value: function(){
-					return "supported - todo hash";
+					var context = getFilledWebGlContext();
+					
+					var pixels = new Uint8Array(context.drawingBufferWidth * context.drawingBufferHeight * 4);
+					context.readPixels(0, 0, context.drawingBufferWidth, context.drawingBufferHeight, context.RGBA, context.UNSIGNED_BYTE, pixels);
+					
+					return window.crypto.subtle.digest("SHA-256", pixels).then(hashToString);
 				}
 			},
 		];
@@ -204,6 +209,36 @@ var canvas = {
 			context.arc(15.49, 15.51, 10.314, 0, Math.PI * 2);
 			context.closePath();
 			context.fill();
+			return context;
+		}
+		function getFilledWebGlContext(){
+			// taken from https://github.com/Valve/fingerprintjs2/blob/master/fingerprint2.js
+			var context = getContext("webgl");
+			var vertexShaderTemplate = "attribute vec2 attrVertex;varying vec2 varyinTexCoordinate;uniform vec2 uniformOffset;void main(){varyinTexCoordinate=attrVertex+uniformOffset;gl_Position=vec4(attrVertex,0,1);}";
+			var fragmentShaderTemplate = "precision mediump float;varying vec2 varyinTexCoordinate;void main() {gl_FragColor=vec4(varyinTexCoordinate,0,1);}";
+			var vertexPosBuffer = context.createBuffer();
+			context.bindBuffer(context.ARRAY_BUFFER, vertexPosBuffer);
+			var vertices = new Float32Array([-0.2, -0.9, 0, 0.4, -0.26, 0, 0, 0.732134444, 0]);
+			context.bufferData(context.ARRAY_BUFFER, vertices, context.STATIC_DRAW);
+			vertexPosBuffer.itemSize = 3;
+			vertexPosBuffer.numItems = 3;
+			var program = context.createProgram();
+			var vertexShader = context.createShader(context.VERTEX_SHADER);
+			context.shaderSource(vertexShader, vertexShaderTemplate);
+			context.compileShader(vertexShader);
+			var fragmentShader = context.createShader(context.FRAGMENT_SHADER);
+			context.shaderSource(fragmentShader, fragmentShaderTemplate);
+			context.compileShader(fragmentShader);
+			context.attachShader(program, vertexShader);
+			context.attachShader(program, fragmentShader);
+			context.linkProgram(program);
+			context.useProgram(program);
+			program.vertexPosAttrib = context.getAttribLocation(program, "attrVertex");
+			program.offsetUniform = context.getUniformLocation(program, "uniformOffset");
+			context.enableVertexAttribArray(program.vertexPosArray);
+			context.vertexAttribPointer(program.vertexPosAttrib, vertexPosBuffer.itemSize, context.FLOAT, !1, 0, 0);
+			context.uniform2f(program.offsetUniform, 1, 1);
+			context.drawArrays(context.TRIANGLE_STRIP, 0, vertexPosBuffer.numItems)
 			return context;
 		}
 		
