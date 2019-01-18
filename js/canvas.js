@@ -216,7 +216,7 @@ var canvas = {
 		}
 		function getFilledWebGlContext(){
 			// taken from https://github.com/Valve/fingerprintjs2/blob/master/fingerprint2.js
-			var context = getContext(["webgl") || getContext("webgl2");
+			var context = getContext("webgl") || getContext("webgl2");
 			if (!context){
 				return null;
 			}
