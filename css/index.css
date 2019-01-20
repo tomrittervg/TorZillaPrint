@@ -204,6 +204,12 @@ table td.left {
 
 table td.center {text-align: center; }
 
+table td.showhide {
+    text-align: center;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
 /* Table Header Backgrounds */
 #tb1 th { background-color : #f07878 }
 #tb2 th { background-color : #f0a078 }
