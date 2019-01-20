@@ -140,25 +140,25 @@ navigator.permissions.query({name:"push"}).then(e => dom.pPush=e.state);
 var smSupport= "";
 if ("storage" in navigator) {smSupport="enabled"} else {smSupport="disabled"};
 dom.storageMSupport = smSupport;
-// storage manager test
+// storage manager properties
 if ((location.protocol) !== "file:") {
   if (smSupport == "enabled") {
-    var smTest = "";
     try {
       // this persistence test is slightly quirky
       // 1. In FF it prompts, in TB it doesn't (no global pref)
       // 2. In FF60+ if you allowed it, it remembers that (you need to clear site data to test for not persistent)
       // 3. In TB it always returns not persistent
       navigator.storage.persist().then(function(persistent) {
-        if (persistent) dom.storageMTest="persistent";
-        else dom.storageMTest="not persistent"});
-      // lets see if we can trap other issues
+        if (persistent) dom.storageMProp = "persistent";
+        else dom.storageMProp = "not persistent"});
       // StorageManager.estimate(), StorageEstimate.quota;
-      // console.log("storage manager: "+smTest);
+      navigator.storage.estimate().then(estimate => {
+        console.log(`${estimate.usage} of ${estimate.quota} bytes`);
+      });
     }
-    catch (err) {dom.storageMTest = "no: catch(err)"};
+    catch (err) {dom.storageMProp = "no: catch(err)"};
   }
-  else {dom.storageMTest = "no"};
+  else {dom.storageMProp = "no"};
 };
 // permission persistent-storage
 navigator.permissions.query({name:"persistent-storage"}).then(e => dom.pPersistentStorage=e.state);
