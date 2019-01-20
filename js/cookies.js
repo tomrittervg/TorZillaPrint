@@ -77,9 +77,6 @@ if (appCS == "enabled"){
    }
 else {dom.appCacheTest="no"};
 
-// appCache permission
-navigator.permissions.query({name:"persistent-storage"}).then(e => dom.pPersistentStorage=e.state);
-
 // worker support
 if (typeof(Worker) !== "undefined") {dom.workerSupport="enabled"} else {dom.workerSupport="disabled"};
 
@@ -119,13 +116,58 @@ if ((location.protocol) !== "file:") {
       dom.serviceWTest="yes: test to come"
      }
   else {dom.serviceWTest="no"};
-  // service worker cache
+};
+
+// service worker cache (dom.caches.enabled)
+if ((location.protocol) !== "file:") {
+  // support
   if (swSupport == "enabled"){
-      dom.serviceWCache="yes: test to come"
+      dom.serviceWCacheSupport="sw supported but dom.caches.enabled not checked"
      }
-  else {dom.serviceWCache="no"};
+  else {dom.serviceWCacheSupport="no"};
+  // test
+  if (swSupport == "enabled"){
+      dom.serviceWCacheTest="sw supported but dom.caches.enabled not checked"
+     }
+  else {dom.serviceWCacheTest="no"};
 };
 
 // notifications / push
 navigator.permissions.query({name:"notifications"}).then(e => dom.pNotifications=e.state);
 navigator.permissions.query({name:"push"}).then(e => dom.pPush=e.state);
+
+// storage manager support (dom.storageManager.enabled)
+var smSupport= "";
+if ("storage" in navigator) {smSupport="enabled"} else {smSupport="disabled"};
+dom.storageMSupport = smSupport;
+// storage manager test
+if ((location.protocol) !== "file:") {
+  if (smSupport == "enabled") {
+    var smTest = "";
+    try {
+      // this persistence test is slightly quirky
+      // 1. In FF it prompts, in TB it doesn't (no global pref)
+      // 2. In FF60+ if you allowed it, it remembers that (you need to clear site data to test for not persistent)
+      // 3. In TB it always returns not persistent
+      navigator.storage.persist().then(function(persistent) {
+        if (persistent) dom.storageMTest="persistent";
+        else dom.storageMTest="not persistent"});
+      // lets see if we can trap other issues
+      // StorageManager.estimate(), StorageEstimate.quota;
+      // console.log("storage manager: "+smTest);
+    }
+    catch (err) {dom.storageMTest = "no: catch(err)"};
+  }
+  else {dom.storageMTest = "no"};
+};
+// permission persistent-storage
+navigator.permissions.query({name:"persistent-storage"}).then(e => dom.pPersistentStorage=e.state);
+
+// storage access support (dom.storage_access.enabled)
+// FF65+ https://developer.mozilla.org/en-US/docs/Web/API/Storage_Access_API
+// this is for embedded cross-origin content
+try {Document.hasStorageAccess().then(e => e.state);
+      //console.log("enabled");
+    }
+catch (err) { };
+// storage access test: use Document.requestStorageAccess()
