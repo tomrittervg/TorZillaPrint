@@ -243,7 +243,7 @@
     <thead><tr><th colspan="2">
         <div class="nav-title"><a href="#canvas">Canvas</a>
         <div class="nav-up"><a href="#math">&#9650;</a></div>
-        <div class="nav-down"><a href="#clientrect">&#9660;</a></div></div>
+        <div class="nav-down"><a href="#domrect">&#9660;</a></div></div>
     </th></tr></thead>
     <tr><td>getContext</td><td class="getContext"></td></tr>
     <tr><td>toDataURL</td><td class="toDataURL"></td></tr>
@@ -261,11 +261,11 @@
       <a target="_blank" class="blue" href="https://github.com/kkapsner/CanvasBlocker">CanvasBlocker</a></td></tr>
   </table>
 
-  <!-- TABLE 9: ClientRect - clientrect.js -->
+  <!-- TABLE 9: DOMRect - domrect.js -->
   <table id="tb9">
-    <col width="50%"><a name="clientrect"></a><col width="50%">
+    <col width="50%"><a name="domrect"></a><col width="50%">
     <thead><tr><th colspan="2">
-        <div class="nav-title"><a href="#clientrect">ClientRect</a>
+        <div class="nav-title"><a href="#domrect">DOMRect</a>
         <div class="nav-up"><a href="#canvas">&#9650;</a></div>
         <div class="nav-down"><a href="#fonts">&#9660;</a></div></div>
     </th></tr></thead>
@@ -277,7 +277,7 @@
     <col width="50%"><a name="fonts"></a><col width="50%">
     <thead><tr><th colspan="2">
         <div class="nav-title"><a href="#fonts">Fonts</a>
-        <div class="nav-up"><a href="#clientrect">&#9650;</a></div>
+        <div class="nav-up"><a href="#domrect">&#9650;</a></div>
         <div class="nav-down"><a href="#fontsunicode">&#9660;</a></div></div>
     </th></tr></thead>
     <tr><td>test</td><td>result</td></tr>
@@ -313,8 +313,10 @@
         <div class="nav-up"><a href="#media">&#9650;</a></div>
         <div class="nav-down"><a href="#webgl">&#9660;</a></div></div>
     </th></tr></thead>
-    <tr><td>hash of audio values</td><td id="audiohash"></td></tr>
-    <tr><td colspan="2" class="center">------</td></tr>
+    <tr><td>copyFromChannel</td><td id="audiocopy"></td></tr>
+    <tr><td>getChannelData</td><td id="audioget"></td></tr>
+    <tr><td>sum</td><td id="audiosum"></td></tr>
+    <tr><td colspan="2" class="showhide">&#9660; show / &#9654; hide results</td></tr>
     <tr><td>audio.pxi_output</td><td id="audio.pxi_output"></td></tr>
     <tr><td>audio.cc_output</td><td id="audio.cc_output"></td></tr>
     <tr><td>audio.hybrid_output</td><td id="audio.hybrid_output"></td></tr>
@@ -338,7 +340,8 @@
     <tr><td>audio.nt_vc_output.an-channelCountMode</td><td id="audio.nt_vc_output.an-channelCountMode"></td></tr>
     <tr><td>audio.nt_vc_output.an-channelInterpretation</td><td id="audio.nt_vc_output.an-channelInterpretation"></td></tr>
     <tr><td colspan="2"><span class="no_color">audio code courtesy of </span>
-      <a target="_blank" class="blue" href="https://fpcentral.tbb.torproject.org/">Fingerprint Central</a></td></tr>
+      <a target="_blank" class="blue" href="https://github.com/kkapsner">kkapsner</a><span class="no_color"> and </span>
+      <a target="_blank" class="blue" href="https://github.com/kkapsner/CanvasBlocker">CanvasBlocker</a></td></tr>
   </table>
 
   <!-- TABLE 14: WebGL - webgl.js -->
@@ -396,7 +399,7 @@
     <tr><td>[navigator] clipboard</td><td id="nClipboard"></td></tr>
   </table>
 
-  <br><a name="theend"></br>
+  <br><a name="theend"><br>
 
   <link rel="stylesheet" type="text/css" href="css/tor_font.css">
   <link rel="stylesheet" type="text/css" href="css/window_size.css">
