@@ -7,6 +7,17 @@
   <link rel="stylesheet" type="text/css" href="css/index.css">
   <script src="js/generic.js"></script>
   <script src="js/globals.js"></script>
+  <script>
+  function showhide(toggleType, toggleID, togWord) {
+    var xyz = document.getElementsByClassName("tog"+toggleID); var abc;
+    for (abc = 0; abc < xyz.length; abc++) { xyz[abc].style.display = toggleType;}
+    document.getElementById("label"+toggleID).innerHTML = togWord+" details";
+  };
+  function toggleitems(chkbxState, chkbxID) {
+    if (chkbxState.checked) {showhide("none", chkbxID, "&#9660; show");}
+    else {showhide("table-row", chkbxID, "&#9650; hide");}
+  };
+  </script>
 </head>
 
 <body>
@@ -273,43 +284,46 @@
     <tr><td colspan="2">Element.getBoundingClientRect</td><td colspan="2" id="dr2hash"></td></tr>
     <tr><td colspan="2">Range.getClientRects</td><td colspan="2" id="dr3hash"></td></tr>
     <tr><td colspan="2">Range.getBoundingClientRect</td><td colspan="2" id="dr4hash"></td></tr>
-    <tr><td colspan="4" class="showhide">&#9660; show / &#9654; hide details</td></tr>
-    <tr><td></td><td colspan="3">Element.getClientRects</td></tr>
-      <tr><td>x</td>     <td id="dr111"></td><td id="dr121"></td><td id="dr131"></td></tr>
-      <tr><td>y</td>     <td id="dr112"></td><td id="dr122"></td><td id="dr132"></td></tr>
-      <tr><td>width</td> <td id="dr113"></td><td id="dr123"></td><td id="dr133"></td></tr>
-      <tr><td>height</td><td id="dr114"></td><td id="dr124"></td><td id="dr134"></td></tr>
-      <tr><td>top</td>   <td id="dr115"></td><td id="dr125"></td><td id="dr135"></td></tr>
-      <tr><td>left</td>  <td id="dr116"></td><td id="dr126"></td><td id="dr136"></td></tr>
-      <tr><td>right</td> <td id="dr117"></td><td id="dr127"></td><td id="dr137"></td></tr>
-      <tr><td>bottom</td><td id="dr118"></td><td id="dr128"></td><td id="dr138"></td></tr>
-    <tr><td></td><td colspan="3">Element.getBoundingClientRect</td></tr>
-      <tr><td>x</td>     <td id="dr211"></td><td id="dr221"></td><td id="dr231"></td></tr>
-      <tr><td>y</td>     <td id="dr212"></td><td id="dr222"></td><td id="dr232"></td></tr>
-      <tr><td>width</td> <td id="dr213"></td><td id="dr223"></td><td id="dr233"></td></tr>
-      <tr><td>height</td><td id="dr214"></td><td id="dr224"></td><td id="dr234"></td></tr>
-      <tr><td>top</td>   <td id="dr215"></td><td id="dr225"></td><td id="dr235"></td></tr>
-      <tr><td>left</td>  <td id="dr216"></td><td id="dr226"></td><td id="dr236"></td></tr>
-      <tr><td>right</td> <td id="dr217"></td><td id="dr227"></td><td id="dr237"></td></tr>
-      <tr><td>bottom</td><td id="dr218"></td><td id="dr228"></td><td id="dr238"></td></tr>
-    <tr><td></td><td colspan="3">Range.getClientRects</td></tr>
-      <tr><td>x</td>     <td id="dr311"></td><td id="dr321"></td><td id="dr331"></td></tr>
-      <tr><td>y</td>     <td id="dr312"></td><td id="dr322"></td><td id="dr332"></td></tr>
-      <tr><td>width</td> <td id="dr313"></td><td id="dr323"></td><td id="dr333"></td></tr>
-      <tr><td>height</td><td id="dr314"></td><td id="dr324"></td><td id="dr334"></td></tr>
-      <tr><td>top</td>   <td id="dr315"></td><td id="dr325"></td><td id="dr335"></td></tr>
-      <tr><td>left</td>  <td id="dr316"></td><td id="dr326"></td><td id="dr336"></td></tr>
-      <tr><td>right</td> <td id="dr317"></td><td id="dr327"></td><td id="dr337"></td></tr>
-      <tr><td>bottom</td><td id="dr318"></td><td id="dr328"></td><td id="dr338"></td></tr>
-    <tr><td></td><td colspan="3">Range.getBoundingClientRect</td></tr>
-      <tr><td>x</td>     <td id="dr411"></td><td id="dr421"></td><td id="dr431"></td></tr>
-      <tr><td>y</td>     <td id="dr412"></td><td id="dr422"></td><td id="dr432"></td></tr>
-      <tr><td>width</td> <td id="dr413"></td><td id="dr423"></td><td id="dr433"></td></tr>
-      <tr><td>height</td><td id="dr414"></td><td id="dr424"></td><td id="dr434"></td></tr>
-      <tr><td>top</td>   <td id="dr415"></td><td id="dr425"></td><td id="dr435"></td></tr>
-      <tr><td>left</td>  <td id="dr416"></td><td id="dr426"></td><td id="dr436"></td></tr>
-      <tr><td>right</td> <td id="dr417"></td><td id="dr427"></td><td id="dr437"></td></tr>
-      <tr><td>bottom</td><td id="dr418"></td><td id="dr428"></td><td id="dr438"></td></tr>
+    <tr><td colspan="4" class="showhide">
+        <input id="collapseD" class="toggle" type="checkbox" checked onchange="toggleitems(this, `D`)"/>
+        <label for="collapseD" class="lbl-toggle" id="labelD">&#9660; show details</label>
+    </td></tr>
+    <tr class="togD"><td></td><td colspan="3">Element.getClientRects</td></tr>
+      <tr class="togD"><td>x</td>     <td id="dr111"></td><td id="dr121"></td><td id="dr131"></td></tr>
+      <tr class="togD"><td>y</td>     <td id="dr112"></td><td id="dr122"></td><td id="dr132"></td></tr>
+      <tr class="togD"><td>width</td> <td id="dr113"></td><td id="dr123"></td><td id="dr133"></td></tr>
+      <tr class="togD"><td>height</td><td id="dr114"></td><td id="dr124"></td><td id="dr134"></td></tr>
+      <tr class="togD"><td>top</td>   <td id="dr115"></td><td id="dr125"></td><td id="dr135"></td></tr>
+      <tr class="togD"><td>left</td>  <td id="dr116"></td><td id="dr126"></td><td id="dr136"></td></tr>
+      <tr class="togD"><td>right</td> <td id="dr117"></td><td id="dr127"></td><td id="dr137"></td></tr>
+      <tr class="togD"><td>bottom</td><td id="dr118"></td><td id="dr128"></td><td id="dr138"></td></tr>
+    <tr class="togD"><td></td><td colspan="3">Element.getBoundingClientRect</td></tr>
+      <tr class="togD"><td>x</td>     <td id="dr211"></td><td id="dr221"></td><td id="dr231"></td></tr>
+      <tr class="togD"><td>y</td>     <td id="dr212"></td><td id="dr222"></td><td id="dr232"></td></tr>
+      <tr class="togD"><td>width</td> <td id="dr213"></td><td id="dr223"></td><td id="dr233"></td></tr>
+      <tr class="togD"><td>height</td><td id="dr214"></td><td id="dr224"></td><td id="dr234"></td></tr>
+      <tr class="togD"><td>top</td>   <td id="dr215"></td><td id="dr225"></td><td id="dr235"></td></tr>
+      <tr class="togD"><td>left</td>  <td id="dr216"></td><td id="dr226"></td><td id="dr236"></td></tr>
+      <tr class="togD"><td>right</td> <td id="dr217"></td><td id="dr227"></td><td id="dr237"></td></tr>
+      <tr class="togD"><td>bottom</td><td id="dr218"></td><td id="dr228"></td><td id="dr238"></td></tr>
+    <tr class="togD"><td></td><td colspan="3">Range.getClientRects</td></tr>
+      <tr class="togD"><td>x</td>     <td id="dr311"></td><td id="dr321"></td><td id="dr331"></td></tr>
+      <tr class="togD"><td>y</td>     <td id="dr312"></td><td id="dr322"></td><td id="dr332"></td></tr>
+      <tr class="togD"><td>width</td> <td id="dr313"></td><td id="dr323"></td><td id="dr333"></td></tr>
+      <tr class="togD"><td>height</td><td id="dr314"></td><td id="dr324"></td><td id="dr334"></td></tr>
+      <tr class="togD"><td>top</td>   <td id="dr315"></td><td id="dr325"></td><td id="dr335"></td></tr>
+      <tr class="togD"><td>left</td>  <td id="dr316"></td><td id="dr326"></td><td id="dr336"></td></tr>
+      <tr class="togD"><td>right</td> <td id="dr317"></td><td id="dr327"></td><td id="dr337"></td></tr>
+      <tr class="togD"><td>bottom</td><td id="dr318"></td><td id="dr328"></td><td id="dr338"></td></tr>
+    <tr class="togD"><td></td><td colspan="3">Range.getBoundingClientRect</td></tr>
+      <tr class="togD"><td>x</td>     <td id="dr411"></td><td id="dr421"></td><td id="dr431"></td></tr>
+      <tr class="togD"><td>y</td>     <td id="dr412"></td><td id="dr422"></td><td id="dr432"></td></tr>
+      <tr class="togD"><td>width</td> <td id="dr413"></td><td id="dr423"></td><td id="dr433"></td></tr>
+      <tr class="togD"><td>height</td><td id="dr414"></td><td id="dr424"></td><td id="dr434"></td></tr>
+      <tr class="togD"><td>top</td>   <td id="dr415"></td><td id="dr425"></td><td id="dr435"></td></tr>
+      <tr class="togD"><td>left</td>  <td id="dr416"></td><td id="dr426"></td><td id="dr436"></td></tr>
+      <tr class="togD"><td>right</td> <td id="dr417"></td><td id="dr427"></td><td id="dr437"></td></tr>
+      <tr class="togD"><td>bottom</td><td id="dr418"></td><td id="dr428"></td><td id="dr438"></td></tr>
     <tr><td colspan="4"><span class="no_color">clientrect code courtesy of </span>
       <a target="_blank" class="blue" href="https://github.com/kkapsner">kkapsner</a><span class="no_color"> and </span>
       <a target="_blank" class="blue" href="https://github.com/kkapsner/CanvasBlocker">CanvasBlocker</a></td></tr>
@@ -359,29 +373,32 @@
     <tr><td>copyFromChannel</td><td id="audiocopy"></td></tr>
     <tr><td>getChannelData</td><td id="audioget"></td></tr>
     <tr><td>sum</td><td id="audiosum"></td></tr>
-    <tr><td colspan="2" class="showhide">&#9660; show / &#9654; hide details</td></tr>
-    <tr><td>audio.pxi_output</td><td id="audio.pxi_output"></td></tr>
-    <tr><td>audio.cc_output</td><td id="audio.cc_output"></td></tr>
-    <tr><td>audio.hybrid_output</td><td id="audio.hybrid_output"></td></tr>
-    <tr><td>audio.pxi_full_buffer_hash</td><td id="audio.pxi_full_buffer_hash"></td></tr>
-    <tr><td>audio.nt_vc_output.ac-sampleRate</td><td id="audio.nt_vc_output.ac-sampleRate"></td></tr>
-    <tr><td>audio.nt_vc_output.ac-state</td><td id="audio.nt_vc_output.ac-state"></td></tr>
-    <tr><td>audio.nt_vc_output.ac-maxChannelCount</td><td id="audio.nt_vc_output.ac-maxChannelCount"></td></tr>
-    <tr><td>audio.nt_vc_output.ac-numberOfInputs</td><td id="audio.nt_vc_output.ac-numberOfInputs"></td></tr>
-    <tr><td>audio.nt_vc_output.ac-numberOfOutputs</td><td id="audio.nt_vc_output.ac-numberOfOutputs"></td></tr>
-    <tr><td>audio.nt_vc_output.ac-channelCount</td><td id="audio.nt_vc_output.ac-channelCount"></td></tr>
-    <tr><td>audio.nt_vc_output.ac-channelCountMode</td><td id="audio.nt_vc_output.ac-channelCountMode"></td></tr>
-    <tr><td>audio.nt_vc_output.ac-channelInterpretation</td><td id="audio.nt_vc_output.ac-channelInterpretation"></td></tr>
-    <tr><td>audio.nt_vc_output.an-fftSize</td><td id="audio.nt_vc_output.an-fftSize"></td></tr>
-    <tr><td>audio.nt_vc_output.an-frequencyBinCount</td><td id="audio.nt_vc_output.an-frequencyBinCount"></td></tr>
-    <tr><td>audio.nt_vc_output.an-minDecibels</td><td id="audio.nt_vc_output.an-minDecibels"></td></tr>
-    <tr><td>audio.nt_vc_output.an-maxDecibels</td><td id="audio.nt_vc_output.an-maxDecibels"></td></tr>
-    <tr><td>audio.nt_vc_output.an-smoothingTimeConstant</td><td id="audio.nt_vc_output.an-smoothingTimeConstant"></td></tr>
-    <tr><td>audio.nt_vc_output.an-numberOfInputs</td><td id="audio.nt_vc_output.an-numberOfInputs"></td></tr>
-    <tr><td>audio.nt_vc_output.an-numberOfOutputs</td><td id="audio.nt_vc_output.an-numberOfOutputs"></td></tr>
-    <tr><td>audio.nt_vc_output.an-channelCount</td><td id="audio.nt_vc_output.an-channelCount"></td></tr>
-    <tr><td>audio.nt_vc_output.an-channelCountMode</td><td id="audio.nt_vc_output.an-channelCountMode"></td></tr>
-    <tr><td>audio.nt_vc_output.an-channelInterpretation</td><td id="audio.nt_vc_output.an-channelInterpretation"></td></tr>
+    <tr><td colspan="2" class="showhide">
+        <input id="collapseA" class="toggle" type="checkbox" checked onchange="toggleitems(this, `A`)">
+        <label for="collapseA" class="lbl-toggle" id="labelA">&#9660; show details</label>
+    </td></tr>
+    <tr class="togA"><td>audio.pxi_output</td><td id="audio.pxi_output"></td></tr>
+    <tr class="togA"><td>audio.cc_output</td><td id="audio.cc_output"></td></tr>
+    <tr class="togA"><td>audio.hybrid_output</td><td id="audio.hybrid_output"></td></tr>
+    <tr class="togA"><td>audio.pxi_full_buffer_hash</td><td id="audio.pxi_full_buffer_hash"></td></tr>
+    <tr class="togA"><td>audio.nt_vc_output.ac-sampleRate</td><td id="audio.nt_vc_output.ac-sampleRate"></td></tr>
+    <tr class="togA"><td>audio.nt_vc_output.ac-state</td><td id="audio.nt_vc_output.ac-state"></td></tr>
+    <tr class="togA"><td>audio.nt_vc_output.ac-maxChannelCount</td><td id="audio.nt_vc_output.ac-maxChannelCount"></td></tr>
+    <tr class="togA"><td>audio.nt_vc_output.ac-numberOfInputs</td><td id="audio.nt_vc_output.ac-numberOfInputs"></td></tr>
+    <tr class="togA"><td>audio.nt_vc_output.ac-numberOfOutputs</td><td id="audio.nt_vc_output.ac-numberOfOutputs"></td></tr>
+    <tr class="togA"><td>audio.nt_vc_output.ac-channelCount</td><td id="audio.nt_vc_output.ac-channelCount"></td></tr>
+    <tr class="togA"><td>audio.nt_vc_output.ac-channelCountMode</td><td id="audio.nt_vc_output.ac-channelCountMode"></td></tr>
+    <tr class="togA"><td>audio.nt_vc_output.ac-channelInterpretation</td><td id="audio.nt_vc_output.ac-channelInterpretation"></td></tr>
+    <tr class="togA"><td>audio.nt_vc_output.an-fftSize</td><td id="audio.nt_vc_output.an-fftSize"></td></tr>
+    <tr class="togA"><td>audio.nt_vc_output.an-frequencyBinCount</td><td id="audio.nt_vc_output.an-frequencyBinCount"></td></tr>
+    <tr class="togA"><td>audio.nt_vc_output.an-minDecibels</td><td id="audio.nt_vc_output.an-minDecibels"></td></tr>
+    <tr class="togA"><td>audio.nt_vc_output.an-maxDecibels</td><td id="audio.nt_vc_output.an-maxDecibels"></td></tr>
+    <tr class="togA"><td>audio.nt_vc_output.an-smoothingTimeConstant</td><td id="audio.nt_vc_output.an-smoothingTimeConstant"></td></tr>
+    <tr class="togA"><td>audio.nt_vc_output.an-numberOfInputs</td><td id="audio.nt_vc_output.an-numberOfInputs"></td></tr>
+    <tr class="togA"><td>audio.nt_vc_output.an-numberOfOutputs</td><td id="audio.nt_vc_output.an-numberOfOutputs"></td></tr>
+    <tr class="togA"><td>audio.nt_vc_output.an-channelCount</td><td id="audio.nt_vc_output.an-channelCount"></td></tr>
+    <tr class="togA"><td>audio.nt_vc_output.an-channelCountMode</td><td id="audio.nt_vc_output.an-channelCountMode"></td></tr>
+    <tr class="togA"><td>audio.nt_vc_output.an-channelInterpretation</td><td id="audio.nt_vc_output.an-channelInterpretation"></td></tr>
     <tr><td colspan="2"><span class="no_color">audio code courtesy of </span>
       <a target="_blank" class="blue" href="https://github.com/kkapsner">kkapsner</a><span class="no_color"> and </span>
       <a target="_blank" class="blue" href="https://github.com/kkapsner/CanvasBlocker">CanvasBlocker</a></td></tr>
