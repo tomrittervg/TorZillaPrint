@@ -149,8 +149,8 @@ if ((location.protocol) !== "file:") {
       // 2. In FF60+ if you allowed it, it remembers that (you need to clear site data to test for not persistent)
       // 3. In TB it always returns not persistent
       navigator.storage.persist().then(function(persistent) {
-        if (persistent) dom.storageMProp = "not persistent";
-        else dom.storageMProp = "persistent";
+        if (persistent) dom.storageMProp = "persistent";
+        else dom.storageMProp = "not persistent";
         navigator.storage.estimate().then(estimate => {
           dom.storageMProp.textContent += ` (${estimate.usage} of ${estimate.quota} bytes)`;
         });
