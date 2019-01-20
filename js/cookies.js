@@ -148,12 +148,11 @@ if ((location.protocol) !== "file:") {
       // 1. In FF it prompts, in TB it doesn't (no global pref)
       // 2. In FF60+ if you allowed it, it remembers that (you need to clear site data to test for not persistent)
       // 3. In TB it always returns not persistent
-      navigator.storage.persist().then(function(persistent) {
-        if (persistent) dom.storageMProp = "persistent";
-        else dom.storageMProp = "not persistent"});
-      // StorageManager.estimate(), StorageEstimate.quota;
-      navigator.storage.estimate().then(estimate => {
-        console.log(`${estimate.usage} of ${estimate.quota} bytes`);
+      navigator.storage.persist().then(persistent => {
+        if (!persistent) dom.storageMProp = "not ";
+        navigator.storage.estimate().then(estimate => {
+          dom.storageMProp.textContent += `persistent (${estimate.usage} of ${estimate.quota} bytes)`;
+        });
       });
     }
     catch (err) {dom.storageMProp = "no: catch(err)"};
@@ -171,7 +170,6 @@ if ((location.protocol) !== "file:") {
   }
   else {dom.storageMTest = "no"};
 };
-
 // permission persistent-storage
 navigator.permissions.query({name:"persistent-storage"}).then(e => dom.pPersistentStorage=e.state);
 
