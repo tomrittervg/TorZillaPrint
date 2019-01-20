@@ -46,40 +46,40 @@
 
 /* Main Set-up */
 body {
-	background-color: #1a1a1a; 
-	color: #b3b3b3; 
-	font-size: 12px;
+  background-color: #1a1a1a; 
+  color: #b3b3b3; 
+  font-size: 12px;
 }
 
 /* Fonts */
 h2 {
-	color: white; 
-	font-size 14px; 
-	text-align: center; 
-	padding-top: 15px;
+  color: white; 
+  font-size 14px; 
+  text-align: center; 
+  padding-top: 15px;
 }
 
 h3 {
-	color: #b3b3b3; 
-	font-size 12px;
-	text-align: center;
-    line-height: 1.4em;
+  color: #b3b3b3; 
+  font-size 12px;
+  text-align: center;
+  line-height: 1.4em;
 }
 
 h4 {
-	color: #8abfda; 
-	font-size 12px; 
-	text-align: center;
+  color: #8abfda; 
+  font-size 12px; 
+  text-align: center;
 }
 
 a { 
-    color: black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 
 a.blue { 
-    color: #8abfda;
-    text-decoration: none;
+  color: #8abfda;
+  text-decoration: none;
 }
 
 .no_color { color: #b3b3b3; }
@@ -92,6 +92,16 @@ code {
   padding: 1px;
   border-radius: 2px;
 }
+
+/* Show/Hide Toggles */
+input[type='checkbox'] { display: none; }
+
+.lbl-toggle {
+  display: block;
+  cursor: pointer;
+}
+
+.togA, .togD { display: none; }
 
 /* Icons */
 .icon {
@@ -168,46 +178,46 @@ div.nav-up {
 
 /* Tables */
 table {
-	width: 800px; 
-	border-collapse: collapse;
-	margin: 0 auto 10px auto;
+  width: 800px; 
+  border-collapse: collapse;
+  margin: 0 auto 10px auto;
 }
 
 tbody:before {
-    content: "-";
-    display: block;
-    line-height: 1em;
-    color: transparent;
+  content: "-";
+  display: block;
+  line-height: 1em;
+  color: transparent;
 }
 
 td {
-	padding-bottom: 3px; 
-	padding-top: 3px;  
-	padding-left: 10px;
+  padding-bottom: 3px; 
+  padding-top: 3px;  
+  padding-left: 10px;
 }
 
 th {
-	color: black; 
-	font-weight: bold; 
-	font-size: 16px;
-	padding: 3px 0;
+  color: black; 
+  font-weight: bold; 
+  font-size: 16px;
+  padding: 3px 0;
 }
 
 table td:first-child { text-align: right; vertical-align: top;}
 
 /* used for descriptions after th */
 table td.left {
-    text-align: left;
-    line-height: 1.5em;
-    padding-bottom: 10px;
+  text-align: left;
+  line-height: 1.5em;
+  padding-bottom: 10px;
 }
 
 table td.center {text-align: center; }
 
 table td.showhide {
-    text-align: center;
-    padding-top: 7px;
-    padding-bottom: 7px;
+  text-align: center;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 /* Table Header Backgrounds */
@@ -252,7 +262,7 @@ table td.showhide {
 
 /* about:logo css test */
 #fdResourceCss {
-	background-image: url("about:logo"), url("not_firefox.png");
-	background-size: auto 100%;
- 	background-repeat: no-repeat;
+  background-image: url("about:logo"), url("not_firefox.png");
+  background-size: auto 100%;
+  background-repeat: no-repeat;
 }
