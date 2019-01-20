@@ -160,6 +160,18 @@ if ((location.protocol) !== "file:") {
   }
   else {dom.storageMProp = "no"};
 };
+// storage manager test
+if ((location.protocol) !== "file:") {
+  if (smSupport == "enabled") {
+    try {
+      // store some data, get usage/quota
+      dom.storageMTest = "yes: test to come"
+    }
+    catch (err) {dom.storageMTest = "no: catch(err)"};
+  }
+  else {dom.storageMTest = "no"};
+};
+
 // permission persistent-storage
 navigator.permissions.query({name:"persistent-storage"}).then(e => dom.pPersistentStorage=e.state);
 
