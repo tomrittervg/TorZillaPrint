@@ -148,10 +148,11 @@ if ((location.protocol) !== "file:") {
       // 1. In FF it prompts, in TB it doesn't (no global pref)
       // 2. In FF60+ if you allowed it, it remembers that (you need to clear site data to test for not persistent)
       // 3. In TB it always returns not persistent
-      navigator.storage.persist().then(persistent => {
-        if (!persistent) dom.storageMProp = "not ";
+      navigator.storage.persist().then(function(persistent) {
+        if (persistent) dom.storageMProp = "not persistent";
+        else dom.storageMProp = "persistent";
         navigator.storage.estimate().then(estimate => {
-          dom.storageMProp.textContent += `persistent (${estimate.usage} of ${estimate.quota} bytes)`;
+          dom.storageMProp.textContent += ` (${estimate.usage} of ${estimate.quota} bytes)`;
         });
       });
     }
