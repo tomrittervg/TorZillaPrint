@@ -24,7 +24,16 @@ dom.WndOut = window.outerWidth+" x "+window.outerHeight+" ("+window.screenX+","+
 dom.WndIn = window.innerWidth+" x "+window.innerHeight+" ("+window.mozInnerScreenX+","+window.mozInnerScreenY+")";
 dom.PixDepth = screen.pixelDepth;
 dom.ColDepth = screen.colorDepth;
-dom.IsFS = window.fullScreen;
+
+dom.fsState = window.fullScreen;
+// full-screen-api.enabled
+var fsAPI = "";
+try {if (document.mozFullScreenEnabled) {fsAPI="enabled";} else {fsAPI="disabled"};}
+catch(err) {fsAPI="no: catch{err)"};
+dom.fsSupport = fsAPI;
+// fullscreen api leak
+if (fsAPI == "enabled") {} else {dom.fsLeak="no"};
+
 dom.ScrOrient = (function () {
 	var orientation = screen.msOrientation || (screen.orientation || screen.mozOrientation || {}).type;
 	if (orientation === "landscape-primary") return "landscape";
