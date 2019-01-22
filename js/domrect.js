@@ -14,15 +14,15 @@
     return chunks.map(function(chunk){
       return "0".repeat(8 - chunk.length) + chunk;
     }).join("");
-  };
+  }
 
   const iframeDR = document.getElementById("iframeDR");
-  const docDR = iframeDR.contentDocument;
   var drStart = "";
 
   function getElements(){
+    const docDR = iframeDR.contentDocument;
     return Array.from(docDR.querySelectorAll("*[id^=rect]"));
-  };
+  }
 
   function createTest(method, callback){
   const properties = ["x", "y", "width", "height", "top", "left", "right", "bottom"];
@@ -49,7 +49,7 @@
         }).join("")
     }
     performTest();
-  };
+  }
 
   function runtest(){
     createTest("dr1", function(element){return element.getClientRects()[0];});
@@ -64,25 +64,23 @@
       range.selectNode(element);
       return range.getBoundingClientRect();
     });
-    //console.log("domrect tests triggered by "+drStart);
+    console.log("domrect tests triggered by "+drStart);
   };
   // eventlistener
-  //iframeDR.addEventListener("load", function(){
-  //  if (drStart == ""){
-  //    if (docDR.readyState == "complete"){
-  //      drStart = "eventlistener: load";
-  //      runtest();
-  //    };
-  //  };
-  //});
+  iframeDR.addEventListener("load", function(){
+    if (drStart == ""){
+      drStart = "eventlistener: load";
+      runtest();
+    };
+  });
   // backup trigger
   setTimeout(function(){
     if(drStart == ""){
-      if (docDR.readyState == "complete"){
+      if (iframeDR.contentDocument.readyState == "complete"){
         drStart = "backup timer";
-        runtest();     
+        runtest();
       };
     }
-  }, 5000);
+  }, 2000);
 
 }());
