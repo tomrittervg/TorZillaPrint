@@ -77,10 +77,8 @@
   }, 2000);
   // eventlistener
   iframeDR.addEventListener("load", function(){
-    if (drStart == ""){
-      drStart = "eventlistener: load";
-      runtest();
-    };
+    runtest();
+    drStart = "eventlistener: load";
   });
  
 }());
