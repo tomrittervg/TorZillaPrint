@@ -64,18 +64,17 @@
       range.selectNode(element);
       return range.getBoundingClientRect();
     });
-    console.log("domrect tests triggered by "+drStart);
+    //console.log("domrect tests triggered by "+drStart);
   };
   // eventlistener
-  iframeDR.addEventListener("load", function(){
-    if (drStart == ""){
-      if (docDR.readyState == "complete"){
-        drStart = "eventlistener: load";
-        runtest();
-      };
-    };
-  });
-  /* */
+  //iframeDR.addEventListener("load", function(){
+  //  if (drStart == ""){
+  //    if (docDR.readyState == "complete"){
+  //      drStart = "eventlistener: load";
+  //      runtest();
+  //    };
+  //  };
+  //});
   // backup trigger
   setTimeout(function(){
     if(drStart == ""){
@@ -84,6 +83,6 @@
         runtest();     
       };
     }
-  }, 2000);
+  }, 5000);
 
 }());
