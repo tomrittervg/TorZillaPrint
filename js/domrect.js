@@ -66,19 +66,24 @@
     });
     console.log("domrect tests triggered by "+drStart);
   };
+  // eventlistener
+  /* this event is not reliable
+  iframeDR.addEventListener("load", function(){
+    if (drStart == ""){
+      drStart = "eventlistener: load";
+      runtest();
+    };
+  });
+  */
   // backup trigger
+  // this isn't the best way to do things either
   setTimeout(function(){
     if(drStart == ""){
       if (docDR.readyState == "complete"){
-          drStart = "backup timer";
-          runtest();     
+        drStart = "backup timer";
+        runtest();     
       };
     }
   }, 2000);
-  // eventlistener
-  iframeDR.addEventListener("load", function(){
-    runtest();
-    drStart = "eventlistener: load";
-  });
- 
+
 }());
