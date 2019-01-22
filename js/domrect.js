@@ -66,14 +66,6 @@
     });
     console.log("domrect tests triggered by "+drStart);
   };
-
-  // eventlistener
-  iframeDR.addEventListener("load", function(){
-    if (drStart == ""){
-      drStart = "eventlistener: load";
-      runtest();
-    };
-  });
   // backup trigger
   setTimeout(function(){
     if(drStart == ""){
@@ -83,5 +75,12 @@
       };
     }
   }, 2000);
+  // eventlistener
+  iframeDR.addEventListener("load", function(){
+    if (drStart == ""){
+      drStart = "eventlistener: load";
+      runtest();
+    };
+  });
  
 }());
