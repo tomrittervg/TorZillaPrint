@@ -12,9 +12,11 @@
 		}).join("");
 	}
 
+	const iframeDR = document.getElementById("iframeDR");
+
 	function getElements(){
-		const doc = divDOMRect;
-		return Array.from(doc.querySelectorAll("*[id^=rect]"));
+		const docDR = iframeDR.contentDocument;
+		return Array.from(docDR.querySelectorAll("*[id^=rect]"));
 	}
 
 	function createTest(title, callback){
@@ -51,20 +53,22 @@
 		performTest();
 	}
 
-    createTest("dr1", function(element){
-      return element.getClientRects()[0];
-    });
-    createTest("dr2", function(element){
-      return element.getBoundingClientRect();
-    });
-    createTest("dr3", function(element){
-      var range = document.createRange();
-      range.selectNode(element);
-      return range.getClientRects()[0];
-    });
-    createTest("dr4", function(element){
-      var range = document.createRange();
-      range.selectNode(element);
-      return range.getBoundingClientRect();
-    });
+	iframeDR.addEventListener("load", function(){
+      createTest("dr1", function(element){
+        return element.getClientRects()[0];
+      });
+      createTest("dr2", function(element){
+        return element.getBoundingClientRect();
+      });
+      createTest("dr3", function(element){
+        var range = document.createRange();
+        range.selectNode(element);
+        return range.getClientRects()[0];
+      });
+      createTest("dr4", function(element){
+        var range = document.createRange();
+        range.selectNode(element);
+        return range.getBoundingClientRect();
+      });
+	});
 }());
