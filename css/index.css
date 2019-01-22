@@ -206,7 +206,7 @@ th {
 table td:first-child { text-align: right; vertical-align: top;}
 
 /* used for descriptions after th */
-table td.left {
+table td.intro {
   text-align: left;
   line-height: 1.5em;
   padding-bottom: 10px;
@@ -219,6 +219,8 @@ table td.showhide {
   padding-top: 7px;
   padding-bottom: 7px;
 }
+
+table td.sub9 { color: var(--test9); }
 
 /* Table Header Backgrounds */
 #tb1 th { background-color : #f07878 }
