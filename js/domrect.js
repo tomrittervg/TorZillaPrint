@@ -40,15 +40,15 @@
         // output results
         var item=0;
         properties.map(function(property){
-          return '\n' + rects.map(function(rect, i){
+          return rects.map(function(rect, i){
             item=item+1;
             document.getElementById(method+item).textContent = rect[property];
             return rect[property];
           }).join("")
         }).join("")
-		}
-		performTest();
-	}
+    }
+    performTest();
+  }
 
   iframeDR.addEventListener("load", function(){
     createTest("dr1", function(element){return element.getClientRects()[0];});
