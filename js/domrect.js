@@ -67,16 +67,16 @@
     console.log("domrect tests triggered by "+drStart);
   };
   // eventlistener
-  /* this event is not reliable
   iframeDR.addEventListener("load", function(){
     if (drStart == ""){
-      drStart = "eventlistener: load";
-      runtest();
+      if (docDR.readyState == "complete"){
+        drStart = "eventlistener: load";
+        runtest();
+      };
     };
   });
-  */
+  /* */
   // backup trigger
-  // this isn't the best way to do things either
   setTimeout(function(){
     if(drStart == ""){
       if (docDR.readyState == "complete"){
