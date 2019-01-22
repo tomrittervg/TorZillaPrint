@@ -17,6 +17,7 @@
   }
 
   const iframeDR = document.getElementById("iframeDR");
+  var drStart = "";
 
   function getElements(){
     const docDR = iframeDR.contentDocument;
@@ -50,7 +51,7 @@
     performTest();
   }
 
-  iframeDR.addEventListener("load", function(){
+  function runtest(){
     createTest("dr1", function(element){return element.getClientRects()[0];});
     createTest("dr2", function(element){return element.getBoundingClientRect();});
     createTest("dr3", function(element){
@@ -63,5 +64,22 @@
       range.selectNode(element);
       return range.getBoundingClientRect();
     });
+    console.log("domrect tests triggered by "+drStart);
+  }
+
+  // eventlistener
+  iframeDR.addEventListener("load", function(){
+    if (drStart == ""){
+      drStart = "eventlistener: load";
+      runtest();
+    };
   });
+  // backup trigger
+  setTimeout(function(){
+    if(drStart == ""){
+      drStart = "backup timer";
+      runtest();     
+    }
+  }, 250);
+
 }());
