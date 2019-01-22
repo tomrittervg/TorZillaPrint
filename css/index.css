@@ -265,22 +265,3 @@ table td.showhide {
   background-size: auto 100%;
   background-repeat: no-repeat;
 }
-
-/* DOMRect test */
-#insideDOMRect{
-  white-space: nowrap;
-  color:#5B5B5B;
-  position: absolute;
-  padding: 1.3333px;
-  left: 10.5555px;
-  top: 28.4444px;
-  font-size: 24.5555px;
-  -ms-transform: scale(1.31123) matrix3d(0.373513, -0.0440105, 0, -0.000202461, -0.0851682, 0.616234, 0, -0.00123197, 2.17, 0.21, 1, 0.02, 13.81, 2.11, 0, 0.98);
-  -moz-transform: scale(1.31123) matrix3d(0.373513, -0.0440105, 0, -0.000202461, -0.0851682, 0.616234, 0, -0.00123197, 2.17, 0.21, 1, 0.02, 13.81, 2.11, 0, 0.98);
-  -webkit-transform: scale(1.31123) matrix3d(0.373513, -0.0440105, 0, -0.000202461, -0.0851682, 0.616234, 0, -0.00123197, 2.17, 0.21, 1, 0.02, 13.81, 2.11, 0, 0.98);
-  transform: scale(1.31123) matrix3d(0.373513, -0.0440105, 0, -0.000202461, -0.0851682, 0.616234, 0, -0.00123197, 2.17, 0.21, 1, 0.02, 13.81, 2.11, 0, 0.98);
-  -ms-transform-origin: 0.1111px 0.2222px 0.3333px;
-  -moz-transform-origin: 0.1111px 0.2222px 0.3333px;
-  -webkit-transform-origin: 0.1111px 0.2222px 0.3333px;
-  transform-origin: 0.1111px 0.2222px 0.3333px;
-}
