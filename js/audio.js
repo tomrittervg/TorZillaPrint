@@ -63,12 +63,12 @@
 
   // check if web audio API is enabled
   try {const audioCtx = new AudioContext();
-    dom.webaudioSupport="enabled";
+    dom.audioSupport="enabled";
     run_pxi_fp();
   }
   catch(err) {
     // otherwise indicate audio as n/a
-    dom.webaudioSupport="disabled"
+    dom.audioSupport="disabled"
     dom.audioCopy = "n/a"; dom.audioGet = "n/a"; dom.audioSum = "n/a";
   };
 
