@@ -17,7 +17,6 @@
   }
 
   const iframeDR = document.getElementById("iframeDR");
-  var drStart = "";
 
   function getElements(){
     const docDR = iframeDR.contentDocument;
@@ -51,7 +50,10 @@
     performTest();
   }
 
-  function runtest(){
+  // set the iframe source here
+  iframeDR.src = "iframes/domrect.html";
+  // listen for it
+  iframeDR.addEventListener("load", function(){
     createTest("dr1", function(element){return element.getClientRects()[0];});
     createTest("dr2", function(element){return element.getBoundingClientRect();});
     createTest("dr3", function(element){
@@ -64,23 +66,6 @@
       range.selectNode(element);
       return range.getBoundingClientRect();
     });
-    console.log("domrect tests triggered by "+drStart);
-  };
-  // eventlistener
-  iframeDR.addEventListener("load", function(){
-    if (drStart == ""){
-      drStart = "eventlistener: load";
-      runtest();
-    };
   });
-  // backup trigger
-  setTimeout(function(){
-    if(drStart == ""){
-      if (iframeDR.contentDocument.readyState == "complete"){
-        drStart = "backup timer";
-        runtest();
-      };
-    }
-  }, 2000);
 
 }());
