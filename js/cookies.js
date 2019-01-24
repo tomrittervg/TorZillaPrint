@@ -96,17 +96,23 @@ if ((location.protocol) === "https:") {
     // service worker test
     dom.serviceWTest="yes: test to come"
     // service worker cache support (dom.caches.enabled)
-    dom.serviceWCacheSupport="sw supported but dom.caches.enabled not checked"
+    dom.serviceWCacheSupport="sw supported: dom.caches.enabled not checked"
     // service cache test
-    dom.serviceWCacheTest="sw supported but dom.caches.enabled not checked"
+    dom.serviceWCacheTest="sw supported: dom.caches.enabled not checked"
+    // notifications support (dom.webnotifications.serviceworker.enabled)
+    dom.notificationsSupport="sw supported: dom.webnotifications.serviceworker.enabled not checked"
+    // notifications test
+    dom.notificationsTest="sw supported: dom.webnotifications.serviceworker.enabled not checked"
   }
   else {dom.serviceWSupport="disabled"; dom.serviceWTest="no";
-    dom.serviceWCacheSupport="no"; dom.serviceWCacheTest="no"};
+    dom.serviceWCacheSupport="no"; dom.serviceWCacheTest="no";
+    dom.notificationsSupport="no"; dom.notificationsTest="no"};
 }
 else {var swMsg="no: insecure context"; dom.serviceWSupport=swMsg; dom.serviceWTest=swMsg;
-  dom.serviceWCacheSupport=swMsg; dom.serviceWCacheTest=swMsg};
+  dom.serviceWCacheSupport=swMsg; dom.serviceWCacheTest=swMsg;
+  dom.notificationsSupport=swMsg; dom.notificationsTest=swMsg};
 
-// notifications / push
+// permissions notifications / push
 navigator.permissions.query({name:"notifications"}).then(e => dom.pNotifications=e.state);
 navigator.permissions.query({name:"push"}).then(e => dom.pPush=e.state);
 
