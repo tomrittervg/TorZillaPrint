@@ -90,30 +90,21 @@ if (typeof(Worker) !== "undefined") {
 else {dom.workerSupport="disabled"; dom.webWTest="no"; dom.sharedWTest="no"};
 
 // service worker support
-if ((location.protocol) !== "file:") {
-  var swSupport = "";
-  if ('serviceWorker' in navigator) {swSupport="enabled"} else {swSupport="disabled"};
-  dom.serviceWSupport = swSupport;
-  // service worker test
-  if (swSupport == "enabled"){
-      dom.serviceWTest="yes: test to come"
-     }
-  else {dom.serviceWTest="no"};
-};
-
-// service worker cache (dom.caches.enabled)
-if ((location.protocol) !== "file:") {
-  // support
-  if (swSupport == "enabled"){
-      dom.serviceWCacheSupport="sw supported but dom.caches.enabled not checked"
-     }
-  else {dom.serviceWCacheSupport="disabled"};
-  // test
-  if (swSupport == "enabled"){
-      dom.serviceWCacheTest="sw supported but dom.caches.enabled not checked"
-     }
-  else {dom.serviceWCacheTest="no"};
-};
+if ((location.protocol) === "https:") {
+  if ('serviceWorker' in navigator) {
+    dom.serviceWSupport="enabled";
+    // service worker test
+    dom.serviceWTest="yes: test to come"
+    // service worker cache support (dom.caches.enabled)
+    dom.serviceWCacheSupport="sw supported but dom.caches.enabled not checked"
+    // service cache test
+    dom.serviceWCacheTest="sw supported but dom.caches.enabled not checked"
+  }
+  else {dom.serviceWSupport="disabled"; dom.serviceWTest="no";
+    dom.serviceWCacheSupport="no"; dom.serviceWCacheTest="no"};
+}
+else {var swMsg="no: insecure context"; dom.serviceWSupport=swMsg; dom.serviceWTest=swMsg;
+  dom.serviceWCacheSupport=swMsg; dom.serviceWCacheTest=swMsg};
 
 // notifications / push
 navigator.permissions.query({name:"notifications"}).then(e => dom.pNotifications=e.state);
