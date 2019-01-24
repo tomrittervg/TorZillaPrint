@@ -1,23 +1,12 @@
 /* TABLE: Audio */
 
-/* code based on kkapsner and canvasblocker
-   https://canvasblocker.kkapsner.de/test/audioTest.html
+/* code based on work by kkapsner and canvasblocker
+   https://canvasblocker.kkapsner.de/test/
    https://github.com/kkapsner/CanvasBlocker */
-/* dom.webaudio.enabled */
+
+"use strict";
 
 (function(){
-  "use strict";
-  function byteArrayToHex(arrayBuffer){
-    var chunks = [];
-    (new Uint32Array(arrayBuffer)).forEach(function(num){
-      chunks.push(num.toString(16));
-    });
-    return chunks.map(function(chunk){
-      return "0".repeat(8 - chunk.length) + chunk;
-    }).join("");
-  }
-  //var container = document.getElementById("test");
-	
   var pxi_output;
   var pxi_full_buffer;
   function run_pxi_fp(){
@@ -60,7 +49,6 @@
         pxi_compressor.disconnect();
     };
   }
-
   // check if web audio API is enabled
   try {const audioCtx = new AudioContext();
     dom.audioSupport="enabled";
@@ -71,5 +59,4 @@
     dom.audioSupport="disabled"
     dom.audioCopy = "n/a"; dom.audioGet = "n/a"; dom.audioSum = "n/a";
   };
-
 }());
