@@ -117,36 +117,31 @@ navigator.permissions.query({name:"notifications"}).then(e => dom.pNotifications
 navigator.permissions.query({name:"push"}).then(e => dom.pPush=e.state);
 
 // storage manager support (dom.storageManager.enabled)
-var smSupport= "";
-if ("storage" in navigator) {smSupport="enabled"} else {smSupport="disabled"};
-dom.storageMSupport = smSupport;
-// storage manager properties
-if ((location.protocol) !== "file:") {
-  if (smSupport == "enabled") {
+if ("storage" in navigator) {
+  dom.storageMSupport="enabled"
+  // don't test local
+  if ((location.protocol) !== "file:") {
+    // storage manager properties
     try {
       navigator.storage.persist().then(function(persistent) {
-        if (persistent) dom.storageMProp = "persistent";
-        else dom.storageMProp = "not persistent";
+        if (persistent) dom.storageMProp="persistent";
+        else dom.storageMProp="not persistent";
         navigator.storage.estimate().then(estimate => {
           dom.storageMProp.textContent += ` (${estimate.usage} of ${estimate.quota} bytes)`;
         });
       });
     }
-    catch (err) {dom.storageMProp = "no: catch(err)"};
-  }
-  else {dom.storageMProp = "no"};
-};
-// storage manager test
-if ((location.protocol) !== "file:") {
-  if (smSupport == "enabled") {
+    catch (err) {dom.storageMProp="no: catch(err)"};
+    // storage manager test
     try {
       // store some data, get usage/quota
-      dom.storageMTest = "yes: test to come"
+      dom.storageMTest="yes: test to come"
     }
-    catch (err) {dom.storageMTest = "no: catch(err)"};
-  }
-  else {dom.storageMTest = "no"};
-};
+    catch (err) {dom.storageMTest="no: catch(err)"};
+  };
+}
+else {dom.storageMSupport="disabled"; dom.storageMProp="no"; dom.storageMTest="no"};
+
 // permission persistent-storage
 navigator.permissions.query({name:"persistent-storage"}).then(e => dom.pPersistentStorage=e.state);
 
