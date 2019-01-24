@@ -1,28 +1,17 @@
 /* TABLE: DOMRect */
 
-/* code based on kkapsner and canvasblocker
-   https://canvasblocker.kkapsner.de/test/domRectTest.html
+/* code based on work by kkapsner and canvasblocker
+   https://canvasblocker.kkapsner.de/test/
    https://github.com/kkapsner/CanvasBlocker */
 
+"use strict";
+
 (function(){
-  "use strict";
-  function byteArrayToHex(arrayBuffer){
-    var chunks = [];
-    (new Uint32Array(arrayBuffer)).forEach(function(num){
-      chunks.push(num.toString(16));
-    });
-    return chunks.map(function(chunk){
-      return "0".repeat(8 - chunk.length) + chunk;
-    }).join("");
-  }
-
   const iframeDR = document.getElementById("iframeDR");
-
   function getElements(){
     const docDR = iframeDR.contentDocument;
     return Array.from(docDR.querySelectorAll("*[id^=rect]"));
   }
-
   function createTest(method, callback){
   const properties = ["x", "y", "width", "height", "top", "left", "right", "bottom"];
     function performTest(){
@@ -49,7 +38,6 @@
     }
     performTest();
   }
-
   // set the iframe source here
   iframeDR.src = "iframes/domrect.html";
   // listen for it
@@ -67,5 +55,4 @@
       return range.getBoundingClientRect();
     });
   });
-
 }());
