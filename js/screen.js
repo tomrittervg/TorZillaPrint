@@ -27,12 +27,10 @@ dom.ColDepth = screen.colorDepth;
 
 dom.fsState = window.fullScreen;
 // full-screen-api.enabled
-var fsAPI = "";
-try {if (document.mozFullScreenEnabled) {fsAPI="enabled";} else {fsAPI="disabled"};}
-catch(err) {fsAPI="no: catch{err)"};
-dom.fsSupport = fsAPI;
-// fullscreen api leak
-if (fsAPI == "enabled") {} else {dom.fsLeak="no"};
+try {
+  if (document.mozFullScreenEnabled) { dom.fsSupport="enabled"; }
+  else {dom.fsSupport="disabled"; dom.fsLeak="no"};}
+catch(e) {dom.fsSupport="no: " + e.name; dom.fsLeak="no"};
 
 dom.ScrOrient = (function () {
 	var orientation = screen.msOrientation || (screen.orientation || screen.mozOrientation || {}).type;
@@ -59,9 +57,7 @@ try {
   db.onerror = function() {dom.IsPBMode = "true";};
   db.onsuccess = function() {dom.IsPBMode = "false";};
 }
-catch(err) {
-  dom.IsPBMode = "unknown";
-};
+catch(e) {dom.IsPBMode = "unknown: " + e.name;};
 
 dom.Viewport = (function () {
   var e=document.createElement( "div" );
