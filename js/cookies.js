@@ -26,27 +26,27 @@ if (getCookie(rndStr) != ""){dom.cookieTest="yes"} else { dom.cookieTest="no"};
 try {
   if (typeof(localStorage) != "undefined") {dom.storageLSupport="enabled";}
   else {dom.storageLSupport="disabled: undefined"};}
-catch(err) {dom.storageLSupport="disabled: catch(err)"};
+catch(e) {dom.storageLSupport="disabled: " + e.name};
 // localStorage test
 rndStr = rndString();
 try {localStorage.setItem(rndStr, rndStr);
   if(!localStorage.getItem(rndStr)) {dom.storageLTest="no"} else {dom.storageLTest="yes"};}
-catch(err) {dom.storageLTest="no: catch(err)"};
+catch(e) {dom.storageLTest="no: " + e.name};
 
 // sessionStorage support
 try {
   if (typeof(sessionStorage) != "undefined") {dom.storageSSupport="enabled"}
   else {dom.storageSSupport="disabled: undefined"};}
-catch(err) {dom.storageSSupport="disabled: catch(err)"};
+catch(e) {dom.storageSSupport="disabled: " + e.name};
 // sessionStorage test
 rndStr = rndString();
 try {sessionStorage.setItem(rndStr, rndStr);
   if(!sessionStorage.getItem(rndStr)) {dom.storageSTest="no"} else {dom.storageSTest="yes"};}
-catch(err) {dom.storageSTest="no: catch(err)"};
+catch(e) {dom.storageSTest="no: " + e.name};
 
 // indexedDB support
 try {if (!window.indexedDB) {dom.IDBSupport="disabled"} else {dom.IDBSupport="enabled"};}
-catch(err) {dom.IDBSupport="disabled: catch(err)"};
+catch(e) {dom.IDBSupport="disabled: " + e.name};
 // indexedDB test
 rndStr = rndString();
 try {
@@ -55,8 +55,8 @@ try {
   requestIDB.onsuccess = function() {
     // success, now store some data and read it back
     dom.IDBTest="yes: test to come";
-    };}
-catch(err) {dom.IDBTest="no: catch(err)"};
+  };}
+catch(e) {dom.IDBTest="no: " + e.name};
 
 // appCache support
 if ("applicationCache" in window) {
@@ -74,7 +74,7 @@ if (typeof(Worker) !== "undefined") {
     wwt = new Worker("worker.js");
     wwt.onmessage = dom.webWTest="yes";
     wwt.terminate();}
-  catch(err) {dom.webWTest="no: catch(err)"};
+  catch(e) {dom.webWTest="no: " + e.name};
   // shared worker test
   if ((location.protocol) !== "file:") {
     var swt;
@@ -83,9 +83,9 @@ if (typeof(Worker) !== "undefined") {
       swt.port.start();
       swt.port.postMessage("are you there");
       swt.port.onmessage = dom.sharedWTest="yes";}
-    catch(err) {dom.sharedWTest="no: catch(err)"};
+    catch(e) {dom.sharedWTest="no: " + e.name};
   }
-  else {dom.sharedWTest="no: file:/// not allowed"};
+  else {dom.sharedWTest="no: file://"};
 }
 else {dom.workerSupport="disabled"; dom.webWTest="no"; dom.sharedWTest="no"};
 
@@ -96,13 +96,13 @@ if ((location.protocol) === "https:") {
     // service worker test
     dom.serviceWTest="yes: test to come"
     // service worker cache support (dom.caches.enabled)
-    dom.serviceWCacheSupport="sw supported: dom.caches.enabled not checked"
+    dom.serviceWCacheSupport="dom.caches.enabled to check"
     // service cache test
-    dom.serviceWCacheTest="sw supported: dom.caches.enabled not checked"
+    dom.serviceWCacheTest="dom.caches.enabled to check"
     // notifications support (dom.webnotifications.serviceworker.enabled)
-    dom.notificationsSupport="sw supported: dom.webnotifications.serviceworker.enabled not checked"
+    dom.notificationsSupport="dom.webnotifications.serviceworker.enabled to check"
     // notifications test
-    dom.notificationsTest="sw supported: dom.webnotifications.serviceworker.enabled not checked"
+    dom.notificationsTest="dom.webnotifications.serviceworker.enabled to check"
   }
   else {dom.serviceWSupport="disabled"; dom.serviceWTest="no";
     dom.serviceWCacheSupport="no"; dom.serviceWCacheTest="no";
@@ -131,13 +131,13 @@ if ("storage" in navigator) {
         });
       });
     }
-    catch (err) {dom.storageMProp="no: catch(err)"};
+    catch(e) {dom.storageMProp="no: " + e.name};
     // storage manager test
     try {
       // store some data, get usage/quota
       dom.storageMTest="yes: test to come"
     }
-    catch (err) {dom.storageMTest="no: catch(err)"};
+    catch(e) {dom.storageMTest="no: " + e.name};
   };
 }
 else {dom.storageMSupport="disabled"; dom.storageMProp="no"; dom.storageMTest="no"};
@@ -151,5 +151,5 @@ navigator.permissions.query({name:"persistent-storage"}).then(e => dom.pPersiste
 try {Document.hasStorageAccess().then(e => e.state);
       //console.log("enabled");
     }
-catch (err) { };
+catch(e) { };
 // storage access test: use Document.requestStorageAccess()
