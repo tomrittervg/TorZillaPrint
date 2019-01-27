@@ -14,6 +14,7 @@ function getCookie(cname) {
   return "";
 };
 function rndString() {return Math.random().toString(36).substring(2, 15);};
+function rndNumber() {return Math.floor ( (Math.random() * (99999 - 10000)) + 10000);};
 var rndStr = "";
 
 // cookie support
@@ -25,38 +26,60 @@ if (getCookie(rndStr) != ""){dom.cookieTest="yes"} else { dom.cookieTest="no"};
 // localStorage support
 try {
   if (typeof(localStorage) != "undefined") {dom.storageLSupport="enabled";}
-  else {dom.storageLSupport="disabled: undefined"};}
-catch(e) {dom.storageLSupport="disabled: " + e.name};
+  else {dom.storageLSupport="disabled: undefined"};
+} catch(e) {dom.storageLSupport="disabled: " + e.name};
 // localStorage test
 rndStr = rndString();
 try {localStorage.setItem(rndStr, rndStr);
-  if(!localStorage.getItem(rndStr)) {dom.storageLTest="no"} else {dom.storageLTest="yes"};}
-catch(e) {dom.storageLTest="no: " + e.name};
+  if(!localStorage.getItem(rndStr)) {dom.storageLTest="no"} else {dom.storageLTest="yes"};
+} catch(e) {dom.storageLTest="no: " + e.name};
 
 // sessionStorage support
 try {
   if (typeof(sessionStorage) != "undefined") {dom.storageSSupport="enabled"}
-  else {dom.storageSSupport="disabled: undefined"};}
-catch(e) {dom.storageSSupport="disabled: " + e.name};
+  else {dom.storageSSupport="disabled: undefined"};
+} catch(e) {dom.storageSSupport="disabled: " + e.name};
 // sessionStorage test
 rndStr = rndString();
 try {sessionStorage.setItem(rndStr, rndStr);
-  if(!sessionStorage.getItem(rndStr)) {dom.storageSTest="no"} else {dom.storageSTest="yes"};}
-catch(e) {dom.storageSTest="no: " + e.name};
+  if(!sessionStorage.getItem(rndStr)) {dom.storageSTest="no"} else {dom.storageSTest="yes"};
+} catch(e) {dom.storageSTest="no: " + e.name};
 
 // indexedDB support
-try {if (!window.indexedDB) {dom.IDBSupport="disabled"} else {dom.IDBSupport="enabled"};}
-catch(e) {dom.IDBSupport="disabled: " + e.name};
+try {if (!window.indexedDB) {dom.IDBSupport="disabled"} else {dom.IDBSupport="enabled"};
+} catch(e) {dom.IDBSupport="disabled: " + e.name};
 // indexedDB test
 rndStr = rndString();
 try {
-  var requestIDB = indexedDB.open(rndStr);
-  requestIDB.onerror = function() {dom.IDBTest = "no: onerror"};
-  requestIDB.onsuccess = function() {
-    // success, now store some data and read it back
-    dom.IDBTest="yes: test to come";
-  };}
-catch(e) {dom.IDBTest="no: " + e.name};
+  var openIDB = indexedDB.open(rndStr);
+  openIDB.onerror = function(event) {dom.IDBTest = "no: onerror"};
+  // create objectStore
+  openIDB.onupgradeneeded = function(event){
+    var dbObject = event.target.result;
+    var dbStore = dbObject.createObjectStore("testIDB", {keyPath: "id"});
+  };
+  // assume the test fails
+  dom.IDBTest="no";
+  // test
+  openIDB.onsuccess = function(event) {
+    var dbObject = event.target.result;
+    // start transaction
+    var dbTx = dbObject.transaction("testIDB", "readwrite");
+    var dbStore = dbTx.objectStore("testIDB");
+    // add some data
+    var rndIndex = rndNumber(); var rndValue = rndString();
+    // console.log("   stored: name: "+rndStr+" id: "+rndIndex+" value: "+rndValue);
+    dbStore.put( {id: rndIndex, value: rndValue} );
+    // query the data
+    var getStr = dbStore.get(rndIndex);
+    getStr.onsuccess = function() {
+      // console.log("retrieved: name: "+rndStr+" id: "+getStr.result.id+" value: "+getStr.result.value);
+      if (getStr.result.value == rndValue) {dom.IDBTest="yes";};
+    };
+    // close transaction
+    dbTx.oncomplete = function() {dbObject.close();}
+  };
+} catch(e) {dom.IDBTest="no: " + e.name};
 
 // appCache support
 if ("applicationCache" in window) {
@@ -73,8 +96,8 @@ if (typeof(Worker) !== "undefined") {
   try {
     wwt = new Worker("worker.js");
     wwt.onmessage = dom.webWTest="yes";
-    wwt.terminate();}
-  catch(e) {dom.webWTest="no: " + e.name};
+    wwt.terminate();
+  } catch(e) {dom.webWTest="no: " + e.name};
   // shared worker test
   if ((location.protocol) !== "file:") {
     var swt;
@@ -82,8 +105,8 @@ if (typeof(Worker) !== "undefined") {
       swt = new SharedWorker("workershared.js");
       swt.port.start();
       swt.port.postMessage("are you there");
-      swt.port.onmessage = dom.sharedWTest="yes";}
-    catch(e) {dom.sharedWTest="no: " + e.name};
+      swt.port.onmessage = dom.sharedWTest="yes";
+    } catch(e) {dom.sharedWTest="no: " + e.name};
   }
   else {dom.sharedWTest="no: file://"};
 }
@@ -130,14 +153,12 @@ if ("storage" in navigator) {
           dom.storageMProp.textContent += ` (${estimate.usage} of ${estimate.quota} bytes)`;
         });
       });
-    }
-    catch(e) {dom.storageMProp="no: " + e.name};
+    } catch(e) {dom.storageMProp="no: " + e.name};
     // storage manager test
     try {
       // store some data, get usage/quota
       dom.storageMTest="yes: test to come"
-    }
-    catch(e) {dom.storageMTest="no: " + e.name};
+    } catch(e) {dom.storageMTest="no: " + e.name};
   };
 }
 else {dom.storageMSupport="disabled"; dom.storageMProp="no"; dom.storageMTest="no"};
@@ -150,6 +171,5 @@ navigator.permissions.query({name:"persistent-storage"}).then(e => dom.pPersiste
 // this is for embedded cross-origin content
 try {Document.hasStorageAccess().then(e => e.state);
       //console.log("enabled");
-    }
-catch(e) { };
+} catch(e) { };
 // storage access test: use Document.requestStorageAccess()
