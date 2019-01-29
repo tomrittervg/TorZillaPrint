@@ -81,34 +81,65 @@ try {
   };
 } catch(e) {dom.IDBTest="no: " + e.name};
 
-// appCache support
+// appCache support (browser.cache.offline.enable)
 if ("applicationCache" in window) {
   dom.appCacheSupport="enabled";
   // appCache test
-  dom.appCacheTest="yes: test to come";}
+  if ((location.protocol) === "https:") {
+    // https://www.html5rocks.com/en/tutorials/appcache/beginner/
+    try {
+      // var appCache = window.applicationCache;
+      // appCache.update();
+      dom.appCacheTest="yes: test to come";
+    } catch(e) {dom.appCacheTest="no: " + e.name;};
+  }
+  else {dom.appCacheTest="no: insecure context"};
+}
 else {dom.appCacheSupport="disabled"; dom.appCacheTest="no"};
 
 // worker support
 if (typeof(Worker) !== "undefined") {
   dom.workerSupport="enabled";
-  // web worker test
-  var wwt;
-  try {
-    wwt = new Worker("worker.js");
-    wwt.onmessage = dom.webWTest="yes";
-    wwt.terminate();
-  } catch(e) {dom.webWTest="no: " + e.name};
-  // shared worker test
   if ((location.protocol) !== "file:") {
+    // web worker test
+    var wwt;
+    try {
+      wwt = new Worker("worker.js");
+      rndStr = rndString();
+      // placeholder
+      dom.webWTest="yes: test to come";
+      // add listener
+      wwt.addEventListener('message', function(e) {
+        console.log("data <- web worker: (event) "+e.data);
+        // if rndStr = e.data then dom.webWTest="yes"
+      }, false);
+      // post data
+      wwt.postMessage(rndStr);
+      console.log ("data -> web worker: "+rndStr);
+    } catch(e) {dom.webWTest="no: " + e.name};
+
+    // shared worker test
     var swt;
     try {
       swt = new SharedWorker("workershared.js");
+      rndStr = rndString();
+      // placeholder
+      dom.sharedWTest="yes: test to come";
+      // add listener
+      swt.port.addEventListener("message", function(e) {
+        console.log("data <- shared worker (event): "+e.data);
+      }, false);
       swt.port.start();
-      swt.port.postMessage("are you there");
-      swt.port.onmessage = dom.sharedWTest="yes";
+      // post data      
+      swt.port.postMessage(rndStr);
+      console.log ("data -> shared worker: "+rndStr);
+      swt.port.onmessage = function(e) {
+        console.log("data <- shared worker: (onmessage)"+e.data);
+      }
     } catch(e) {dom.sharedWTest="no: " + e.name};
+
   }
-  else {dom.sharedWTest="no: file://"};
+  else {dom.webWTest="no: file:///"; dom.sharedWTest="no: file:///"};
 }
 else {dom.workerSupport="disabled"; dom.webWTest="no"; dom.sharedWTest="no"};
 
