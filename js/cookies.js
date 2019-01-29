@@ -104,40 +104,36 @@ if (typeof(Worker) !== "undefined") {
     // web worker test
     var wwt;
     try {
-      wwt = new Worker("worker.js");
-      rndStr = rndString();
-      // placeholder
-      dom.webWTest="yes: test to come";
+      wwt = new Worker("js/worker.js");
+      var rndStr1 = rndString();
+      // assume failure
+      dom.webWTest="no";
       // add listener
-      wwt.addEventListener('message', function(e) {
-        console.log("data <- web worker: (event) "+e.data);
-        // if rndStr = e.data then dom.webWTest="yes"
+      wwt.addEventListener("message", function(e) {
+        // console.log("data <- web worker: "+e.data);
+        if ("TZP-"+rndStr1 === e.data) {dom.webWTest="yes";}
       }, false);
       // post data
-      wwt.postMessage(rndStr);
-      console.log ("data -> web worker: "+rndStr);
+      wwt.postMessage(rndStr1);
+      // console.log ("data -> web worker: "+rndStr1);
     } catch(e) {dom.webWTest="no: " + e.name};
-
     // shared worker test
     var swt;
     try {
-      swt = new SharedWorker("workershared.js");
-      rndStr = rndString();
-      // placeholder
-      dom.sharedWTest="yes: test to come";
+      swt = new SharedWorker("js/workershared.js");
+      var rndStr2 = rndString();
+      // assume failure
+      dom.sharedWTest="no"
       // add listener
       swt.port.addEventListener("message", function(e) {
-        console.log("data <- shared worker (event): "+e.data);
+        // console.log("data <- shared worker: "+e.data);
+        if ("TZP-"+rndStr2 === e.data) {dom.sharedWTest="yes";}
       }, false);
       swt.port.start();
       // post data      
-      swt.port.postMessage(rndStr);
-      console.log ("data -> shared worker: "+rndStr);
-      swt.port.onmessage = function(e) {
-        console.log("data <- shared worker: (onmessage)"+e.data);
-      }
+      swt.port.postMessage(rndStr2);
+      // console.log ("data -> shared worker: "+rndStr2);
     } catch(e) {dom.sharedWTest="no: " + e.name};
-
   }
   else {dom.webWTest="no: file:///"; dom.sharedWTest="no: file:///"};
 }
