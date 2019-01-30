@@ -90,7 +90,7 @@ if ("applicationCache" in window) {
     try {
       // var appCache = window.applicationCache;
       // appCache.update();
-      dom.appCacheTest="yes: test to come";
+      dom.appCacheTest="test to come";
     } catch(e) {dom.appCacheTest="no: " + e.name;};
   }
   else {dom.appCacheTest="no: insecure context"};
@@ -139,20 +139,33 @@ if (typeof(Worker) !== "undefined") {
 }
 else {dom.workerSupport="disabled"; dom.webWTest="no"; dom.sharedWTest="no"};
 
-// service worker support
+// service worker support (dom.serviceWorkers.enabled)
+// note: serviceWorker is automatically not available in PB Mode
 if ((location.protocol) === "https:") {
-  if ('serviceWorker' in navigator) {
+  if ("serviceWorker" in navigator) {
     dom.serviceWSupport="enabled";
     // service worker test
-    dom.serviceWTest="yes: test to come"
-    // service worker cache support (dom.caches.enabled)
-    dom.serviceWCacheSupport="dom.caches.enabled to check"
-    // service cache test
-    dom.serviceWCacheTest="dom.caches.enabled to check"
-    // notifications support (dom.webnotifications.serviceworker.enabled)
-    dom.notificationsSupport="dom.webnotifications.serviceworker.enabled to check"
-    // notifications test
-    dom.notificationsTest="dom.webnotifications.serviceworker.enabled to check"
+    navigator.serviceWorker.register("js/workerservice.js").then(function(registration) {
+      dom.serviceWTest="yes";
+
+      // service worker cache support (dom.caches.enabled)
+      dom.serviceWCacheSupport="test to come";
+      // service cache test
+      dom.serviceWCacheTest="test to come";
+
+      // notifications support (dom.webnotifications.serviceworker.enabled)
+      dom.notificationsSupport="test to come";
+      // notifications test
+      dom.notificationsTest="test to come";
+
+    },
+    function(e) {
+      // catch e.name length for when scripts or extensions block it
+      if (e.name ==="") {var swMsg = "no: unknown error"} else {var swMsg = "no: "+ e.name;};
+      dom.serviceWTest=swMsg;
+      dom.serviceWCacheSupport=swMsg; dom.serviceWCacheTest=swMsg;
+      dom.notificationsSupport=swMsg; dom.notificationsTest=swMsg;
+    });
   }
   else {dom.serviceWSupport="disabled"; dom.serviceWTest="no";
     dom.serviceWCacheSupport="no"; dom.serviceWCacheTest="no";
@@ -184,7 +197,7 @@ if ("storage" in navigator) {
     // storage manager test
     try {
       // store some data, get usage/quota
-      dom.storageMTest="yes: test to come"
+      dom.storageMTest="test to come"
     } catch(e) {dom.storageMTest="no: " + e.name};
   };
 }
