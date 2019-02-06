@@ -16,7 +16,13 @@ for (var i = 27; i < 2000; i++) {
 dom.mmDPI = varDPI;
 
 // zoom: calculate from js dpi vs mediaMatch dpi
-dom.jsZoom = Math.round((varDPI/dpi_x)*100).toString();
+var jsZoom = Math.round((varDPI/dpi_x)*100).toString();
+/* based on FF zoom levels, fixup some numbers */
+if (jsZoom == 109) {jsZoom=110};
+if (jsZoom == 121) {jsZoom=120};
+if (jsZoom == 172) {jsZoom=170};
+if (jsZoom == 241) {jsZoom=240};
+dom.jsZoom = jsZoom;
 
 dom.ScrRes = screen.width+" x "+screen.height+" ("+screen.left+","+screen.top+")";
 dom.ScrAvail = screen.availWidth+" x "+screen.availHeight+" ("+screen.availLeft+","+screen.availTop+")";
